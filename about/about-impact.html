@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+  <title>Our Impact — KBI Hong Kong</title>
+  <meta name="description" content="Evidence of what KBI Hong Kong has produced since 2016 — alumni trajectories, programme impact, community voices, and institutional partnerships. An editorial record, not a credential reel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../kbi-hk.css">
+  <style>
+    /* Editorial impact page — Playfair headings/quotes, Inter body/UI */
+    .impact-section { padding: 112px 24px; }
+    .impact-section--compact { padding: 96px 24px; }
+    .impact-prose { font-family: 'Inter', sans-serif; font-size: 1.0625rem; color: var(--text-muted); line-height: 1.85; max-width: 720px; }
+    .impact-prose--narrow { max-width: 640px; }
+    .impact-prose p + p { margin-top: 1.25em; }
+    .impact-lead { font-size: 1.125rem; line-height: 1.8; color: var(--text-main); max-width: 680px; }
+    .impact-section-gap { margin-top: 56px; }
+    .impact-divider { border: none; border-top: 1px solid var(--stone); margin: 80px 0 0; }
+
+    /* Programme cards */
+    .impact-prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+    .impact-prog-card { background: #fff; border: 1px solid var(--stone); border-radius: var(--radius-md); padding: 36px 32px; display: flex; flex-direction: column; }
+    .impact-prog-tag { font-family: 'Inter', sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--prussian); margin-bottom: 20px; }
+    .impact-prog-card h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); margin-bottom: 16px; line-height: 1.3; }
+    .impact-prog-card p { font-family: 'Inter', sans-serif; font-size: 0.9375rem; color: var(--text-muted); line-height: 1.75; flex: 1; }
+    .impact-prog-card a { font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; color: var(--prussian); margin-top: 24px; text-decoration: none; }
+    .impact-prog-card a:hover { text-decoration: underline; }
+    @media (max-width: 960px) { .impact-prog-grid { grid-template-columns: 1fr; } }
+
+    /* Featured alumni split */
+    .impact-featured { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0; border: 1px solid var(--stone); border-radius: var(--radius-lg); overflow: hidden; margin-top: 56px; background: #fff; }
+    .impact-featured-main { padding: 48px 44px; }
+    .impact-featured-aside { background: var(--mist); border-left: 1px solid var(--stone); padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
+    .impact-featured-label { font-family: 'Inter', sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--prussian); margin-bottom: 12px; }
+    .impact-featured-name { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+    .impact-featured-meta { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: var(--text-faint); line-height: 1.65; margin-bottom: 24px; }
+    .impact-featured-meta strong { color: var(--ink); font-weight: 600; }
+    .impact-featured-story { font-family: 'Inter', sans-serif; font-size: 0.9375rem; color: var(--text-muted); line-height: 1.8; }
+    .impact-featured-story p + p { margin-top: 1em; }
+    .impact-featured-quote { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-style: italic; font-weight: 500; color: var(--ink); line-height: 1.65; padding-left: 20px; border-left: 3px solid var(--yellow); margin: 0; }
+    @media (max-width: 900px) { .impact-featured { grid-template-columns: 1fr; } .impact-featured-aside { border-left: none; border-top: 1px solid var(--stone); } }
+
+    /* Alumni grid */
+    .impact-alumni-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 48px; }
+    .impact-alumni-card { background: #fff; border: 1px solid var(--stone); border-radius: var(--radius-md); padding: 32px 28px; display: flex; flex-direction: column; gap: 14px; }
+    .impact-alumni-card h4 { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--ink); margin: 0; }
+    .impact-alumni-meta { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--prussian); line-height: 1.5; }
+    .impact-alumni-path { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: var(--text-faint); line-height: 1.6; }
+    .impact-alumni-story { font-family: 'Inter', sans-serif; font-size: 0.875rem; color: var(--text-muted); line-height: 1.75; flex: 1; }
+    .impact-alumni-quote { font-family: 'Playfair Display', serif; font-size: 0.9375rem; font-style: italic; color: var(--ink); line-height: 1.65; padding-top: 14px; border-top: 1px solid var(--stone); margin: 0; }
+    @media (max-width: 768px) { .impact-alumni-grid { grid-template-columns: 1fr; } }
+
+    /* Community voices */
+    .impact-voices-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+    .impact-voice-card { background: var(--mist); border: 1px solid var(--stone); border-radius: var(--radius-md); padding: 28px 26px; }
+    .impact-voice-card--educator { background: #fff; border-left: 3px solid var(--yellow); }
+    .impact-voice-quote { font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; color: var(--ink); line-height: 1.7; margin: 0 0 16px; }
+    .impact-voice-attr { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--text-faint); line-height: 1.55; }
+    .impact-voice-attr strong { color: var(--text-main); font-weight: 600; }
+    @media (max-width: 768px) { .impact-voices-grid { grid-template-columns: 1fr; } }
+
+    .impact-supporters-intro { font-family: 'Inter', sans-serif; font-size: 0.9375rem; color: var(--text-muted); line-height: 1.75; max-width: 560px; margin-top: 16px; }
+
+    /* CTA card */
+    .impact-cta-card { background: #fff; border: 1px solid var(--stone); border-radius: var(--radius-lg); padding: 64px 48px; text-align: center; max-width: 800px; margin: 0 auto; }
+    .impact-cta-card h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; color: var(--ink); margin: 16px 0 20px; }
+    .impact-cta-card p { font-family: 'Inter', sans-serif; font-size: 0.9375rem; color: var(--text-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 32px; }
+    .impact-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>    <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p class="announcement-bar-text">
+        ETO Eastern Conference 2026 · 9–11 October · Interest registration now open.
+        <a href="../upcoming events/eto2026.html">Register Here &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+
+<!-- NAV -->
+  <nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+        <div class="nav-wordmark"><span class="nav-wordmark-name">KBI Hong Kong</span><span class="nav-wordmark-sub">Königsberger Bridges Institute</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="about-history.html" role="menuitem">Our History</a>
+            <a href="about-impact.html" role="menuitem">Our Impact</a>
+            <a href="about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                            <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="../programme/i2ol.html" role="menuitem">I&sup2;OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="../programme/etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="../programme/skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="../programme/abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="../programme/isfretic.html" role="menuitem">International Standards Framework of Reference for Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="../programme/projects.html" role="menuitem">Project Support</a>
+            <a href="../programme/working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="../programme/membership.html" role="menuitem">Socratic Circles</a>
+            <a href="../programme/gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div></li>
+        <li><a href="../upcoming events/events.html">Events</a></li>
+        <li class="hide-md"><a href="../news/news.html">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+                                    <div class="nav-ctas">
+        <a href="../programme/sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="../programme/membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="about-history.html" class="nav-mobile-link">Our History</a>
+    <a href="about-impact.html" class="nav-mobile-link">Our Impact</a>
+    <a href="about-team.html" class="nav-mobile-link">Our Team</a>
+    <a href="../media.html" class="nav-mobile-link">Media &amp; Brand Kit</a>
+        <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="../programme/i2ol.html" class="nav-mobile-sub">I&sup2;OL Scheme</a>
+                <div class="nav-mobile-section-label">Certify</div>
+    <a href="../programme/etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="../programme/skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="../programme/abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="../programme/isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+    
+    
+    
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="../programme/projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="../programme/working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+                <div class="nav-mobile-section-label">Connect</div>
+    <a href="../programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    <a href="../programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="../programme/membership.html" class="nav-mobile-link">Community</a>
+    <a href="../news/news.html" class="nav-mobile-link">News &amp; Insights</a>
+    <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+                        <div class="nav-mobile-ctas">
+      <a href="../programme/sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="../programme/membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero page-hero--night" aria-label="Our Impact" style="position:relative;overflow:hidden;">
+    <div class="page-hero-bg" aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(160deg, var(--night) 0%, var(--prussian) 100%);"></div>
+    <div class="page-hero-inner" style="position:relative;z-index:1;">
+<div class="label-row"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">About KBI Hong Kong</span></div>
+      <h1 class="page-hero-heading">Our Impact</h1>
+      <p class="page-hero-sub" style="max-width:640px;">Numbers tell part of the story. The rest is in where people went, what they built, and what they said about the experience.</p>
+      <p class="page-hero-sub" style="max-width:720px;margin-top:16px;font-size:0.9375rem;opacity:0.75;">KBI Hong Kong has been running emerging-technology education in Hong Kong since 2016. This page gathers the most honest evidence we have of what that work has produced — not as a credential reel, but as a record of real people, real programmes, and real outcomes.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;">
+        <a href="#alumni-stories" class="btn btn-yellow btn--sm">Alumni Stories</a>
+        <a href="#community-voices" class="btn btn-outline-white btn--sm">Community Voices</a>
+        <a href="#programme-impact" class="btn btn-outline-white btn--sm">Our Programmes</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: MEASURE (white) -->
+  <section class="section-wrap section-wrap--white impact-section" id="measure" aria-labelledby="measure-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Our Measure of Impact</span></div>
+      <h2 class="section-heading reveal" id="measure-heading">We Don&rsquo;t Count Eyeballs.<br>We Track What Changes.</h2>
+      <div class="impact-prose reveal reveal-delay-1">
+        <p>KBI Hong Kong is not a content platform. We do not measure our impact through follower counts, event attendance headcounts, or promotional impressions. Our programmes are structured, demanding, and slow — by design.</p>
+        <p>When we talk about impact, we mean something specific: whether a student learned to think more carefully about a complex technology. Whether they left a competition better at defending a design than when they walked in. Whether what they built here became the seed of something they carried into a degree, a lab, a company, or a career.</p>
+        <p>That kind of impact is harder to measure — and harder to fake.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: PROGRAMME IMPACT (mist) -->
+  <section class="section-wrap section-wrap--mist impact-section" id="programme-impact" aria-labelledby="prog-impact-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Programme Impact</span></div>
+      <h2 class="section-heading reveal" id="prog-impact-heading">Three Tracks. One Common Standard.</h2>
+      <div class="impact-prose impact-prose--narrow reveal reveal-delay-1">
+        <p>Across blockchain, data science, and quantum computing, KBI Hong Kong runs structured competitions and training programmes that ask students to do something difficult in front of people who know the subject. Not difficult in a purely academic sense — difficult in the way that real work is difficult: incomplete information, time pressure, judges who will push back, and a team to hold together.</p>
+        <p>What students take out of our programmes is not just knowledge of these technologies. It is a practised ability to reason clearly about systems, communicate honestly about uncertainty, and defend positions under scrutiny. Those habits transfer.</p>
+      </div>
+      <div class="impact-prog-grid">
+        <article class="impact-prog-card reveal">
+          <div class="impact-prog-tag">Blockchain · IBCOL HK</div>
+          <h3>Thinking About Blockchain Without the Hype</h3>
+          <p>IBCOL HK challenges teams to design blockchain-based systems that could actually work — not just sound interesting. Judges are practitioners and researchers who care about architecture, feasibility, and the ethics of design choices.</p>
+          <p>Alumni consistently describe the distinction between what a technology is portrayed as and what it actually is as one of the most durable lessons they carried out.</p>
+          <a href="https://2026.ibcol.org" target="_blank" rel="noopener">IBCOL HK details →</a>
+        </article>
+        <article class="impact-prog-card reveal reveal-delay-1">
+          <div class="impact-prog-tag">Data Science · IDSOL HK</div>
+          <h3>Learning to Work With Data That Doesn&rsquo;t Behave</h3>
+          <p>IDSOL HK gives teams real, noisy datasets and asks them to find something honest and useful within them. Students experience the gap between what they expect data to show and what it actually shows — under time pressure, with rigour and intellectual honesty.</p>
+          <p>Alumni from IDSOL often say the competition was the first time they genuinely grappled with messy data in a setting where the analysis actually had to be right, not just completed.</p>
+          <a href="https://2026.idsol.org" target="_blank" rel="noopener">IDSOL HK details →</a>
+        </article>
+        <article class="impact-prog-card reveal reveal-delay-2">
+          <div class="impact-prog-tag">Quantum Computing · IQCOL HK</div>
+          <h3>Early Exposure to Frontier Science</h3>
+          <p>IQCOL HK invites students into one of the most technically demanding subjects in contemporary science before most universities offer a proper course in it — then explain their work to judges who will not pretend to understand something they don&rsquo;t.</p>
+          <p>For many students, IQCOL is proof of concept: evidence that they can sit inside a genuinely hard topic, ask good questions, and not give up when the ideas resist easy summary.</p>
+          <a href="https://2026.iqcol.org" target="_blank" rel="noopener">IQCOL HK details →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: ALUMNI STORIES (white) -->
+  <section class="section-wrap section-wrap--white impact-section" id="alumni-stories" aria-labelledby="alumni-stories-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Alumni Stories</span></div>
+      <h2 class="section-heading reveal" id="alumni-stories-heading">Where Our People Went<br>and What They Built</h2>
+      <div class="impact-prose reveal reveal-delay-1">
+        <p>KBI Hong Kong cannot claim responsibility for anyone&rsquo;s degree, career, or company. What we can say, honestly, is that a consistent pattern shows up in the trajectories of people who engaged seriously with our programmes: they tend to move with more direction, more confidence in defending technical ideas, and a clearer sense of what they want to build.</p>
+        <p>The stories below are from Hong Kong students and alumni who passed through our programmes. We present them not as marketing, but as evidence — each one an individual trajectory where KBI HK appears as one influence among many.</p>
+      </div>
+
+      <article class="impact-featured reveal reveal-delay-2" aria-labelledby="featured-dominic">
+        <div class="impact-featured-main">
+          <div class="impact-featured-label">Alumni Profile</div>
+          <h3 class="impact-featured-name" id="featured-dominic">Dominic Tam</h3>
+          <p class="impact-featured-meta"><strong>Programmes:</strong> IBCOL 2022 · IBCOL 2023 · IDSOL 2024 · KBI Internship 2024<br><strong>Current path:</strong> Candidate for Bachelor of Medicine, The University of Hong Kong · HKAGE · Pui Kiu College</p>
+          <div class="impact-featured-story">
+            <p>Dominic entered KBI&rsquo;s competition ecosystem as a secondary student and became one of the most decorated alumni across KBI-affiliated programmes. His blockchain teams earned a Gold Medal and Award of Distinction at IBCOL 2022, as well as a Top GovTech Award and Top Secondary Track Award at the Greater Bay Area Blockchain Olympiad. In 2024, his IDSOL team designed HealthNutz — a health-tech proposal combining AI computer vision with Traditional Chinese Medicine — earning a Silver Medal at the international stage.</p>
+            <p>After competing, Dominic joined KBI as a Blockchain Technology and Policy Researcher intern. His first project examined blockchain-based intellectual property protection for a global semiconductor company operating within the regulatory environment of the PRC. He produced actionable analysis of State-approved platforms and helped inform the client&rsquo;s adoption strategy — applied policy research, not classroom exercises.</p>
+            <p>Now studying medicine at HKU, Dominic represents one of the clearest illustrations of what KBI&rsquo;s programmes can do when a student is willing to engage fully: the skills built in competition rooms and internship settings transfer across disciplines, and the habit of defending ideas under expert scrutiny does not disappear at the end of an olympiad.</p>
+          </div>
+        </div>
+        <aside class="impact-featured-aside">
+          <blockquote class="impact-featured-quote">&ldquo;The competitions helped me develop strong system design thinking skills, enabling me to approach complex problems with innovative solutions. I also improved my pitching and communication abilities, learning how to present ideas clearly and confidently.&rdquo;</blockquote>
+        </aside>
+      </article>
+
+      <div class="impact-alumni-grid">
+
+        <article class="impact-alumni-card reveal">
+          <h4>Nikkia Lo</h4>
+          <p class="impact-alumni-meta">IBCOL 2021 (2LUX) · IBCOL 2022 (IMProof)</p>
+          <p class="impact-alumni-path">BSc Marketing Analytics and Technology candidate, The University of Hong Kong · Diocesan Girls&rsquo; School</p>
+          <p class="impact-alumni-story">Nikkia came into KBI&rsquo;s programmes without any particular intention of working in technology. She left with team leadership experience, system architecture skills, and a track record in project management — including co-organising DGS Demo Day 2022 — that she describes as foundational to her academic direction. Her participation in IBCOL directly changed where she applied to university.</p>
+          <blockquote class="impact-alumni-quote">&ldquo;Initially, I did not consider a career in innovation and technology. IBCOL convinced me to apply to tech programmes at Waterloo, HKU, and HKUST.&rdquo;</blockquote>
+        </article>
+        <article class="impact-alumni-card reveal reveal-delay-1">
+          <h4>Daniyar Kuzekov</h4>
+          <p class="impact-alumni-meta">LETTI 2024 · IBCOL 2024 (EduChain · Amsterdam Finals)</p>
+          <p class="impact-alumni-path">BSc Data Science, Lingnan University · Nazarbayev Intellectual School</p>
+          <p class="impact-alumni-story">Daniyar joined LETTI 2024 and progressed to represent Hong Kong at IBCOL 2024 in Amsterdam as a finalist on Team EduChain. His technical development fed directly into industry work — including a Data Engineering Apprenticeship at Thinkpanda and Web3 development for Atomic Knowledge Proof, building front-end systems for IBCOL with measurable impact on participation.</p>
+          <blockquote class="impact-alumni-quote">&ldquo;I learned a lot about blockchain technology, attended multiple fruitful networking events, broadened my horizons — and travelled to Amsterdam.&rdquo;</blockquote>
+        </article>
+        <article class="impact-alumni-card reveal">
+          <h4>Nigel Gurung</h4>
+          <p class="impact-alumni-meta">TETTI 2025 · ETO 2024 (Conviction) · KBI × THEi Internship 2025</p>
+          <p class="impact-alumni-path">BEng Civil Engineering (Honours) candidate, THEi</p>
+          <p class="impact-alumni-story">A civil engineering student, Nigel entered through TETTI and ETO 2024, joining the Hong Kong delegation to Amsterdam with Conviction — a decentralised subscription network using blockchain for digital identity verification. His Research Track internship applied systems thinking to a strategic marketing audit targeting Gen Z and Gen Alpha audiences.</p>
+        </article>
+        <article class="impact-alumni-card reveal reveal-delay-1">
+          <h4>Chillie Wong</h4>
+          <p class="impact-alumni-meta">TETTI 2025 · ETO 2024 · KBI × THEi Internship 2025 (Event Production)</p>
+          <p class="impact-alumni-path">BSc Surveying Technology candidate, THEi · CIC BIM Competition 2023 Champion</p>
+          <p class="impact-alumni-story">Chillie joined the Hong Kong delegation to Amsterdam through IBCOL 2024 and TETTI, then served as an Event Production intern — designing materials, coordinating logistics, and analysing participant feedback. Her path shows that students from built-environment disciplines bring distinct strengths to emerging-technology education.</p>
+        </article>
+        <article class="impact-alumni-card reveal">
+          <h4>Sakib Rabbani</h4>
+          <p class="impact-alumni-meta">IBCOL 2021 (UniMatrix)</p>
+          <p class="impact-alumni-path">Software Engineer, JP Morgan HK · Founder, Talentier (Silicon Valley)</p>
+          <p class="impact-alumni-story">Sakib credits the KBI and IBCOL network with connecting him to industry professionals who led to his first engineering role at JP Morgan HK. He later founded Talentier, a startup he has since brought to Silicon Valley.</p>
+          <blockquote class="impact-alumni-quote">&ldquo;The IBCOL, IDSOL, and KBI network connected me with industry professionals, which helped me get a job in Software Engineering at JP Morgan HK.&rdquo;</blockquote>
+        </article>
+        <article class="impact-alumni-card reveal reveal-delay-1">
+          <h4>Sophia Liu</h4>
+          <p class="impact-alumni-meta">IBCOL 2021 (HelpProof) · IBCOL 2024 (ClubProof)</p>
+          <p class="impact-alumni-path">Diocesan Girls&rsquo; School · Lawrenceville School</p>
+          <p class="impact-alumni-story">Sophia joined IBCOL as a secondary student and stayed in the ecosystem for years, returning to compete in 2024. Her most durable takeaway: blockchain is not primarily a financial instrument, but a mechanism for establishing trust between parties who cannot otherwise verify each other.</p>
+          <blockquote class="impact-alumni-quote">&ldquo;Never just look at what a technology is portrayed as; look at what a technology actually is and what it can do beyond what others think it can do.&rdquo;</blockquote>
+        </article>
+        <article class="impact-alumni-card reveal" style="grid-column: 1 / -1; max-width: 720px;">
+          <h4>Aniruddha Ganguly</h4>
+          <p class="impact-alumni-meta">IBCOL 2020 (Health Ledger) · IBCOL 2021 (NetCredit)</p>
+          <p class="impact-alumni-path">Bangladesh University of Engineering and Technology · Stony Brook University</p>
+          <p class="impact-alumni-story">Aniruddha competed at IBCOL representing Bangladesh across two editions. Afterwards, he was selected for the Advanced Blockchain Development Internship — supervised by KBI subject matter experts and organised with Bangladesh&rsquo;s Ministry of ICT through the Bangladesh Computer Council. His trajectory — from student competitor to government-partnered internship to graduate study at Stony Brook — shows how KBI&rsquo;s network extends beyond the competition floor.</p>
+        </article>
+      </div>
+
+      <hr class="impact-divider">
+
+      <div id="community-voices" class="impact-section-gap">
+        <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Voices from the Community</span></div>
+        <h2 class="section-heading reveal">What People Say, in Their Own Words</h2>
+        <p class="impact-prose reveal reveal-delay-1">Beyond individual trajectories, the texture of what KBI Hong Kong produces shows up in shorter observations — from students who competed once, educators who brought their classes, and institutional partners who have returned year after year.</p>
+        <div class="impact-voices-grid">
+          <figure class="impact-voice-card reveal"><blockquote class="impact-voice-quote">&ldquo;I am grateful to have a precious learning experience so different from drilling exercises in the classroom. IBCOL pushed me to jump out of my comfort zone and explore novel solutions.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Annie Suen</strong> · Queen Elizabeth School · IBCOL 2021 (BallotBlock)</figcaption></figure>
+          <figure class="impact-voice-card reveal reveal-delay-1"><blockquote class="impact-voice-quote">&ldquo;IBCOL participation enhanced my interdisciplinary capabilities — developing skills in visual communication, technological prototyping, and strategic problem-solving.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Nicole Wong</strong> · DGS · HKAGE · University of Melbourne · IBCOL 2021–2022</figcaption></figure>
+          <figure class="impact-voice-card reveal"><blockquote class="impact-voice-quote">&ldquo;IBCOL fostered self-directed learning and encouraged me to seek innovative solutions beyond traditional academic settings.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Bryan Chiu</strong> · CDNIS · University of Pennsylvania · IBCOL 2023–2024</figcaption></figure>
+          <figure class="impact-voice-card reveal reveal-delay-1"><blockquote class="impact-voice-quote">&ldquo;KBI helped me understand the power of technology — not just as a subject at school, but as a medium that can empower every aspect of our daily lives.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Lester Chong</strong> · Li Po Chun UWC · HKAGE · IBCOL 2019</figcaption></figure>
+          <figure class="impact-voice-card reveal"><blockquote class="impact-voice-quote">&ldquo;IBCOL gave a home — a place where I could just be a tech geek without judgement, and meet a bunch of people who are into technology and blockchain as a whole.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Woody Tai</strong> · HKAGE · IBCOL 2024 (DeGRID)</figcaption></figure>
+          <figure class="impact-voice-card reveal reveal-delay-1"><blockquote class="impact-voice-quote">&ldquo;The mentorship and feedback from industry experts were invaluable. IBCOL provided a platform to connect with talented peers and professionals from around the world.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Xu Shijie</strong> · CityU · ESSEC Business School · IBCOL 2020 (Health Pass)</figcaption></figure>
+          <figure class="impact-voice-card reveal"><blockquote class="impact-voice-quote">&ldquo;IBCOL and KBI helped me get accepted into an internship programme sponsored by METI of Japan. I was also able to move to Japan after that internship.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Zhanel Tagayeva</strong> · FIZMAT Kazakhstan · Lingnan University · IBCOL 2022 (CollApp)</figcaption></figure>
+          <figure class="impact-voice-card impact-voice-card--educator reveal"><blockquote class="impact-voice-quote">&ldquo;I would like to thank KBI for offering world-class training to our students. Our students do not only learn more about blockchain and data science — they can also apply the knowledge into their majors.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Shirley Siu</strong> · Senior Manager, Career Advising Services, Lingnan University</figcaption></figure>
+          <figure class="impact-voice-card impact-voice-card--educator reveal reveal-delay-1"><blockquote class="impact-voice-quote">&ldquo;The Königsberger Bridges Institute comprises a great team of professionals with rich academic and enterprise experience. They are very dedicated to advancing students&rsquo; knowledge and application skills.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Dr. Prof. Isabel Yan</strong> · Associate Professor, Economics and Finance, City University of Hong Kong</figcaption></figure>
+          <figure class="impact-voice-card impact-voice-card--educator reveal"><blockquote class="impact-voice-quote">&ldquo;IBCOL helped me realise that the project idea, the people you work with, the connections you build, and especially the business perspective are what truly matter.&rdquo;</blockquote><figcaption class="impact-voice-attr"><strong>Dr. Prof. Adrian Alexandrescu</strong> · Vice-Dean, Gheorghe Asachi Technical University of Iași</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR SUPPORTERS (mist) -->
+  <section class="section-wrap section-wrap--mist impact-section" id="supporters" aria-labelledby="supporters-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Partners &amp; Sponsors</span></div>
+      <h2 class="section-heading reveal" id="supporters-heading">Our Supporters</h2>
+      <p class="impact-supporters-intro reveal reveal-delay-1">Schools, universities, and organisations that have partnered with KBI Hong Kong.</p>
+            <div class="logo-marquee-wrap logo-marquee-wrap--light reveal reveal-delay-2" aria-label="Our supporters">
+        <div class="logo-marquee">
+          <div class="logo-marquee-track">
+            <div class="logo-marquee-pill"><img src="../images/logo/ASTRI25A_Vertical%20logo_ENG.png" alt="ASTRI25A Vertical logo ENG"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/Copy%20of%20CityU%20logo.jpeg" alt="Copy of CityU logo"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/Copy%20of%20HKTDC%20logo.png" alt="Copy of HKTDC logo"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/Cyberport_Logo_C1872_RGB_IR100%20%28Hong%20Kong%29%20Limited-01.png" alt="Cyberport Logo C1872 RGB IR100 (Hong Kong) Limited-01"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/google.png" alt="google"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/HKIE_full_logo_.png" alt="HKIE full logo"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/HKMU%20SCHOOL%20LOGOS_RGB_O_ST.png" alt="HKMU SCHOOL LOGOS RGB O ST"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/HKSTP_Logo_EN_Colour_RGB_Mar2023.png" alt="HKSTP Logo EN Colour RGB Mar2023"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/HKU%20logo.jpeg" alt="HKU logo"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/HKUST%20ece.jpg" alt="HKUST ece"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/IEEE%20logo.jpeg" alt="IEEE logo"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/IVE_ENG_MarketingTag_RGB.png" alt="IVE ENG MarketingTag RGB"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/PolyU%20logo_RGB-01.png" alt="PolyU logo RGB-01"></div>
+            <div class="logo-marquee-pill"><img src="../images/logo/redotpay.png" alt="redotpay"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/ASTRI25A_Vertical%20logo_ENG.png" alt="ASTRI25A Vertical logo ENG"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/Copy%20of%20CityU%20logo.jpeg" alt="Copy of CityU logo"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/Copy%20of%20HKTDC%20logo.png" alt="Copy of HKTDC logo"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/Cyberport_Logo_C1872_RGB_IR100%20%28Hong%20Kong%29%20Limited-01.png" alt="Cyberport Logo C1872 RGB IR100 (Hong Kong) Limited-01"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/google.png" alt="google"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/HKIE_full_logo_.png" alt="HKIE full logo"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/HKMU%20SCHOOL%20LOGOS_RGB_O_ST.png" alt="HKMU SCHOOL LOGOS RGB O ST"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/HKSTP_Logo_EN_Colour_RGB_Mar2023.png" alt="HKSTP Logo EN Colour RGB Mar2023"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/HKU%20logo.jpeg" alt="HKU logo"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/HKUST%20ece.jpg" alt="HKUST ece"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/IEEE%20logo.jpeg" alt="IEEE logo"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/IVE_ENG_MarketingTag_RGB.png" alt="IVE ENG MarketingTag RGB"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/PolyU%20logo_RGB-01.png" alt="PolyU logo RGB-01"></div>
+            <div class="logo-marquee-pill" aria-hidden="true"><img src="../images/logo/redotpay.png" alt="redotpay"></div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA (mist) -->
+  <section class="section-wrap section-wrap--mist impact-section--compact" aria-label="Get involved">
+    <div class="section-inner">
+      <div class="impact-cta-card reveal">
+        <div class="label-row" style="justify-content:center;"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Your Next Step</span></div>
+        <h2>Add Your Own Chapter to This Record</h2>
+        <p>Every story on this page began with someone deciding to show up — to a training session, a competition briefing, an internship application, or a community event. If you are a student, a school or university, a mentor, or an organisation that wants to support this work — the next chapter starts with a conversation.</p>
+        <div class="impact-cta-actions">
+          <a href="../programme/membership.html" class="btn btn-prussian">Join Membership</a>
+          <a href="../programme/sponsors.html#enquiry" class="btn btn-outline-prussian">Become a Sponsor</a>
+          <a href="../programme/i2ol.html" class="btn btn-outline-prussian">Explore Programmes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-icon-mist.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 KBI Hong Kong. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="about-who-we-are.html">Who We Are</a></li>
+            <li><a href="about-history.html">Our History</a></li>
+            <li><a href="about-impact.html">Our Impact</a></li>
+            <li><a href="about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="../programme/i2ol.html">I&sup2;OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="../programme/etti.html">ETTI Program</a></li>
+            <li><a href="../programme/skillsprint.html">SkillSprint</a></li>
+            <li><a href="../programme/abc5.html">ABC5 Program</a></li>
+            <li><a href="../programme/isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="../programme/projects.html">Project Support</a></li>
+            <li><a href="../programme/working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="../programme/socratic.html">Socratic Circles</a></li>
+            <li><a href="../programme/gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="../news/news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../programme/sponsors.html">Partner With Us</a></li>
+            <li><a href="../programme/membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 12V2M2 7l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <script src="../kbi-hk.js"></script>
+</body>
+</html>

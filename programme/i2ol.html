@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+  <title>I²OL Scheme — KBI Hong Kong</title>
+  <meta name="description"
+    content="The I²OL scheme brings together IBCOL, IDSOL, and IQCOL — Hong Kong's subject olympiads in blockchain, data science, and quantum computing. Learn how they relate to ETO and how to compete.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../kbi-hk.css">
+  <style>
+    .i2ol-hero {
+      background: var(--prussian);
+      padding: 100px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .i2ol-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 70% 0%, rgba(60, 180, 255, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .i2ol-hero-inner {
+      position: relative;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .i2ol-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .i2ol-hero h1 em {
+      font-style: italic;
+      color: var(--cyan);
+    }
+
+    .i2ol-hero-lead {
+      font-size: 1.0625rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.8;
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
+
+    .i2ol-acronym {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+
+    .i2ol-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 800px) {
+      .i2ol-pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .i2ol-pillar {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .i2ol-pillar:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .i2ol-pillar-abbr {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 4px;
+    }
+
+    .i2ol-pillar-name {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .i2ol-pillar p {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .i2ol-pillar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .i2ol-pillar-links a {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--cyan);
+    }
+
+    .i2ol-pillar-links a:hover {
+      color: #fff;
+    }
+
+    .i2ol-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 700px) {
+      .i2ol-compare {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .i2ol-compare-card {
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      background: #fff;
+    }
+
+    .i2ol-compare-card--dark {
+      background: var(--prussian);
+      border-color: var(--prussian);
+      color: #fff;
+    }
+
+    .i2ol-compare-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .i2ol-compare-card--dark h3 {
+      color: #fff;
+    }
+
+    .i2ol-compare-card p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    .i2ol-compare-card--dark p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .i2ol-compare-list {
+      margin-top: 16px;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .i2ol-compare-list li {
+      font-size: 0.8125rem;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.6;
+    }
+
+    .i2ol-compare-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .i2ol-compare-card--dark .i2ol-compare-list li::before {
+      background: var(--yellow);
+    }
+
+    .i2ol-pathway {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 800px) {
+      .i2ol-pathway {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .i2ol-pathway {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .i2ol-path-step {
+      padding: 28px 24px;
+      border-right: 1px solid var(--stone);
+      background: #fff;
+      counter-increment: path-step;
+    }
+
+    .i2ol-path-step:last-child {
+      border-right: none;
+    }
+
+    @media (max-width: 800px) {
+      .i2ol-path-step:nth-child(2) {
+        border-right: none;
+      }
+
+      .i2ol-path-step:nth-child(1),
+      .i2ol-path-step:nth-child(2) {
+        border-bottom: 1px solid var(--stone);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .i2ol-path-step {
+        border-right: none;
+        border-bottom: 1px solid var(--stone);
+      }
+
+      .i2ol-path-step:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .i2ol-path-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--stone);
+      margin-bottom: 10px;
+    }
+
+    .i2ol-path-step h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .i2ol-path-step p {
+      font-size: 0.8125rem;
+      color: var(--text-faint);
+      line-height: 1.65;
+    }
+
+    .i2ol-faq-mini {
+      max-width: 720px;
+      margin-top: 48px;
+    }
+
+    .i2ol-faq-item {
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-md);
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: var(--mist);
+    }
+
+    .i2ol-faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 22px;
+      text-align: left;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .i2ol-faq-q[aria-expanded="true"] {
+      background: var(--prussian);
+      color: #fff;
+    }
+
+    .i2ol-faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .i2ol-faq-item.open .i2ol-faq-a {
+      max-height: 400px;
+    }
+
+    .i2ol-faq-a-inner {
+      padding: 0 22px 20px;
+      font-size: 0.875rem;
+      color: var(--text-faint);
+      line-height: 1.8;
+      border-top: 1px solid var(--stone);
+      padding-top: 16px;
+    }
+
+    .i2ol-faq-a-inner a {
+      color: var(--prussian);
+      font-weight: 600;
+    }
+
+    .i2ol-cta-banner {
+      background: linear-gradient(135deg, var(--prussian) 0%, #1a4a7a 100%);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .i2ol-cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .i2ol-cta-banner p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .i2ol-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-nav">Skip to main content</a>    <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p class="announcement-bar-text">
+        ETO Eastern Conference 2026 · 9–11 October · Interest registration now open.
+        <a href="../upcoming events/eto2026.html">Register Here &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+
+<nav class="site-nav nav-transparent" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40"
+            height="40"></div>
+        <div class="nav-wordmark"><span class="nav-wordmark-name">KBI Hong Kong</span><span
+            class="nav-wordmark-sub">Königsberger Bridges Institute</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg
+              viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="../about/about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="../about/about-history.html" role="menuitem">Our History</a>
+            <a href="../about/about-impact.html" role="menuitem">Our Impact</a>
+            <a href="../about/about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-prog">Programmes <svg
+              viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+                                                  <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="i2ol.html" role="menuitem">I&sup2;OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="isfretic.html" role="menuitem">International Standards Framework of Reference for Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="projects.html" role="menuitem">Project Support</a>
+            <a href="working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="membership.html" role="menuitem">Socratic Circles</a>
+            <a href="gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div></li>
+        <li><a href="../upcoming events/events.html">Events</a></li>
+        <li class="hide-md"><a href="../news/news.html">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+                              <div class="nav-ctas">
+        <a href="sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false"
+        aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="../about/about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="../about/about-history.html" class="nav-mobile-sub">Our History</a>
+    <a href="../about/about-impact.html" class="nav-mobile-sub">Our Impact</a>
+    <a href="../about/about-team.html" class="nav-mobile-sub">Our Team</a>
+    <a href="../media.html" class="nav-mobile-sub">Media &amp; Brand Kit</a>
+    <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="i2ol.html" class="nav-mobile-sub">I&sup2;OL Scheme</a>
+                <div class="nav-mobile-section-label">Certify</div>
+    <a href="etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+    
+    
+    
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+                <div class="nav-mobile-section-label">Connect</div>
+    <a href="membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    <a href="membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+                    <div class="nav-mobile-ctas">
+      <a href="sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <header class="i2ol-hero" aria-label="I²OL Scheme">
+      <div class="i2ol-hero-inner">
+        <div class="label-row">
+          <div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">Competitions ·
+            Hong Kong</span>
+        </div>
+        <p class="i2ol-acronym">I²OL — International Individual Olympiad League</p>
+        <h1>The <em>I²OL Scheme</em></h1>
+        <p class="i2ol-hero-lead">
+          I²OL is the umbrella programme for three subject olympiads run in Hong Kong through KBI HK: blockchain
+          (IBCOL), data science (IDSOL), and quantum computing (IQCOL). Each olympiad tests deep competence in one
+          domain — separately from the cross-disciplinary ETO Eastern Conference (2026).
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;">
+          <a href="../upcoming events/eto2026.html" class="btn btn-outline-white">ETO Eastern Conference 2026</a>
+          <a href="../faq.html#i2ol-eto" class="btn btn-ghost-light">I²OL FAQ</a>
+        </div>
+
+        <div class="i2ol-pillars" id="pillars">
+          <article class="i2ol-pillar" id="ibcol">
+            <div class="i2ol-pillar-abbr">IBCOL</div>
+            <div class="i2ol-pillar-name">International Blockchain Olympiad · Hong Kong</div>
+            <p>Team-based projects in blockchain and trust technology (BCTT). Hong Kong qualifiers advance to the global
+              IBCOL finals.</p>
+            <div class="i2ol-pillar-links">
+              <a href="https://2026.ibcol.org" target="_blank" rel="noopener">Global IBCOL 2026 →</a>
+            </div>
+          </article>
+          <article class="i2ol-pillar" id="idsol">
+            <div class="i2ol-pillar-abbr">IDSOL</div>
+            <div class="i2ol-pillar-name">International Data Science Olympiad · Hong Kong</div>
+            <p>Applied data science and analytics (DSAI). Teams develop rigorous, real-world solutions judged on
+              methodology and impact.</p>
+            <div class="i2ol-pillar-links">
+              <a href="https://2026.idsol.org" target="_blank" rel="noopener">Global IDSOL 2026 →</a>
+            </div>
+          </article>
+          <article class="i2ol-pillar" id="iqcol">
+            <div class="i2ol-pillar-abbr">IQCOL</div>
+            <div class="i2ol-pillar-name">International Quantum Computing Olympiad · Hong Kong</div>
+            <p>Quantum information and computing (QCIT). From circuits to algorithms — the olympiad for students serious
+              about quantum.</p>
+            <div class="i2ol-pillar-links">
+              <a href="https://2026.iqcol.org" target="_blank" rel="noopener">Global IQCOL 2026 →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-wrap section-wrap--white" id="what-is-i2ol" aria-labelledby="what-heading">
+      <div class="section-inner">
+        <div class="label-row">
+          <div class="u-rule" aria-hidden="true"></div><span class="u-label">Understanding I²OL</span>
+        </div>
+        <h2 class="section-heading reveal" id="what-heading">One scheme, three olympiads</h2>
+        <p class="section-body reveal reveal-delay-1" style="max-width:720px;">
+          The I²OL scheme groups Hong Kong’s official qualifying rounds for three international technology olympiads
+          under one coherent structure. Students typically choose <strong>one</strong> olympiad track and build depth in
+          that subject — blockchain, data science, or quantum — through a full competition cycle of preparation,
+          submission, and presentation.
+        </p>
+        <p class="section-body reveal reveal-delay-2" style="max-width:720px;margin-top:16px;">
+          KBI Hong Kong organises and supports <strong>IBCOL HK</strong>, <strong>IDSOL HK</strong>, and <strong>IQCOL
+            HK</strong> locally: registration, workshops, judging, and pathways to global finals. The scheme name
+          appears in navigation so you can find all three olympiads in one place — not because they are a single
+          combined competition.
+        </p>
+
+
+      </div>
+    </section>
+
+    <section class="section-wrap section-wrap--mist" id="pathway" aria-labelledby="pathway-heading">
+      <div class="section-inner">
+        <div class="label-row">
+          <div class="u-rule" aria-hidden="true"></div><span class="u-label">How it fits together</span>
+        </div>
+        <h2 class="section-h— KBI HK Orientation 2026
+        eading reveal" id="pathway-heading">From I²OL track to ETO</h2>
+        <p class="section-body reveal reveal-delay-1" style="max-width:680px;">
+          The orientation pathway is intentional: build subject mastery through an I²OL olympiad first; outstanding
+          performers may then be invited or qualified to participate in ETO — which uses its own format and
+          adjudication. ETO is <strong>not</strong> described as the finals of IBCOL, IDSOL, or IQCOL.
+        </p>
+
+        <div class="i2ol-pathway reveal" style="counter-reset: path-step;">
+          <div class="i2ol-path-step">
+            <div class="i2ol-path-num">01</div>
+            <h4>Choose your olympiad</h4>
+            <p>Register for IBCOL HK, IDSOL HK, or IQCOL HK — one primary track per cycle unless rules state otherwise.
+            </p>
+          </div>
+          <div class="i2ol-path-step">
+            <div class="i2ol-path-num">02</div>
+            <h4>Prepare &amp; compete locally</h4>
+            <p>Workshops, team formation, written submission, and Hong Kong presentation day under I²OL rules.</p>
+          </div>
+          <div class="i2ol-path-step">
+            <div class="i2ol-path-num">03</div>
+            <h4>Advance internationally</h4>
+            <p>Top Hong Kong teams represent the city at the global IBCOL, IDSOL, or IQCOL finals for their track.</p>
+          </div>
+          <div class="i2ol-path-step">
+            <div class="i2ol-path-num">04</div>
+            <h4>ETO pathway (where applicable)</h4>
+            <p>Qualification or invitation to ETO — including ETO Eastern Conference (9–11 Oct 2026, CDNIS) — follows
+              ETO’s separate criteria.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-wrap section-wrap--white" id="hk-2026" aria-labelledby="hk-heading">
+      <div class="section-inner">
+        <div class="label-row">
+          <div class="u-rule" aria-hidden="true"></div><span class="u-label">KBI Hong Kong 2026</span>
+        </div>
+        <h2 class="section-heading reveal" id="hk-heading">Quick Questions</h2>
+        <div class="i2ol-faq-mini reveal" id="faq" aria-label="Common questions about I²OL">
+
+          <div class="i2ol-faq-item">
+            <button class="i2ol-faq-q" aria-expanded="false" type="button"
+              onclick="this.parentElement.classList.toggle('open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')">
+              Do I have to enter all three olympiads?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="i2ol-faq-a">
+              <div class="i2ol-faq-a-inner">No. Most students focus on one I²OL track per cycle. The scheme name
+                reflects a shared organisational home — not a requirement to compete in blockchain, data science, and
+                quantum in the same year.</div>
+            </div>
+          </div>
+          <div class="i2ol-faq-item">
+            <button class="i2ol-faq-q" aria-expanded="false" type="button"
+              onclick="this.parentElement.classList.toggle('open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')">
+              Is ETO the final round of IBCOL / IDSOL / IQCOL?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="i2ol-faq-a">
+              <div class="i2ol-faq-a-inner">No. Each olympiad has its own international finals. ETO is a distinct annual
+                global conference with cross-disciplinary domains (BCTT, DSAI, QCIT). See <a
+                  href="../upcoming events/eto2026.html">ETO Eastern Conference 2026</a> and the full <a
+                  href="../faq.html#i2ol-eto">FAQ</a>.</div>
+            </div>
+          </div>
+          <div class="i2ol-faq-item">
+            <button class="i2ol-faq-q" aria-expanded="false" type="button"
+              onclick="this.parentElement.classList.toggle('open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')">
+              Where do I find rules and registration?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="i2ol-faq-a">
+              <div class="i2ol-faq-a-inner">Rules, registration, and timelines are on the international olympiad sites:
+                <a href="https://2026.ibcol.org" target="_blank" rel="noopener">ibcol.org</a>, <a
+                  href="https://2026.idsol.org" target="_blank" rel="noopener">idsol.org</a>, and <a
+                  href="https://2026.iqcol.org" target="_blank" rel="noopener">iqcol.org</a>. KBI Hong Kong supports
+                local participation through workshops and the competition calendar.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="i2ol-cta-banner reveal">
+          <div>
+            <h2>Ready to compete?</h2>
+            <p>Join a membership tier for workshops and priority access, then register for your chosen I²OL olympiad
+              when intake opens.</p>
+          </div>
+          <div class="i2ol-cta-actions">
+            <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" class="btn btn-yellow">Sign Up Now</a>
+            <a href="../contact.html" class="btn btn-ghost-light">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-icon-mist.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 KBI Hong Kong. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="../about/about-who-we-are.html">Who We Are</a></li>
+            <li><a href="../about/about-history.html">Our History</a></li>
+            <li><a href="../about/about-impact.html">Our Impact</a></li>
+            <li><a href="../about/about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="i2ol.html">I&sup2;OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="etti.html">ETTI Program</a></li>
+            <li><a href="skillsprint.html">SkillSprint</a></li>
+            <li><a href="abc5.html">ABC5 Program</a></li>
+            <li><a href="isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="projects.html">Project Support</a></li>
+            <li><a href="working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="socratic.html">Socratic Circles</a></li>
+            <li><a href="gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="../news/news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="sponsors.html">Partner With Us</a></li>
+            <li><a href="membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../kbi-hk.js"></script>
+</body>
+
+</html>

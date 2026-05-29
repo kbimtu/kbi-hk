@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+  <title>Our Team — KBI Hong Kong</title>
+  <meta name="description" content="Meet the KBI Hong Kong volunteer teams — Strategic Planning, Communications & Outreach, Programmes & Projects, and Event Production — that run our chapter's programmes and events.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../kbi-hk.css">
+  <style>
+    .org-overview {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    @media (max-width: 640px) {
+      .org-overview { grid-template-columns: 1fr; }
+    }
+    .org-overview-item {
+      background: var(--prussian);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      color: #fff;
+    }
+    .org-overview-item strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      margin-bottom: 6px;
+    }
+    .org-overview-item span {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.6;
+    }
+
+    .org-team-block {
+      background: #fff;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-bottom: 32px;
+      scroll-margin-top: 100px;
+    }
+    .org-team-block:last-child { margin-bottom: 0; }
+    .org-team-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .org-team-badge {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 56px;
+      height: 56px;
+      padding: 0 12px;
+      border-radius: 12px;
+      background: var(--prussian);
+      color: var(--cyan);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+    .org-team-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 4px;
+      line-height: 1.25;
+    }
+    .org-team-fullname {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin: 0;
+    }
+    .org-team-desc {
+      font-size: 0.9375rem;
+      color: var(--text-main);
+      line-height: 1.75;
+      max-width: 720px;
+      margin: 0 0 28px;
+    }
+    .org-team-members-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(5, 7, 10, 0.4);
+      margin-bottom: 16px;
+    }
+    .team-members-empty {
+      border: 1px dashed var(--stone);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      text-align: center;
+      background: var(--mist);
+    }
+    .team-members-empty p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--text-faint);
+      line-height: 1.6;
+    }
+
+    /* Member cards — ready for future additions */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .team-grid:not(:empty) { margin-top: 0; }
+    .team-grid:not(:empty) + .team-members-empty,
+    .team-grid:not(:empty) ~ .team-members-empty { display: none; }
+    .team-grid:empty { display: none; }
+    .team-card {
+      background: #fff;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .team-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 49, 83, 0.12);
+      transform: translateY(-3px);
+    }
+    .team-card-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      background: var(--mist);
+    }
+    .team-card-photo-placeholder {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, var(--prussian) 0%, #1a4a7a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .team-card-body { padding: 24px; }
+    .team-card-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+      font-family: 'Playfair Display', serif;
+    }
+    .team-card-role {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--prussian);
+      margin-bottom: 10px;
+    }
+    .team-card-bio {
+      font-size: 0.8125rem;
+      color: var(--text-faint);
+      line-height: 1.7;
+    }
+    .team-card-view-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--prussian);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .team-card:hover .team-card-view-hint { opacity: 1; }
+    .team-card-view-hint svg { width: 12px; height: 12px; }
+    .team-card:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+    .team-card-team-tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--mist);
+      color: var(--prussian);
+      border: 1px solid var(--stone);
+    }
+
+    /* Profile modal */
+    .team-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 7, 10, 0.75);
+      z-index: 1200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .team-modal-backdrop.active { display: flex; }
+    .team-modal {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      max-width: 640px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: teamModalSlideUp 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
+    }
+    @keyframes teamModalSlideUp {
+      from { opacity: 0; transform: translateY(24px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .team-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 10;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(5, 7, 10, 0.06);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--ink);
+      transition: background 0.2s;
+    }
+    .team-modal-close:hover { background: rgba(5, 7, 10, 0.12); }
+    .team-modal-hero {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 36px 36px 28px;
+      border-bottom: 1px solid var(--stone);
+    }
+    .team-modal-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      flex-shrink: 0;
+      background: var(--mist);
+      border: 3px solid var(--stone);
+    }
+    .team-modal-photo-placeholder {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--prussian) 0%, #1a4a7a 100%);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--prussian);
+    }
+    .team-modal-hero-info { flex: 1; min-width: 0; }
+    .team-modal-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .team-modal-role {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--prussian);
+      margin-bottom: 14px;
+    }
+    .team-modal-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .team-modal-tag {
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      background: var(--mist);
+      border: 1px solid var(--stone);
+      color: var(--text-muted);
+    }
+    .team-modal-tag--team {
+      background: var(--prussian);
+      border-color: var(--prussian);
+      color: #fff;
+    }
+    .team-modal-body { padding: 28px 36px 36px; }
+    .team-modal-section { margin-bottom: 24px; }
+    .team-modal-section:last-child { margin-bottom: 0; }
+    .team-modal-section-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(5, 7, 10, 0.35);
+      margin-bottom: 10px;
+    }
+    .team-modal-bio {
+      font-size: 0.9375rem;
+      color: var(--text-main);
+      line-height: 1.8;
+    }
+    .team-modal-detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .team-modal-detail-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.875rem;
+      color: var(--text-main);
+    }
+    .team-modal-detail-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background: var(--mist);
+      border: 1px solid var(--stone);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 0.7rem;
+    }
+    .team-modal-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .team-modal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--stone);
+      background: var(--mist);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--prussian);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .team-modal-link:hover {
+      background: var(--prussian);
+      border-color: var(--prussian);
+      color: #fff;
+    }
+    .team-modal-link svg { width: 14px; height: 14px; }
+    @media (max-width: 520px) {
+      .team-modal-hero {
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px 20px 20px;
+      }
+      .team-modal-body { padding: 20px; }
+      .team-modal-photo,
+      .team-modal-photo-placeholder { width: 72px; height: 72px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+  <div class="announcement-bar" role="banner">
+    <p class="announcement-bar-text">
+      <span class="announcement-bar-badge">2026</span>
+      ETO Eastern Conference 2026 applications are open —
+      <a href="../upcoming events/eto2026.html" class="announcement-bar-link">Apply before 31 May&nbsp;→</a>
+    </p>
+  </div>    <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p class="announcement-bar-text">
+        ETO Eastern Conference 2026 · 9–11 October · Interest registration now open.
+        <a href="../upcoming events/eto2026.html">Register Here &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+
+<nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+        <div class="nav-wordmark">
+          <span class="nav-wordmark-name">KBI Hong Kong</span>
+          <span class="nav-wordmark-sub">Königsberger Bridges Institute</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="about-history.html" role="menuitem">Our History</a>
+            <a href="about-impact.html" role="menuitem">Our Impact</a>
+            <a href="about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                  <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="../programme/i2ol.html" role="menuitem">I&sup2;OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="../programme/etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="../programme/skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="../programme/abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="../programme/isfretic.html" role="menuitem">International Standards Framework of Reference for Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="../programme/projects.html" role="menuitem">Project Support</a>
+            <a href="../programme/working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="../programme/socratic.html" role="menuitem">Socratic Circles</a>
+            <a href="../programme/gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div></li>
+        <li><a href="../upcoming events/events.html">Events</a></li>
+        <li class="hide-md"><a href="../news/news.html">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+                              <div class="nav-ctas">
+        <a href="../programme/sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="../programme/membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="about-history.html" class="nav-mobile-link">Our History</a>
+    <a href="about-impact.html" class="nav-mobile-link">Our Impact</a>
+    <a href="about-team.html" class="nav-mobile-link">Our Team</a>
+    <a href="../media.html" class="nav-mobile-link">Media &amp; Brand Kit</a>
+        <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="../programme/i2ol.html" class="nav-mobile-sub">I&sup2;OL Scheme</a>
+            <div class="nav-mobile-section-label">Certify</div>
+    <a href="../programme/etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="../programme/skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="../programme/abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="../programme/isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+    
+    
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="../programme/projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="../programme/working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+            <div class="nav-mobile-section-label">Connect</div>
+    <a href="../programme/socratic.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="../programme/membership.html" class="nav-mobile-link">Community</a>
+    <a href="../news/news.html" class="nav-mobile-link">News &amp; Insights</a>
+    <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+                    <div class="nav-mobile-ctas">
+      <a href="../programme/sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="../programme/membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <header class="page-hero page-hero--night" aria-label="Our Team">
+      <div class="page-hero-bg" aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(160deg, var(--night) 0%, var(--prussian) 100%);"></div>
+      <div class="page-hero-inner" style="position:relative;z-index:1;">
+<div class="label-row"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">About KBI Hong Kong</span></div>
+        <h1 class="page-hero-heading">Our Team</h1>
+        <p class="page-hero-sub">KBI Hong Kong is run by volunteers — university students and recent graduates who organise programmes, events, and community activity across four functional teams.</p>
+      </div>
+    </header>
+
+    <section class="section-wrap section-wrap--white" id="how-we-work" aria-labelledby="how-we-work-heading">
+      <div class="section-inner">
+        <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">How We Work</span></div>
+        <h2 class="section-heading reveal" id="how-we-work-heading">KBI HK Team Structure</h2>
+        <p class="section-body reveal reveal-delay-1" style="max-width:680px;">Chapter work is organised into four teams. Each team owns a distinct part of how KBI Hong Kong runs — from long-range planning and partnerships to the logistics of competition days. Members typically serve on one primary team and collaborate across teams when programmes require it.</p>
+
+        <div class="org-overview reveal reveal-delay-2" aria-label="Summary of the four teams">
+          <div class="org-overview-item">
+            <strong>SPT</strong>
+            <span>Strategic Planning — direction, partnerships, KBI International coordination</span>
+          </div>
+          <div class="org-overview-item">
+            <strong>COT</strong>
+            <span>Communications &amp; Outreach — publicity, branding, recruitment, external comms</span>
+          </div>
+          <div class="org-overview-item">
+            <strong>PPT</strong>
+            <span>Programmes &amp; Projects — learning programmes, certification, participant development</span>
+          </div>
+          <div class="org-overview-item">
+            <strong>EPT</strong>
+            <span>Event Production — logistics, hospitality, operations, on-site execution</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-wrap section-wrap--mist" id="teams" aria-labelledby="teams-heading">
+      <div class="section-inner">
+        <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Meet the Teams</span></div>
+        <h2 class="section-heading reveal" id="teams-heading">Who Does What</h2>
+        <p class="section-body reveal reveal-delay-1" style="max-width:640px;margin-bottom:8px;">Each section below describes a team’s remit. Click any member card to open their full profile.</p>
+
+        <article class="org-team-block reveal" id="spt">
+          <div class="org-team-header">
+            <span class="org-team-badge" aria-hidden="true">SPT</span>
+            <div>
+              <h3 class="org-team-title">Strategic Planning Team</h3>
+              <p class="org-team-fullname">SPT</p>
+            </div>
+          </div>
+          <p class="org-team-desc">Oversees direction, planning, partnerships, and coordination with KBI International.</p>
+          <p class="org-team-members-label">Team members</p>
+          <div class="team-grid" data-team="spt" aria-live="polite">
+            <!-- To show a real profile photo on a card, add data-photo="../assets/team/<filename>.jpg" to that .team-card -->
+            <article class="team-card reveal"
+              data-name="Kate Cruz Pun"
+              data-role="Strategic Planning Lead"
+              data-team="spt"
+              data-university="City University of Hong Kong (CityU)"
+              data-programme="BEng Information Engineering"
+              data-since="KBI HK member since 2022 · SPT since 2024"
+              data-bio-extended="Tom leads the Strategic Planning Team’s annual roadmap, chapter priorities, and coordination with KBI International. He chairs monthly planning reviews and helps align Hong Kong programmes with the global institute calendar."
+              data-linkedin="#"
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Kate Cruz Punc</div>
+                <div class="team-card-role">Strategic Planning Lead</div>
+                <p class="team-card-bio">Leads chapter roadmap, priorities, and KBI International coordination.</p>
+                <span class="team-card-team-tag">SPT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+            <article class="team-card reveal reveal-delay-1"
+              data-name="Maya Chen"
+              data-role="Partnerships Coordinator"
+              data-team="spt"
+              data-university="The Chinese University of Hong Kong (CUHK)"
+              data-programme="BSc, Quantitative Finance — Year 3"
+              data-since="KBI HK member since 2023"
+              data-bio-extended="Maya scouts and maintains institutional partnerships with universities, student societies, and community organisations. She supports MOU drafting and onboarding for new collaboration proposals."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Maya Chen</div>
+                <div class="team-card-role">Partnerships Coordinator</div>
+                <p class="team-card-bio">Builds relationships with universities and partner organisations.</p>
+                <span class="team-card-team-tag">SPT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+            <article class="team-card reveal reveal-delay-2"
+              data-name="Ryan Ho"
+              data-role="International Liaison"
+              data-team="spt"
+              data-university="HKUST"
+              data-programme="MSc, Global Business Management"
+              data-since="KBI HK member since 2024"
+              data-bio-extended="Ryan is the primary point of contact for sibling chapters and KBI International working groups. He consolidates reporting, tracks global programme deadlines, and supports cross-chapter initiatives."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Ryan Ho</div>
+                <div class="team-card-role">International Liaison</div>
+                <p class="team-card-bio">Coordinates with sibling chapters and KBI International.</p>
+                <span class="team-card-team-tag">SPT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+          </div>
+          <div class="team-members-empty">
+            <p>Member profiles for the Strategic Planning Team will appear here.</p>
+          </div>
+        </article>
+
+        <article class="org-team-block reveal reveal-delay-1" id="cot">
+          <div class="org-team-header">
+            <span class="org-team-badge" aria-hidden="true">COT</span>
+            <div>
+              <h3 class="org-team-title">Communications &amp; Outreach Team</h3>
+              <p class="org-team-fullname">COT</p>
+            </div>
+          </div>
+          <p class="org-team-desc">Leads publicity, branding, outreach, recruitment, and external communications.</p>
+          <p class="org-team-members-label">Team members</p>
+          <div class="team-grid" data-team="cot" aria-live="polite">
+            <article class="team-card reveal"
+              data-name="Kelly Lam"
+              data-role="Communications Lead"
+              data-team="cot"
+              data-university="City University of Hong Kong (CityU)"
+              data-programme="BA, Media and Communication — Final Year"
+              data-since="KBI HK member since 2021 · COT since 2023"
+              data-bio-extended="Kelly oversees the chapter’s communications strategy, editorial calendar, and tone of voice across web, email, and social channels. She approves major campaign messaging and mentors newer outreach volunteers."
+              data-linkedin="#"
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Kelly Lam</div>
+                <div class="team-card-role">Communications Lead</div>
+                <p class="team-card-bio">Sets communications strategy across web, email, and social media.</p>
+                <span class="team-card-team-tag">COT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+            <article class="team-card reveal reveal-delay-1"
+              data-name="Sophie Ng"
+              data-role="Brand &amp; Design Coordinator"
+              data-team="cot"
+              data-university="Hong Kong Polytechnic University (PolyU)"
+              data-programme="BA, Design — Year 3"
+              data-since="KBI HK member since 2023"
+              data-bio-extended="Sophie maintains brand guidelines, event visuals, and presentation templates for KBI Hong Kong. She works with programme teams to keep publicity materials consistent and accessible."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Sophie Ng</div>
+                <div class="team-card-role">Brand &amp; Design Coordinator</div>
+                <p class="team-card-bio">Keeps brand guidelines and visual assets consistent across programmes.</p>
+                <span class="team-card-team-tag">COT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+            <article class="team-card reveal reveal-delay-2"
+              data-name="Daniel Park"
+              data-role="Outreach &amp; Recruitment"
+              data-team="cot"
+              data-university="HKU"
+              data-programme="BEng, Computer Engineering — Year 2"
+              data-since="KBI HK member since 2024"
+              data-bio-extended="Daniel runs campus outreach, info sessions, and membership recruitment drives. He tracks sign-up funnels and coordinates tabling with university societies during orientation weeks."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Daniel Park</div>
+                <div class="team-card-role">Outreach &amp; Recruitment</div>
+                <p class="team-card-bio">Leads campus outreach and membership recruitment activities.</p>
+                <span class="team-card-team-tag">COT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+          </div>
+          <div class="team-members-empty">
+            <p>Member profiles for the Communications &amp; Outreach Team will appear here.</p>
+          </div>
+        </article>
+
+        <article class="org-team-block reveal reveal-delay-1" id="ppt">
+          <div class="org-team-header">
+            <span class="org-team-badge" aria-hidden="true">PPT</span>
+            <div>
+              <h3 class="org-team-title">Programmes &amp; Projects Team</h3>
+              <p class="org-team-fullname">PPT</p>
+            </div>
+          </div>
+          <p class="org-team-desc">Supports learning programmes, certification, workshops, and long-term participant development.</p>
+          <p class="org-team-members-label">Team members</p>
+          <div class="team-grid" data-team="ppt" aria-live="polite">
+            <article class="team-card reveal"
+              data-name="Joseph Wong"
+              data-role="Programmes Lead"
+              data-team="ppt"
+              data-university="HKUST"
+              data-programme="BSc, Computer Science — Final Year"
+              data-since="KBI HK member since 2020 · PPT since 2023"
+              data-bio-extended="Joseph oversees learning programme design, certification pathways, and long-term participant development. He coordinates workshop series with track directors and reviews curriculum updates each cycle."
+              data-linkedin="#"
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Joseph Wong</div>
+                <div class="team-card-role">Programmes Lead</div>
+                <p class="team-card-bio">Oversees programmes, certification, and participant development.</p>
+                <span class="team-card-team-tag">PPT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+            <article class="team-card reveal reveal-delay-1"
+              data-name="Emily Tan"
+              data-role="Certification Coordinator"
+              data-team="ppt"
+              data-university="CUHK"
+              data-programme="BSc, Information Engineering — Year 3"
+              data-since="KBI HK member since 2022"
+              data-bio-extended="Emily manages certification schedules, assessor briefings, and participant progress tracking for ISFRETIC-aligned offerings. She supports content updates with faculty advisors and past cohort mentors."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Emily Tan</div>
+                <div class="team-card-role">Certification Coordinator</div>
+                <p class="team-card-bio">Runs certification schedules and participant progress tracking.</p>
+                <span class="team-card-team-tag">PPT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+            <article class="team-card reveal reveal-delay-2"
+              data-name="Marcus Li"
+              data-role="Workshop Facilitator"
+              data-team="ppt"
+              data-university="HKU"
+              data-programme="MSc, Artificial Intelligence"
+              data-since="KBI HK member since 2023"
+              data-bio-extended="Marcus designs and delivers hands-on workshops for competition prep and skills bootcamps. He collaborates with EPT on room setup and materials for training sessions."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Marcus Li</div>
+                <div class="team-card-role">Workshop Facilitator</div>
+                <p class="team-card-bio">Designs and runs hands-on workshops and skills bootcamps.</p>
+                <span class="team-card-team-tag">PPT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+          </div>
+          <div class="team-members-empty">
+            <p>Member profiles for the Programmes &amp; Projects Team will appear here.</p>
+          </div>
+        </article>
+
+        <article class="org-team-block reveal reveal-delay-2" id="ept">
+          <div class="org-team-header">
+            <span class="org-team-badge" aria-hidden="true">EPT</span>
+            <div>
+              <h3 class="org-team-title">Event Production Team</h3>
+              <p class="org-team-fullname">EPT</p>
+            </div>
+          </div>
+          <p class="org-team-desc">Manages logistics, hospitality, operations, media, and on-site event execution.</p>
+          <p class="org-team-members-label">Team members</p>
+          <div class="team-grid" data-team="ept" aria-live="polite">
+            <article class="team-card reveal"
+              data-name="James Lee"
+              data-role="Event Production Lead"
+              data-team="ept"
+              data-university="PolyU"
+              data-programme="BBA, Hospitality Management — Final Year"
+              data-since="KBI HK member since 2021 · EPT since 2023"
+              data-bio-extended="James runs end-to-end event production for major competition days and flagship programmes. He owns run-of-show documents, vendor coordination, and on-site command during live events."
+              data-linkedin="#"
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">James Lee</div>
+                <div class="team-card-role">Event Production Lead</div>
+                <p class="team-card-bio">Owns run-of-show, vendors, and on-site command for major events.</p>
+                <span class="team-card-team-tag">EPT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+            <article class="team-card reveal reveal-delay-1"
+              data-name="Nina Chow"
+              data-role="Logistics &amp; Hospitality"
+              data-team="ept"
+              data-university="CityU"
+              data-programme="BSc, Business Economics — Year 3"
+              data-since="KBI HK member since 2023"
+              data-bio-extended="Nina handles venue bookings, catering, signage, and participant hospitality. She maintains equipment inventories and packing lists for off-site and multi-room events."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Nina Chow</div>
+                <div class="team-card-role">Logistics &amp; Hospitality</div>
+                <p class="team-card-bio">Manages venues, catering, signage, and participant hospitality.</p>
+                <span class="team-card-team-tag">EPT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+            <article class="team-card reveal reveal-delay-2"
+              data-name="Oliver Yu"
+              data-role="Media &amp; On-site Operations"
+              data-team="ept"
+              data-university="HKUST"
+              data-programme="BEng, Electronic Engineering — Year 2"
+              data-since="KBI HK member since 2024"
+              data-bio-extended="Oliver coordinates livestream setup, photography, and AV checks for competition finals. He trains volunteer floor staff and supports real-time troubleshooting during event days."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Oliver Yu</div>
+                <div class="team-card-role">Media &amp; On-site Operations</div>
+                <p class="team-card-bio">Runs AV, livestream, and photography for competition days.</p>
+                <span class="team-card-team-tag">EPT</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+          </div>
+          <div class="team-members-empty">
+            <p>Member profiles for the Event Production Team will appear here.</p>
+          </div>
+        </article>
+
+        <article class="org-team-block reveal reveal-delay-3" id="advisors">
+          <div class="org-team-header">
+            <span class="org-team-badge" aria-hidden="true">ADV</span>
+            <div>
+              <h3 class="org-team-title">Advisors</h3>
+              <p class="org-team-fullname">Academic and Industry Advisors</p>
+            </div>
+          </div>
+          <p class="org-team-desc">Advisors provide strategic guidance, domain expertise, and external perspective for KBI HK programmes and chapter development.</p>
+          <p class="org-team-members-label">Advisory members</p>
+          <div class="team-grid" data-team="advisors" aria-live="polite">
+            <article class="team-card reveal"
+              data-name="Dr. Adrian Lau"
+              data-role="Academic Advisor (Data & AI)"
+              data-team="advisors"
+              data-university="Hong Kong Polytechnic University (PolyU)"
+              data-programme="Associate Professor, Department of Computing"
+              data-since="Advisor to KBI HK since 2025"
+              data-bio-extended="Dr. Lau advises on curriculum rigour, competition standards, and participant progression in data science and AI pathways. He supports quality review for training modules and capstone evaluation frameworks."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Dr. Adrian Lau</div>
+                <div class="team-card-role">Academic Advisor (Data &amp; AI)</div>
+                <p class="team-card-bio">Supports curriculum quality, standards, and participant development pathways.</p>
+                <span class="team-card-team-tag">Advisors</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+            <article class="team-card reveal reveal-delay-1"
+              data-name="Ms. Rachel Cheng"
+              data-role="Industry Advisor (Trust Technologies)"
+              data-team="advisors"
+              data-university="FinTech and Digital Infrastructure"
+              data-programme="Director, Regional Product and Governance"
+              data-since="Advisor to KBI HK since 2026"
+              data-bio-extended="Rachel advises on industry relevance, governance considerations, and practical project framing in blockchain and trust technologies. She contributes to mentor sessions and programme design reviews."
+              role="button" tabindex="0" aria-haspopup="dialog">
+              <div class="team-card-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="40" height="40"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>
+              <div class="team-card-body">
+                <div class="team-card-name">Ms. Rachel Cheng</div>
+                <div class="team-card-role">Industry Advisor (Trust Technologies)</div>
+                <p class="team-card-bio">Brings industry perspective on applied trust-tech and governance practice.</p>
+                <span class="team-card-team-tag">Advisors</span>
+                <div class="team-card-view-hint">View profile <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              </div>
+            </article>
+          </div>
+          <div class="team-members-empty">
+            <p>Advisor profiles will appear here as appointments are announced.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-wrap section-wrap--prussian" aria-labelledby="volunteer-heading">
+      <div class="section-inner" style="text-align:center;">
+        <div class="label-row" style="justify-content:center;"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">Get Involved</span></div>
+        <h2 class="section-heading section-heading--light reveal" id="volunteer-heading">Interested in Volunteering?</h2>
+        <p class="reveal reveal-delay-1" style="max-width:560px;margin:0 auto 32px;color:rgba(255,255,255,0.75);line-height:1.75;">We recruit volunteers through open cycles aligned with our academic calendar. Membership is the usual starting point — it keeps you informed when team recruitment opens.</p>
+        <div class="reveal reveal-delay-2" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="../programme/membership.html" class="btn btn-yellow">Join Membership</a>
+          <a href="../contact.html" class="btn btn-outline-white">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-icon-mist.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 KBI Hong Kong. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="about-who-we-are.html">Who We Are</a></li>
+            <li><a href="about-history.html">Our History</a></li>
+            <li><a href="about-impact.html">Our Impact</a></li>
+            <li><a href="about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="../programme/i2ol.html">I&sup2;OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="../programme/etti.html">ETTI Program</a></li>
+            <li><a href="../programme/skillsprint.html">SkillSprint</a></li>
+            <li><a href="../programme/abc5.html">ABC5 Program</a></li>
+            <li><a href="../programme/isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="../programme/projects.html">Project Support</a></li>
+            <li><a href="../programme/working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="../programme/socratic.html">Socratic Circles</a></li>
+            <li><a href="../programme/gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="../news/news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../programme/sponsors.html">Partner With Us</a></li>
+            <li><a href="../programme/membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="team-modal-backdrop" id="teamModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="teamModalName">
+    <div class="team-modal" id="teamModal">
+      <button type="button" class="team-modal-close" id="teamModalClose" aria-label="Close profile">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="team-modal-hero">
+        <div id="teamModalPhotoWrap"></div>
+        <div class="team-modal-hero-info">
+          <div class="team-modal-name" id="teamModalName"></div>
+          <div class="team-modal-role" id="teamModalRole"></div>
+          <div class="team-modal-tags" id="teamModalTags"></div>
+        </div>
+      </div>
+      <div class="team-modal-body">
+        <div class="team-modal-section">
+          <div class="team-modal-section-label">About</div>
+          <p class="team-modal-bio" id="teamModalBio"></p>
+        </div>
+        <div class="team-modal-section" id="teamModalDetailsSection">
+          <div class="team-modal-section-label">Details</div>
+          <div class="team-modal-detail-list" id="teamModalDetails"></div>
+        </div>
+        <div class="team-modal-section" id="teamModalLinksSection">
+          <div class="team-modal-section-label">Connect</div>
+          <div class="team-modal-links" id="teamModalLinks"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../kbi-hk.js"></script>
+  <script>
+    (function () {
+      const backdrop = document.getElementById('teamModalBackdrop');
+      const closeBtn = document.getElementById('teamModalClose');
+      const teamLabels = {
+        spt: 'Strategic Planning Team',
+        cot: 'Communications & Outreach Team',
+        ppt: 'Programmes & Projects Team',
+        ept: 'Event Production Team',
+      };
+
+      function renderCardPhotos() {
+        document.querySelectorAll('.team-card').forEach(function (card) {
+          const photo = (card.dataset.photo || '').trim();
+          if (!photo) return;
+
+          const hasCardPhoto = card.querySelector('.team-card-photo');
+          if (hasCardPhoto) return;
+
+          const placeholder = card.querySelector('.team-card-photo-placeholder');
+          if (!placeholder) return;
+
+          const img = document.createElement('img');
+          img.src = photo;
+          img.alt = '';
+          img.className = 'team-card-photo';
+          placeholder.replaceWith(img);
+        });
+      }
+
+      function openModal(card) {
+        const d = card.dataset;
+        const photoWrap = document.getElementById('teamModalPhotoWrap');
+
+        if (d.photo) {
+          photoWrap.innerHTML = '<img src="' + d.photo + '" alt="" class="team-modal-photo">';
+        } else {
+          photoWrap.innerHTML = '<div class="team-modal-photo-placeholder" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" width="48" height="48"><circle cx="24" cy="18" r="10" fill="rgba(255,255,255,0.25)"/><path d="M4 44c0-11 9-19 20-19s20 8 20 19" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/></svg></div>';
+        }
+
+        document.getElementById('teamModalName').textContent = d.name || '';
+        document.getElementById('teamModalRole').textContent = d.role || '';
+
+        const tagsEl = document.getElementById('teamModalTags');
+        tagsEl.innerHTML = '';
+        const gridTeam = card.closest('.team-grid')?.dataset.team;
+        const teamKey = (d.team || gridTeam || '').toLowerCase();
+        if (teamKey && teamLabels[teamKey]) {
+          tagsEl.innerHTML += '<span class="team-modal-tag team-modal-tag--team">' + teamKey.toUpperCase() + '</span>';
+        }
+
+        document.getElementById('teamModalBio').textContent =
+          d.bioExtended || card.querySelector('.team-card-bio')?.textContent.trim() || '';
+
+        const detailsList = document.getElementById('teamModalDetails');
+        detailsList.innerHTML = '';
+        const details = [
+          d.university ? { icon: '🎓', text: d.university } : null,
+          d.programme ? { icon: '📖', text: d.programme } : null,
+          d.since ? { icon: '📅', text: d.since } : null,
+        ].filter(Boolean);
+
+        const detailsSection = document.getElementById('teamModalDetailsSection');
+        detailsSection.style.display = details.length ? '' : 'none';
+        details.forEach(function (item) {
+          detailsList.innerHTML += '<div class="team-modal-detail-item"><div class="team-modal-detail-icon">' + item.icon + '</div><span>' + item.text + '</span></div>';
+        });
+
+        const linksEl = document.getElementById('teamModalLinks');
+        linksEl.innerHTML = '';
+        const links = [];
+        if (d.linkedin && d.linkedin !== '#') {
+          links.push({
+            href: d.linkedin,
+            label: 'LinkedIn',
+            external: true,
+            icon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>',
+          });
+        }
+        links.push({
+          href: '../contact.html',
+          label: 'Send a message',
+          external: false,
+          icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        });
+
+        const linksSection = document.getElementById('teamModalLinksSection');
+        linksSection.style.display = links.length ? '' : 'none';
+        links.forEach(function (l) {
+          const attrs = l.external ? ' target="_blank" rel="noopener noreferrer"' : '';
+          linksEl.innerHTML += '<a href="' + l.href + '" class="team-modal-link"' + attrs + '>' + l.icon + l.label + '</a>';
+        });
+
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeModal() {
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      renderCardPhotos();
+
+      document.querySelectorAll('.team-card[data-name]').forEach(function (card) {
+        card.addEventListener('click', function () { openModal(card); });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal(card);
+          }
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', function (e) {
+        if (e.target === backdrop) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && backdrop.classList.contains('active')) closeModal();
+      });
+    })();
+  </script>
+</body>
+</html>

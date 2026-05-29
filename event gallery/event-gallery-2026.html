@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 Event Gallery — KBI Hong Kong</title>
+  <meta name="description"
+    content="KBI Hong Kong is the regional chapter of the Königsberger Bridges Institute — building Hong Kong's pipeline of emerging technology talent through competitions, training, research, and community.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../kbi-hk.css">
+  <style>
+    /* ── SPONSOR MARQUEE ── */
+    .sponsor-marquee-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin: 48px 0;
+    }
+
+    .sponsor-marquee-wrap::before,
+    .sponsor-marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .sponsor-marquee-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, #05070A, transparent);
+    }
+
+    .sponsor-marquee-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #05070A, transparent);
+    }
+
+    .sponsor-marquee {
+      overflow: hidden;
+    }
+
+    .sponsor-marquee-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: marquee 38s linear infinite;
+    }
+
+    .sponsor-marquee:hover .sponsor-marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sponsor-marquee-track {
+        animation: none;
+      }
+    }
+
+    .sponsor-logo-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 28px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.05);
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.55);
+      transition: border-color 0.25s, color 0.25s;
+      flex-shrink: 0;
+    }
+
+    .sponsor-logo-pill:hover {
+      border-color: rgba(255, 209, 102, 0.4);
+      color: rgba(255, 209, 102, 0.9);
+    }
+  </style>
+
+</head>
+<body>
+
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p>
+        <span class="ab-badge">New</span>
+        ETO Eastern Conference 2026 (9–11 Oct, CDNIS).
+        <a href="../upcoming events/events.html">View events &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+<!-- NAV -->
+  <nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+        <div class="nav-wordmark">
+          <span class="nav-wordmark-name">KBI Hong Kong</span>
+          <span class="nav-wordmark-sub">Königsberger Bridges Institute</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg
+              viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="../about/about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="../about/about-history.html" role="menuitem">Our History</a>
+            <a href="../about/about-impact.html" role="menuitem">Our Impact</a>
+            <a href="../about/about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown"><button class="nav-dropdown-trigger" aria-expanded="false"
+            aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+                                                            <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="../programme/i2ol.html" role="menuitem">I&sup2;OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="../programme/etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="../programme/skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="../programme/abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="../programme/isfretic.html" role="menuitem">International Standards Framework of Reference for Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="../programme/projects.html" role="menuitem">Project Support</a>
+            <a href="../programme/working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="../programme/membership.html" role="menuitem">Socratic Circles</a>
+            <a href="../programme/gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div></li>
+        <li><a href="../upcoming events/events.html">Events</a></li>
+        <!-- <li class="hide-md"><a href="../programme/sponsors.html">Sponsors</a></li> -->
+        <li class="hide-md"><a href="../news/news.html">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+                                    <div class="nav-ctas">
+        <a href="../programme/sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="../programme/membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false"
+        aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="../about/about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="../about/about-history.html" class="nav-mobile-sub">Our History</a>
+    <a href="../about/about-impact.html" class="nav-mobile-sub">Our Impact</a>
+    <a href="../about/about-team.html" class="nav-mobile-sub">Our Team</a>
+    <a href="../media.html" class="nav-mobile-sub">Media &amp; Brand Kit</a>
+        <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="../programme/i2ol.html" class="nav-mobile-sub">I&sup2;OL Scheme</a>
+                <div class="nav-mobile-section-label">Certify</div>
+    <a href="../programme/etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="../programme/skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="../programme/abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="../programme/isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+    
+    
+    
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="../programme/projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="../programme/working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+                <div class="nav-mobile-section-label">Connect</div>
+    <a href="../programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    <a href="../programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="../index.html" class="nav-mobile-link">Home</a>
+    <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="../news/news.html" class="nav-mobile-link">News &amp; Insights</a>
+    <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+                        <div class="nav-mobile-ctas">
+      <a href="../programme/sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="../programme/membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+  
+  
+  
+  
+  <!-- Page Hero -->
+  <header class="gallery-page-hero">
+    <div class="gallery-page-hero-inner">
+      <p class="gallery-page-eyebrow">Event Recap &amp; Gallery</p>
+      <h1><em>2026</em> Recap &amp; Gallery</h1>
+      <p class="gallery-page-hero-sub">The 2026 page is still early in the cycle, so it should feel lighter and more reflective than 2025. Rather than positioning the year around competition, the page can emphasise scientific exposure, civic engagement, and broader perspectives on technology and society.</p>
+    </div>
+  </header>
+
+  <div class="gallery-year-nav">
+    <div class="gallery-year-nav-inner">
+      <a href="event-gallery-2025.html" class="gallery-nav-arrow">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        2025 Gallery
+      </a>
+      <a href="../upcoming events/events.html#past-events" class="gallery-nav-center">↑ All Events</a>
+<span></span>
+    </div>
+  </div>
+
+  <!-- Gallery Main -->
+  <main class="gallery-main" id="main-content">
+    <div class="gallery-main-inner">
+
+      <section class="gallery-event-section reveal" id="hk-sdg-summit-2026">
+        <div class="gallery-event-header">
+          <div class="gallery-event-num">01</div>
+          <div class="gallery-event-header-body">
+            <div class="gallery-event-meta">
+              <span class="gallery-event-tag gallery-event-tag--first">Supporting Organisation</span>
+              <span class="gallery-event-date">March 2026</span>
+              <span class="gallery-event-venue">CDNIS, Hong Kong</span>
+            </div>
+            <h2 class="gallery-event-title">HK SDG Summit 2026</h2>
+            <p class="gallery-event-desc">Deepening global goals work with real projects, SDG awards, and emerging-tech solution design — KBI HK&#x27;s first formal collaboration with the Hong Kong Global Goals Council at CDNIS.</p>
+            <div class="gallery-event-recap">
+            <h3>Bridging SDGs, Competition Work, and Emerging Tech</h3>
+            <p>The HK SDG Summit 2026 was KBI Hong Kong&#x27;s first formal collaboration with the Hong Kong Global Goals Council (GGC), adding a new layer to the chapter&#x27;s long-standing competition ecosystem. Instead of only sending teams to olympiads, KBI HK brought concrete ETO 2025 projects and a structured emerging-technology workshop into a youth-led SDG summit context.</p>
+            <p>As a supporting organisation, KBI HK co-delivered the ETO 2025 SDG Awards in partnership with GGC, recognising one standout ETO/IBCOL/IDSOL project for each of the 17 Sustainable Development Goals. The awards turned abstract SDG icons into specific student-led solutions, showing how competition work maps directly onto global challenges.</p>
+            <p>In parallel, KBI HK ran a focused &quot;Accelerate Your Action: Bridging Possibility and Practicality&quot; workshop track for summit delegates — a rapid introduction to blockchain and trust technologies (BCTT), data science and AI (DSAI), and quantum computing and information theory (QCIT), then guidance in shaping ideas into implementable projects using the ETO Project Model Canvas.</p>
+            <h3>Seventeen Goals, Seventeen Projects</h3>
+            <p>The ETO 2025 SDG Awards segment celebrated teams whose projects embodied each SDG in practice, drawing from IBCOL and IDSOL finalists across multiple regions. Highlights included:</p>
+            <ul class="gallery-sdg-list">
+            <li><strong>SDG 1: No Poverty</strong> — Shufola (IBCOL25 BD‑26, Bangladesh): government-backed financing on a permissioned blockchain, with smart contracts and AI analytics for fairer food systems.</li>
+            <li><strong>SDG 2: Zero Hunger</strong> — Kaz Wheat Chain (IBCOL25 KZ‑68, Kazakhstan): digitising Kazakhstan&#x27;s wheat supply chain for more trusted, faster, sustainable trade.</li>
+            <li><strong>SDG 3: Good Health and Well-being</strong> — DeOrphan Protocol (IBCOL25 HK‑35, Hong Kong): transparent, patient-directed funding for rare-disease cures.</li>
+            <li><strong>SDG 4: Quality Education</strong> — HOLOMED (IDSOL25 SR‑36, Suriname): AR converting 2D medical images into 3D models for learning.</li>
+            <li><strong>SDG 5: Gender Equality</strong> — WashWatch (IDSOL25 HK‑07, Hong Kong): AI detecting social washing by comparing claims with actions.</li>
+            <li><strong>SDG 6: Clean Water and Sanitation</strong> — SenseCore (IDSOL25 BD‑31, Bangladesh): IoT-based smart irrigation for water-stressed contexts.</li>
+            <li><strong>SDG 7: Affordable and Clean Energy</strong> — MEHR (IBCOL25 IR‑04, Iran): decentralised digital product passport protocol for solar panels.</li>
+            <li><strong>SDG 8: Decent Work and Economic Growth</strong> — AITHOS (IDSOL25 NL‑08, Netherlands): startup marketing copilot chaining reasoning models and live trend signals.</li>
+            <li><strong>SDG 9: Industry, Innovation and Infrastructure</strong> — TYCHICUS (IBCOL25 HK‑32, Hong Kong): verifiable, privacy-preserving audit trail for AI training data.</li>
+            <li><strong>SDG 10: Reduced Inequalities</strong> — Sentio (IDSOL25 BD‑33, Bangladesh): generative AI for emotion-centred learning across neurodiverse populations.</li>
+            <li><strong>SDG 11: Sustainable Cities and Communities</strong> — URBANOVA (IDSOL25 CN‑58, China): urban data for climate-resilient cities.</li>
+            <li><strong>SDG 12: Responsible Consumption and Production</strong> — BETTERNATIVE (IDSOL25 NL‑09, Netherlands): computer vision for traceable, eco-friendly shopping alternatives.</li>
+            <li><strong>SDG 13: Climate Action</strong> — CertiCrete (IBCOL25 CA‑06, Canada): secure auditing for carbon neutrality in sustainable materials.</li>
+            <li><strong>SDG 14: Life Below Water</strong> — AquaTune (IDSOL25 SE‑53, Sweden): data-driven acoustic simulation for underwater music training.</li>
+            <li><strong>SDG 15: Life on Land</strong> — Forest Lost, Fever Cost (IDSOL25 MO‑52, Macao): mapping forest loss to predict zoonotic disease hotspots.</li>
+            <li><strong>SDG 16: Peace, Justice and Strong Institutions</strong> — SafePass (IBCOL25 BD‑38, Bangladesh): blockchain ecosystem for ethical labour migration.</li>
+            <li><strong>SDG 17: Partnerships for the Goals</strong> — WhistleChain (IBCOL25 HK‑70, Hong Kong): secure whistleblower evidence platform with vetted attorneys.</li>
+            </ul>
+            <p>Framed within the summit&#x27;s &quot;Accelerate Your Action&quot; theme, the awards showed how competition projects can evolve into SDG-aligned interventions across countries and disciplines.</p>
+            <h3>The KBI x GGC Workshop: From Idea to Implementable Project</h3>
+            <p>As part of the summit programme, KBI HK delivered &quot;Accelerate Your Action: Bridging Possibility and Practicality&quot; in two back-to-back sections for secondary delegates (Grade 9–12 / Form 3–6), welcoming up to 20 GGC delegates per session with existing project ideas and defined problem spaces.</p>
+            <ul>
+            <li>Rapidfire introduction to BCTT, DSAI, and QCIT — tied to solution design, not abstract theory.</li>
+            <li>ETO Project Model Canvas (ETO‑PMC) as the central tool for implementable projects.</li>
+            <li>Pre-workshop briefing package, solution design patterns presentation, and digital/printed ETO‑PMC worksheets.</li>
+            </ul>
+            <p>Workshop rundown (per 45‑minute session): 10:00–10:10 rapidfire Q&amp;A on fundamentals; 10:10–10:30 solution design patterns by problem space; 10:30–10:45 ETO‑PMC design lab with live Q&amp;A. Facilitated by Gabriel Chan, Kate Cruz Pun, and Kimmie Tang at CDNIS (two identical sessions on Saturday 7 March 2026).</p>
+            <h3>Why this event matters for KBI HK</h3>
+            <p>For KBI Hong Kong, the collaboration signalled a move from being &quot;the competition people&quot; to helping young innovators connect emerging technologies with global-issues leadership — recognising ETO 2025 teams through SDG-framed awards while equipping summit delegates with practical methods for emerging-tech-backed projects.</p>
+            
+              <div class="gallery-event-details">
+                <h3>Event details</h3>
+                <dl class="gallery-details-grid">
+                  <div><dt>Date</dt><dd>Early March 2026 (workshop sessions on Saturday 7 March 2026)</dd></div>
+                  <div><dt>Venue</dt><dd>Canadian International School of Hong Kong (CDNIS)</dd></div>
+                  <div><dt>Format</dt><dd>Supporting organisation · SDG awards · emerging-tech ideation workshop (two 45‑minute sections)</dd></div>
+                  <div><dt>Programme</dt><dd>ETO 2025 SDG Awards · BCTT/DSAI/QCIT crash course · ETO Project Model Canvas design lab</dd></div>
+                  <div><dt>Partners</dt><dd>Hong Kong Global Goals Council · KBI Hong Kong · ETO / IBCOL / IDSOL network</dd></div>
+                  <div><dt>Audience</dt><dd>Youth accelerators, NGOs, clubs, and KBI HK partners</dd></div>
+                </dl>
+              </div>
+            <p class="gallery-event-closing">The partnership with youth-led GGC reflects KBI HK&#x27;s commitment to empowering students to own their spaces, while bringing the structure, rigour, and technical literacy needed to make those spaces more impactful over time.</p>
+            </div>
+            <div class="photo-strip-wrap">
+              <div class="photo-strip-scroll" tabindex="0" role="region" aria-label="Event photos — scroll horizontally">
+                <div class="photo-strip-track">
+                  <button type="button" class="photo-strip-item" aria-label="View larger image" data-caption="HK SDG Summit 2026">
+                    <img src="../images/2026.03.07 Global Goals Council (CDNIS HKSAR)/hkggc 2026 - agnes talking.jpg" alt="HK SDG Summit 2026" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image" data-caption="HK SDG Summit 2026">
+                    <img src="../images/2026.03.07 Global Goals Council (CDNIS HKSAR)/hkggc 2026 - gab teaching.jpg" alt="HK SDG Summit 2026" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image" data-caption="HK SDG Summit 2026">
+                    <img src="../images/2026.03.07 Global Goals Council (CDNIS HKSAR)/hkggc 2026 - kimmie teaching.jpg" alt="HK SDG Summit 2026" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image" data-caption="HK SDG Summit 2026">
+                    <img src="../images/2026.03.07 Global Goals Council (CDNIS HKSAR)/hkggc 2026 - stage photo.jpg" alt="HK SDG Summit 2026" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button id="lightboxClose" type="button" aria-label="Close photo viewer">&#x2715;</button>
+    <button id="lightboxPrev" type="button" class="lightbox-nav lightbox-nav--prev" aria-label="Previous photo">&#x2039;</button>
+    <button id="lightboxNext" type="button" class="lightbox-nav lightbox-nav--next" aria-label="Next photo">&#x203A;</button>
+    <img id="lightboxImg" src="" alt="">
+    <p id="lightboxCaption"></p>
+  </div>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-icon-mist.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 KBI Hong Kong. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="../about/about-who-we-are.html">Who We Are</a></li>
+            <li><a href="../about/about-history.html">Our History</a></li>
+            <li><a href="../about/about-impact.html">Our Impact</a></li>
+            <li><a href="../about/about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="../programme/i2ol.html">I&sup2;OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="../programme/etti.html">ETTI Program</a></li>
+            <li><a href="../programme/skillsprint.html">SkillSprint</a></li>
+            <li><a href="../programme/abc5.html">ABC5 Program</a></li>
+            <li><a href="../programme/isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="../programme/projects.html">Project Support</a></li>
+            <li><a href="../programme/working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="../programme/socratic.html">Socratic Circles</a></li>
+            <li><a href="../programme/gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="../news/news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../programme/sponsors.html">Partner With Us</a></li>
+            <li><a href="../programme/membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M7 12V2M2 7l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <script src="../kbi-hk.js"></script>
+</body>
+
+</html>
+
+

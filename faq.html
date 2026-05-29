@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <title>Frequently Asked Questions — KBI Hong Kong</title>
+  <meta name="description" content="Answers to common questions about KBI Hong Kong membership, competitions, certifications, events, and how to get involved.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="kbi-hk.css">
+  <style>
+    .faq-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+    .faq-nav-btn { padding: 8px 18px; border-radius: 999px; border: 1.5px solid var(--stone); background: #fff; font-size: 0.8125rem; font-weight: 600; color: var(--text-faint); cursor: pointer; transition: all 0.2s; }
+    .faq-nav-btn:hover, .faq-nav-btn.active { background: var(--prussian); border-color: var(--prussian); color: #fff; }
+    .faq-category { margin-bottom: 56px; }
+    .faq-category-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--prussian); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .faq-category-label::after { content: ''; flex: 1; height: 1px; background: var(--stone); }
+    .faq-item { border: 1px solid var(--stone); border-radius: var(--radius-md); margin-bottom: 10px; overflow: hidden; background: #fff; }
+    .faq-question { width: 100%; background: none; border: none; padding: 22px 24px; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9375rem; font-weight: 600; color: var(--ink); line-height: 1.5; transition: background 0.2s; }
+    .faq-question:hover { background: var(--mist); }
+    .faq-question[aria-expanded="true"] { background: var(--prussian); color: #fff; }
+    .faq-icon { width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%; border: 1.5px solid currentColor; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-answer-inner { padding: 24px 24px 24px; border-top: 1px solid var(--stone); font-size: 0.875rem; color: var(--text-faint); line-height: 1.85; }
+    .faq-answer-inner a { color: var(--prussian); font-weight: 600; }
+    .faq-answer-inner ul { padding-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .faq-item.open .faq-answer { max-height: 600px; }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>    <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p class="announcement-bar-text">
+        ETO Eastern Conference 2026 · 9–11 October · Interest registration now open.
+        <a href="upcoming events/eto2026.html">Register Here &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+
+<!-- NAV -->
+  <nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+        <div class="nav-wordmark"><span class="nav-wordmark-name">KBI Hong Kong</span><span class="nav-wordmark-sub">Königsberger Bridges Institute</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="about/about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="about/about-history.html" role="menuitem">Our History</a>
+            <a href="about/about-impact.html" role="menuitem">Our Impact</a>
+            <a href="about/about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                            <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="programme/i2ol.html" role="menuitem">I&sup2;OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="programme/etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="programme/skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="programme/abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="programme/isfretic.html" role="menuitem">International Standards Framework of Reference for Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="programme/projects.html" role="menuitem">Project Support</a>
+            <a href="programme/working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="programme/membership.html" role="menuitem">Socratic Circles</a>
+            <a href="programme/gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div></li>
+        <li><a href="upcoming events/events.html">Events</a></li>
+        <li class="hide-md"><a href="news/news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+                                    <div class="nav-ctas">
+        <a href="programme/sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="programme/membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="about/about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="about/about-history.html" class="nav-mobile-link">Our History</a>
+    <a href="about/about-impact.html" class="nav-mobile-link">Our Impact</a>
+    <a href="about/about-team.html" class="nav-mobile-link">Our Team</a>
+    <a href="media.html" class="nav-mobile-link">Media &amp; Brand Kit</a>
+        <div class="nav-mobile-section-label">Compete</div>
+    <a href="upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="programme/i2ol.html" class="nav-mobile-sub">I&sup2;OL Scheme</a>
+                <div class="nav-mobile-section-label">Certify</div>
+    <a href="programme/etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="programme/skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="programme/abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="programme/isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+    
+    
+    
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="programme/projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="programme/working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+                <div class="nav-mobile-section-label">Connect</div>
+    <a href="programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    <a href="programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="programme/membership.html" class="nav-mobile-link">Community</a>
+    <a href="news/news.html" class="nav-mobile-link">News &amp; Insights</a>
+    <a href="faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="contact.html" class="nav-mobile-link">Contact</a>
+                        <div class="nav-mobile-ctas">
+      <a href="programme/sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="programme/membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+  <!-- PAGE HERO -->
+  <header class="page-hero page-hero--prussian" aria-label="FAQ">
+    <div class="page-hero-inner">
+      <div class="label-row"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">Help &amp; Information</span></div>
+      <h1 class="page-hero-heading">Frequently Asked<br>Questions</h1>
+      <p class="page-hero-sub">Answers to common questions about KBI HK membership, competitions, certifications, events, and how to get involved.</p>
+    </div>
+  </header>
+
+  <!-- FAQ CONTENT -->
+  <section class="section-wrap section-wrap--white" id="faq" aria-labelledby="faq-heading">
+    <div class="section-inner">
+      <div style="max-width:800px;margin:0 auto;">
+
+        <div class="faq-nav" role="navigation" aria-label="FAQ categories">
+          <button class="faq-nav-btn active" onclick="filterFAQ('all', this)">All</button>
+          <button class="faq-nav-btn" onclick="filterFAQ('membership', this)">Membership</button>
+          <button class="faq-nav-btn" onclick="filterFAQ('competitions', this)">Competitions</button>
+          <button class="faq-nav-btn" onclick="filterFAQ('i2ol-eto', this)">I²OL &amp; ETO</button>
+          <button class="faq-nav-btn" onclick="filterFAQ('certifications', this)">Certifications</button>
+          <button class="faq-nav-btn" onclick="filterFAQ('events', this)">Events</button>
+          <button class="faq-nav-btn" onclick="filterFAQ('volunteer', this)">Volunteering</button>
+          <button class="faq-nav-btn" onclick="filterFAQ('sponsors', this)">Sponsors</button>
+        </div>
+
+        <!-- MEMBERSHIP -->
+        <div class="faq-category" data-cat="membership">
+          <div class="faq-category-label">Membership</div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Who can join KBI HK?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">KBI HK membership is open to secondary school students, university undergraduates, postgraduate students, and recent graduates (within 3 years of graduation) based in Hong Kong. We welcome participants from all academic disciplines — you do not need a computer science background to join or participate in our programmes.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Is there a membership fee?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">KBI HK membership currently has a nominal annual fee that covers administrative costs, event access, and community resources. The exact fee and payment details are provided during the membership sign-up process. We also offer fee waivers for participants who demonstrate financial need — please contact us if this is relevant to you.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              What do members get access to?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                Members receive:
+                <ul>
+                  <li>Priority access to competition registration (IBCOL, IDSOL, IQCOL, ETO Eastern)</li>
+                  <li>Free or discounted access to workshops, clinics, and training sessions</li>
+                  <li>Invitations to community events, networking sessions, and the annual gathering</li>
+                  <li>Access to our members-only communication channels and resource library</li>
+                  <li>Eligibility to apply for the APO programme and volunteer officer roles</li>
+                  <li>Eligibility to apply for KBI HK scholarship support</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Can I participate in competitions without being a member?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Most KBI HK competitions require at least one team member to hold active KBI HK membership. In practice, we encourage all team members to join — membership is how we build a sustained community, not just a one-time event audience. Community events and public workshops are generally open to non-members.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPETITIONS -->
+        <div class="faq-category" data-cat="competitions">
+          <div class="faq-category-label">Competitions</div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              What competitions does KBI HK run?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                KBI HK organises the <strong>I²OL scheme</strong> — three subject olympiads — and hosts <strong>ETO Eastern Conference</strong> in 2026:
+                <ul>
+                  <li><strong>IBCOL HK</strong> — blockchain &amp; trust technology (I²OL)</li>
+                  <li><strong>IDSOL HK</strong> — data science &amp; AI (I²OL)</li>
+                  <li><strong>IQCOL HK</strong> — quantum computing (I²OL)</li>
+                  <li><strong>ETO</strong> — Emerging Technologies Olympiad (annual global conference; separate from I²OL finals)</li>
+                </ul>
+                Overview: <a href="programme/i2ol.html">I²OL Scheme</a> · Details: <a href="programme/i2ol.html">Competitions</a> · ETO: <a href="upcoming events/eto2026.html">ETO Eastern Conference 2026</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Do I need prior technical knowledge to compete?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Yes — our competitions are academically rigorous and designed to be challenging. However, "prior knowledge" does not mean a degree in the field. We provide preparatory workshops and resources (including the Quantum Primer Workshop series for IQCOL and training sessions for IBCOL). Motivated students who engage with our training resources have consistently performed well, regardless of their academic background. The ability to learn fast, think analytically, and work in teams matters more than pre-existing expertise.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              How are competition teams formed?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Teams are self-formed and typically consist of 2–4 members. You are responsible for forming your own team prior to registration. We do facilitate a team-matching process for individuals looking for teammates — ask in the members' community channel or at a community event. Mixed teams (combining secondary and university students, or students from different disciplines) are permitted and often produce strong results.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Can KBI HK teams qualify for international competitions?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Yes. Top-placing teams in IBCOL HK and IDSOL HK are eligible to qualify for international KBI finals stages, which have historically been held in Europe and North America. KBI HK teams have participated in and placed at international finals multiple times. Travel and accommodation support for qualifying teams is subject to available funding — contact us for details specific to each cycle.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              What is ETO Eastern and how is it different from the other competitions?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">ETO is an annual <strong>global conference</strong> for emerging technologies — cross-disciplinary (BCTT, DSAI, QCIT), not the finals of IBCOL, IDSOL, or IQCOL. I²OL olympiads test depth in one domain; ETO is a separate stage with its own structure and judging. In 2026, KBI HK hosts <strong>ETO Eastern Conference</strong> (9–11 October, CDNIS). See <a href="upcoming events/eto2026.html">ETO Eastern Conference 2026</a> and <a href="programme/i2ol.html">I²OL Scheme</a> for how they relate.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- I²OL & ETO -->
+        <div class="faq-category" data-cat="i2ol-eto" id="i2ol-eto">
+          <div class="faq-category-label">I²OL &amp; ETO</div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              What does I²OL stand for?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner"><strong>I²OL</strong> (International Individual Olympiad League) is the umbrella scheme for three subject olympiads run in Hong Kong: <strong>IBCOL</strong> (blockchain), <strong>IDSOL</strong> (data science), and <strong>IQCOL</strong> (quantum). Navigation uses “I²OL Scheme” so all three are easy to find together. Full explanation: <a href="programme/i2ol.html">I²OL Scheme page</a>.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              What is the difference between I²OL and ETO?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                <ul>
+                  <li><strong>I²OL</strong> — subject olympiads; you choose one track (IBCOL, IDSOL, or IQCOL) and compete for depth in that domain, with Hong Kong rounds leading to that olympiad’s global finals.</li>
+                  <li><strong>ETO</strong> — Emerging Technologies Olympiad; an annual global <em>conference</em> with cross-disciplinary domains (BCTT, DSAI, QCIT). It is not described as the grand final of the three olympiads.</li>
+                </ul>
+                Students may progress from an I²OL track toward ETO where qualification rules allow — but ETO has separate structure and adjudication.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Is ETO the final round of IBCOL, IDSOL, or IQCOL?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner"><strong>No.</strong> Each I²OL olympiad has its own international finals (e.g. global IBCOL, IDSOL, IQCOL). ETO is a distinct conference. Winning or placing in an I²OL Hong Kong round advances you on that olympiad’s pathway; ETO participation follows ETO’s own criteria.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              When and where is ETO Eastern Conference 2026?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner"><strong>9–11 October 2026</strong> at the <strong>Canadian International School of Hong Kong (CDNIS)</strong>. KBI HK expects roughly 36 teams and ~300 participants (students, judges, mentors, organisers, partners). A Western ETO roadshow is also planned for the Netherlands in the same cycle. Register interest: <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener">Google Form</a> · <a href="upcoming events/eto2026.html">ETO Eastern Conference 2026 page</a></div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Do I need to enter all three I²OL olympiads?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">No. Most students focus on <strong>one</strong> I²OL track per cycle. The scheme groups the three olympiads under one organisational home — it does not require you to compete in blockchain, data science, and quantum in the same year.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Where are global rules for each olympiad?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Hong Kong-specific information: <a href="programme/i2ol.html">Competitions</a>. Global sites: <a href="https://2026.ibcol.org" target="_blank" rel="noopener">ibcol.org</a>, <a href="https://2026.idsol.org" target="_blank" rel="noopener">idsol.org</a>, <a href="https://2026.iqcol.org" target="_blank" rel="noopener">iqcol.org</a>.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="faq-category" data-cat="certifications">
+          <div class="faq-category-label">Certifications &amp; Training</div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              What is the ISFRETIC certification?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">The ISFRETIC (International Standard Framework for Rigorous Emerging Technology Instruction and Certification) is KBI's internationally recognised certification framework. It covers foundational and advanced competencies in blockchain, data science, and quantum computing. KBI HK delivers ISFRETIC training locally, and participants who pass the assessment receive certification recognised across the KBI global network. See the <a href="programme/isfretic.html">certifications page</a> for current intake information.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Is ISFRETIC certification recognised by employers?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">ISFRETIC certification is recognised by KBI's global network of partner organisations and is valued as a signal of rigorous, structured learning in emerging technologies. Recognition by specific employers varies — we recommend checking with your target employer and noting that ISFRETIC certification is most meaningful when combined with competition participation, project experience, and demonstrated practical skills.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Do I need to complete ISFRETIC training before entering competitions?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">No — ISFRETIC training and KBI HK competitions are parallel pathways. You can enter competitions without completing ISFRETIC training, and you can pursue certification without entering competitions. That said, many participants find that the training curriculum provides useful preparation for the competition environment, and we recommend engaging with both if time permits.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EVENTS -->
+        <div class="faq-category" data-cat="events">
+          <div class="faq-category-label">Events &amp; Workshops</div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Are KBI HK events open to the public?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Many KBI HK community events and workshops are open to the public, while competition-specific events and member-only gatherings require membership. Check the <a href="upcoming events/events.html">events page</a> for the registration status and access requirements for each individual event. When in doubt, register your interest and we will confirm eligibility.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              How do I find out about upcoming events?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Upcoming events are listed on the <a href="upcoming events/events.html">events page</a> and announced through our member newsletter, social media channels, and community communication platforms. Members typically receive event announcements 2–4 weeks in advance. Signing up for membership is the most reliable way to stay informed.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Are events in-person, online, or hybrid?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">KBI HK runs a mix of in-person, online, and hybrid events depending on the format and scale. Competition days, community gatherings, and major workshops are typically in-person in Hong Kong. Some preparatory training sessions and smaller workshops may be online or hybrid. Each event listing specifies the format clearly.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VOLUNTEER -->
+        <div class="faq-category" data-cat="volunteer">
+          <div class="faq-category-label">Volunteering &amp; Team Roles</div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              How can I join the KBI HK committee or volunteer team?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">The standard pathway is through the <strong>Associate Programme Officer (APO) programme</strong>, which is open to current KBI HK members. APO intake is announced twice per year through member channels. After completing an APO cycle, you can apply for a full Programme Officer role. See the <a href="about/about-team.html">Our Team page</a> for a full explanation of the structure and how to apply.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Can I volunteer at events without joining the committee?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Yes. KBI HK occasionally recruits event volunteers on an ad hoc basis for larger events such as competition days and the annual gathering. Volunteer calls are posted through the members' channel. Event volunteering is a great way to get a feel for how KBI HK operates and to meet the team before considering a more formal APO application.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Can I propose a new programme or event idea to KBI HK?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Yes — we actively welcome programme and event proposals from community members. The best way to submit a proposal is through our <a href="contact.html">contact form</a>, clearly outlining the idea, target audience, and your suggested involvement. Proposals from current members are reviewed by the committee at our monthly planning meetings.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SPONSORS -->
+        <div class="faq-category" data-cat="sponsors">
+          <div class="faq-category-label">Sponsors &amp; Partners</div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              How can my organisation sponsor or partner with KBI HK?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">We work with sponsors and partners across several categories — programme sponsors, event partners, prize donors, and institution collaborators. See the <a href="programme/sponsors.html">sponsors page</a> for an overview of partnership tiers, or fill in the <a href="programme/sponsors.html#enquiry">sponsor enquiry form</a> and our Sponsorship Officer will be in touch within 5 working days.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+              Can my school or university collaborate with KBI HK?
+              <div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" width="12" height="12"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Absolutely. KBI HK works with secondary schools, universities, and research institutes across Hong Kong. Institutional collaboration can take the form of campus ambassador programmes, joint event co-organisation, research project partnerships, or formal MOU-based agreements. Contact us through the <a href="programme/projects.html">project support page</a> or reach out directly via <a href="contact.html">our contact form</a>.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--mist);border:1px solid var(--stone);border-radius:var(--radius-md);padding:32px;margin-top:24px;text-align:center;">
+          <h3 style="font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;">Didn't find your answer?</h3>
+          <p style="font-size:0.875rem;color:var(--text-faint);margin-bottom:20px;">Our team is happy to answer any questions not covered here. Most enquiries receive a response within 2–3 working days.</p>
+          <a href="contact.html" class="btn btn-prussian btn--sm">Contact Us</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  </main>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="assets/brand/logo-icon-mist.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 KBI Hong Kong. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="about/about-who-we-are.html">Who We Are</a></li>
+            <li><a href="about/about-history.html">Our History</a></li>
+            <li><a href="about/about-impact.html">Our Impact</a></li>
+            <li><a href="about/about-team.html">Our Team</a></li>
+            <li><a href="media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="programme/i2ol.html">I&sup2;OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="programme/etti.html">ETTI Program</a></li>
+            <li><a href="programme/skillsprint.html">SkillSprint</a></li>
+            <li><a href="programme/abc5.html">ABC5 Program</a></li>
+            <li><a href="programme/isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="programme/projects.html">Project Support</a></li>
+            <li><a href="programme/working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="programme/socratic.html">Socratic Circles</a></li>
+            <li><a href="programme/gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="upcoming events/events.html">Events</a></li>
+            <li><a href="news/news.html">News &amp; Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="programme/sponsors.html">Partner With Us</a></li>
+            <li><a href="programme/membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="kbi-hk.js"></script>
+  <script>
+    function toggleFAQ(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+    function filterFAQ(cat, btn) {
+      document.querySelectorAll('.faq-nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.faq-category').forEach(cat_el => {
+        if (cat === 'all' || cat_el.getAttribute('data-cat') === cat) {
+          cat_el.style.display = '';
+        } else {
+          cat_el.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+

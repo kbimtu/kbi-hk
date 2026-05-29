@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+  <title>Our Team — KBI Hong Kong</title>
+  <meta name="description" content="How KBI Hong Kong is organised — four volunteer teams and advisors who run programmes, events, and community around emerging technologies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../kbi-hk.css">
+  <style>
+    .team-prose {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      max-width: 720px;
+    }
+    .team-prose p + p { margin-top: 1.25em; }
+
+    .org-overview {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    @media (max-width: 640px) {
+      .org-overview { grid-template-columns: 1fr; }
+    }
+    .org-overview-item {
+      background: var(--prussian);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      color: #fff;
+    }
+    .org-overview-item strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      margin-bottom: 6px;
+    }
+    .org-overview-item span {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.6;
+    }
+
+    .org-team-block {
+      background: #fff;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      margin-bottom: 24px;
+      scroll-margin-top: 100px;
+    }
+    .org-team-block:last-child { margin-bottom: 0; }
+    .org-team-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .org-team-badge {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 56px;
+      height: 56px;
+      padding: 0 12px;
+      border-radius: 12px;
+      background: var(--prussian);
+      color: var(--cyan);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+    .org-team-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.25;
+    }
+    .org-team-desc {
+      font-size: 0.9375rem;
+      color: var(--text-main);
+      line-height: 1.75;
+      max-width: 720px;
+      margin: 0;
+    }
+    .org-team-block--advisors .org-team-badge {
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.85);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p>
+        <span class="ab-badge">New</span>
+        ETO Eastern Conference 2026 (9–11 Oct, CDNIS).
+        <a href="../upcoming events/events.html">View events &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+<nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+        <div class="nav-wordmark"><span class="nav-wordmark-name">KBI Hong Kong</span><span class="nav-wordmark-sub">Königsberger Bridges Institute</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="about-history.html" role="menuitem">Our History</a>
+            <a href="about-impact.html" role="menuitem">Our Impact</a>
+            <a href="about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                        <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="../programme/i2ol.html" role="menuitem">I&sup2;OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="../programme/etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="../programme/skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="../programme/abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="../programme/isfretic.html" role="menuitem">International Standards Framework of Reference for Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="../programme/projects.html" role="menuitem">Project Support</a>
+            <a href="../programme/working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="../programme/socratic.html" role="menuitem">Socratic Circles</a>
+            <a href="../programme/gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div>
+        </li>
+        <li><a href="../upcoming events/events.html">Events</a></li>
+        <li class="hide-md"><a href="../news/news.html">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+                        <div class="nav-ctas">
+        <a href="../programme/sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="../programme/membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="about-history.html" class="nav-mobile-link">Our History</a>
+    <a href="about-impact.html" class="nav-mobile-link">Our Impact</a>
+    <a href="about-team.html" class="nav-mobile-link">Our Team</a>
+    <a href="../media.html" class="nav-mobile-link">Media &amp; Brand Kit</a>
+        <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="../programme/i2ol.html" class="nav-mobile-sub">I&sup2;OL Scheme</a>
+        <div class="nav-mobile-section-label">Certify</div>
+    <a href="../programme/etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="../programme/skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="../programme/abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="../programme/isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="../programme/projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="../programme/working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+        <div class="nav-mobile-section-label">Connect</div>
+    <a href="../programme/socratic.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="../news/news.html" class="nav-mobile-link">News &amp; Insights</a>
+    <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+                <div class="nav-mobile-ctas">
+      <a href="../programme/sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="../programme/membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <header class="page-hero page-hero--night" aria-label="Our Team">
+      <div class="page-hero-bg" aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(160deg, var(--night) 0%, var(--prussian) 100%);"></div>
+      <div class="page-hero-inner" style="position:relative;z-index:1;">
+<div class="label-row"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">About KBI Hong Kong</span></div>
+        <h1 class="page-hero-heading">Our Team</h1>
+        <p class="page-hero-sub" style="max-width:720px;">KBI Hong Kong is a youth-led volunteer chapter organised around a clear team structure. Different people contribute in different ways, but the goal is shared: to build serious programmes, events, and communities around emerging technologies.</p>
+      </div>
+    </header>
+
+    <section class="section-wrap section-wrap--white" id="structure" aria-labelledby="structure-heading">
+      <div class="section-inner">
+        <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Structure</span></div>
+        <h2 class="section-heading reveal" id="structure-heading">How we work</h2>
+        <div class="team-prose reveal reveal-delay-1">
+          <p>KBI HK is organised into four core teams, supported by advisors. Each team owns a distinct part of how the chapter runs — from long-range planning and partnerships to programme design, communications, and on-the-ground execution.</p>
+          <p>Members usually contribute through one primary team while collaborating across others when a project or event requires it. That structure helps us stay flexible without losing accountability.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-wrap--mist" id="teams" aria-labelledby="teams-heading">
+      <div class="section-inner">
+        <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Teams</span></div>
+        <h2 class="section-heading reveal" id="teams-heading">Team structure</h2>
+
+        <div style="margin-top:48px;">
+          <article class="org-team-block reveal reveal-delay-2" id="spt">
+          <div class="org-team-header">
+            <span class="org-team-badge" aria-hidden="true">SPT</span>
+              <h3 class="org-team-title">Strategic Planning Team (SPT)</h3>
+            </div>
+            <p class="org-team-desc">The Strategic Planning Team looks after direction, partnerships, and coordination across the wider KBI ecosystem. This is where longer-term thinking happens: chapter priorities, institutional relationships, and how KBI HK fits into the broader mission.</p>
+        </article>
+
+          <article class="org-team-block reveal reveal-delay-2" id="cot">
+          <div class="org-team-header">
+            <span class="org-team-badge" aria-hidden="true">COT</span>
+              <h3 class="org-team-title">Communications &amp; Outreach (COT)</h3>
+            </div>
+            <p class="org-team-desc">The Communications &amp; Outreach team is responsible for how KBI HK presents itself publicly. This includes publicity, branding, recruitment, outreach, and the external communications that help people understand who we are and why our work matters.</p>
+        </article>
+
+          <article class="org-team-block reveal reveal-delay-2" id="ppt">
+          <div class="org-team-header">
+            <span class="org-team-badge" aria-hidden="true">PPT</span>
+              <h3 class="org-team-title">Programmes &amp; Projects (PPT)</h3>
+            </div>
+            <p class="org-team-desc">The Programmes &amp; Projects team supports the learning side of KBI HK: programmes, workshops, certifications, and participant development. It is where ideas become pathways that people can actually join and grow through.</p>
+        </article>
+
+        <article class="org-team-block reveal reveal-delay-2" id="ept">
+          <div class="org-team-header">
+            <span class="org-team-badge" aria-hidden="true">EPT</span>
+              <h3 class="org-team-title">Event Production (EPT)</h3>
+            </div>
+            <p class="org-team-desc">The Event Production team handles logistics, hospitality, operations, and on-site execution. From planning competition days to making sure people feel welcomed in the room, this team turns plans into experiences.</p>
+            </article>
+
+          <article class="org-team-block org-team-block--advisors reveal reveal-delay-2" id="advisors">
+            <div class="org-team-header">
+              <span class="org-team-badge" aria-hidden="true">ADV</span>
+              <h3 class="org-team-title">Advisors</h3>
+              </div>
+            <p class="org-team-desc">Advisors provide continuity, perspective, and senior guidance. They support the chapter&rsquo;s development without replacing the leadership and initiative of the volunteer team itself.</p>
+            </article>
+          </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-wrap--white" id="working-style" aria-labelledby="working-style-heading">
+      <div class="section-inner">
+        <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Working style</span></div>
+        <h2 class="section-heading reveal" id="working-style-heading">What this means in practice</h2>
+        <div class="team-prose reveal reveal-delay-1">
+          <p>KBI HK is not run by one person doing everything alone. It works because responsibility is distributed across teams, and because volunteers step in where they are strongest — strategically, creatively, technically, or operationally.</p>
+          <p>Some people help shape direction. Some build programmes. Some communicate the work. Some make events actually happen. Together, that is what keeps the chapter moving.</p>
+          </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-wrap--prussian" id="joining" aria-labelledby="joining-heading">
+      <div class="section-inner" style="text-align:center;">
+        <div class="label-row" style="justify-content:center;"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">Joining</span></div>
+        <h2 class="section-heading section-heading--light reveal" id="joining-heading">Interested in contributing?</h2>
+        <div class="team-prose reveal reveal-delay-1" style="margin:0 auto;color:rgba(255,255,255,0.75);">
+          <p>Not everyone joins KBI HK in the same way. Some begin as participants in competitions or events; some join through membership and later volunteer; some contribute because they care about building a serious emerging-technology community in Hong Kong.</p>
+          <p>If that sounds like something you want to be part of, membership is usually the best place to start.</p>
+        </div>
+        <div class="reveal reveal-delay-2" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
+          <a href="../programme/membership.html" class="btn btn-yellow">Join Membership</a>
+          <a href="../contact.html" class="btn btn-outline-white">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-icon-mist.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 KBI Hong Kong. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="about-who-we-are.html">Who We Are</a></li>
+            <li><a href="about-history.html">Our History</a></li>
+            <li><a href="about-impact.html">Our Impact</a></li>
+            <li><a href="about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="../programme/i2ol.html">I&sup2;OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="../programme/etti.html">ETTI Program</a></li>
+            <li><a href="../programme/skillsprint.html">SkillSprint</a></li>
+            <li><a href="../programme/abc5.html">ABC5 Program</a></li>
+            <li><a href="../programme/isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="../programme/projects.html">Project Support</a></li>
+            <li><a href="../programme/working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="../programme/socratic.html">Socratic Circles</a></li>
+            <li><a href="../programme/gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="../news/news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../programme/sponsors.html">Partner With Us</a></li>
+            <li><a href="../programme/membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 12V2M2 7l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+  <script src="../kbi-hk.js"></script>
+</body>
+</html>
