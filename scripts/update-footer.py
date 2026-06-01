@@ -40,6 +40,7 @@ def footer_paths(file_path: Path) -> dict[str, str]:
     contact = "contact.html" if not base else f"{base}contact.html"
     media = "media.html" if not base else f"{base}media.html"
     faq = "faq.html" if not base else f"{base}faq.html"
+    pics = "pics.html" if not base else f"{base}pics.html"
 
     home = "index.html" if not base else f"{base}index.html"
 
@@ -57,6 +58,7 @@ def footer_paths(file_path: Path) -> dict[str, str]:
             "news": news,
             "contact": contact,
             "faq": faq,
+            "pics": pics,
         }
     )
     return u
@@ -133,6 +135,13 @@ def build_footer(file_path: Path) -> str:
             <li><a href="{u["membership"]}">Join Us</a></li>
           </ul>
         </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-bottom-text">
+          <a href="{u["pics"]}">Personal Information Collection Statement (PICS)</a>
+        </p>
       </div>
     </div>
   </footer>'''
