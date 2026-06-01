@@ -53,7 +53,7 @@ def main() -> None:
   <script>location.replace('i2ol.html');</script>
 </head>
 <body>
-  <p>Olympiad information has moved to the <a href="i2ol.html">I&sup2;OL Scheme</a> page, with links to the international competitions.</p>
+  <p>Olympiad information has moved to the <a href="i2ol.html">I2OL Scheme</a> page, with links to the international competitions.</p>
 </body>
 </html>
 """,

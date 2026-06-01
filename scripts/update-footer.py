@@ -104,7 +104,7 @@ def build_footer(file_path: Path) -> str:
           <h3 class="footer-col-heading">Compete</h3>
           <ul role="list">
             <li><a href="{u["eto"]}">Emerging Technologies Olympiad (ETO)</a></li>
-            <li><a href="{u["i2ol"]}">I&sup2;OL Scheme</a></li>
+            <li><a href="{u["i2ol"]}">I2OL Scheme</a></li>
           </ul>
         </div>
         <div class="footer-col">

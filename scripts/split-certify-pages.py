@@ -105,7 +105,7 @@ def prog_page(
           <div class="nav-dropdown" id="dd-prog" role="menu">
             <div class="nav-dropdown-label">Compete</div>
             <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
-            <a href="i2ol.html" role="menuitem">I&sup2;OL Scheme</a>
+            <a href="i2ol.html" role="menuitem">I2OL Scheme</a>
             <div class="nav-dropdown-divider"></div>
             <div class="nav-dropdown-label">Certify</div>
             <a href="etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
@@ -141,7 +141,7 @@ def prog_page(
     <a href="../media.html" class="nav-mobile-sub">Media &amp; Brand Kit</a>
     <div class="nav-mobile-section-label">Compete</div>
     <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
-    <a href="i2ol.html" class="nav-mobile-sub">I&sup2;OL Scheme</a>
+    <a href="i2ol.html" class="nav-mobile-sub">I2OL Scheme</a>
     <div class="nav-mobile-section-label">Certify</div>
     <a href="etti.html" class="nav-mobile-sub">ETTI Program</a>
     <a href="abc5.html" class="nav-mobile-sub">ABC5 Program</a>
@@ -224,7 +224,7 @@ def prog_page(
             <li><a href="etti.html">ETTI</a></li>
             <li><a href="abc5.html">ABC5</a></li>
             <li><a href="isfretic.html">ISFRETIC</a></li>
-            <li><a href="i2ol.html">I&sup2;OL Scheme</a></li>
+            <li><a href="i2ol.html">I2OL Scheme</a></li>
           </ul>
         </div>
         <div class="footer-col">

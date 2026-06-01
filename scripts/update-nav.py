@@ -80,7 +80,7 @@ def build_nav(file_path: Path) -> tuple[str, str, str, str]:
     dd = f'''          <div class="nav-dropdown" id="dd-prog" role="menu">
             <div class="nav-dropdown-label">Compete</div>
             <a href="{u['eto']}" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
-            <a href="{u['i2ol']}" role="menuitem">I&sup2;OL Scheme</a>
+            <a href="{u['i2ol']}" role="menuitem">I2OL Scheme</a>
             <div class="nav-dropdown-divider"></div>
             <div class="nav-dropdown-label">Certify</div>
             <a href="{u['etti']}" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
@@ -99,7 +99,7 @@ def build_nav(file_path: Path) -> tuple[str, str, str, str]:
 
     mob = f'''    <div class="nav-mobile-section-label">Compete</div>
     <a href="{u['eto']}" class="nav-mobile-link">Emerging Technologies Olympiad (ETO)</a>
-    <a href="{u['i2ol']}" class="nav-mobile-sub">I&sup2;OL Scheme</a>
+    <a href="{u['i2ol']}" class="nav-mobile-sub">I2OL Scheme</a>
     <div class="nav-mobile-section-label">Certify</div>
     <a href="{u['etti']}" class="nav-mobile-sub">ETTI Program</a>
     <a href="{u['skillsprint']}" class="nav-mobile-sub">SkillSprint</a>
