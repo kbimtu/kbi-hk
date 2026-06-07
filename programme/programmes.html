@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+<title>Programmes — KBI Hong Kong</title>
+<meta name="description" content="KBI Hong Kong's full portfolio of programmes: the ETO Eastern Conference 2026 flagship event, olympiad competitions in blockchain, data science and quantum computing, professional certifications, academic collaborations, and tech projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../kbi-hk.css">
+<style>
+/* ── PROGRAMMES HUB PAGE STYLES ─────────────────────────── */
+
+/* Hero */
+.prog-hub-hero {
+  position: relative;
+  background: var(--prussian);
+  overflow: hidden;
+  padding: 140px 40px 100px;
+  display: flex;
+  align-items: flex-end;
+}
+.prog-hub-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.prog-hub-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+}
+.prog-hub-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,49,83,0.92) 0%, rgba(5,7,10,0.75) 100%);
+  z-index: 1;
+}
+/* Decorative grid lines */
+.prog-hub-hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+.prog-hub-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin: 0 auto;
+  width: 100%;
+}
+.prog-hub-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+.prog-hub-hero h1 em { font-style: italic; color: var(--cyan); }
+.prog-hub-hero-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 0 0 40px;
+}
+.prog-hub-hero-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.prog-hub-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.prog-hub-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* ── STAT STRIP ─────────────────────────── */
+.prog-stat-strip {
+  background: var(--night);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.prog-stat-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.prog-stat {
+  padding: 36px 24px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+.prog-stat:last-child { border-right: none; }
+.prog-stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.prog-stat-number span { color: var(--cyan); }
+.prog-stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── FLAGSHIP FEATURE BANNER ─────────────────────────── */
+.flagship-banner {
+  background: var(--prussian);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  margin-bottom: 0;
+  position: relative;
+}
+.flagship-banner::before {
+  content: 'ETO 2026';
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%) rotate(-90deg);
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.04);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+.flagship-banner-body {
+  position: relative;
+  z-index: 1;
+  padding: 56px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flagship-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 20px;
+}
+.flagship-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--yellow);
+  animation: pulse-yellow 2s infinite;
+}
+@keyframes pulse-yellow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.flagship-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+.flagship-banner p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  max-width: 480px;
+  margin: 0 0 32px;
+}
+.flagship-banner-meta {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.flagship-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.flagship-meta-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #fff;
+}
+.flagship-meta-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.flagship-banner-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.flagship-banner-visual {
+  position: relative;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 340px;
+}
+.flagship-banner-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+.flagship-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,49,83,0.55);
+}
+.flagship-visual-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 32px;
+}
+.flagship-visual-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.flagship-visual-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 28px;
+}
+.flagship-track-chips {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.flagship-track-chip {
+  padding: 5px 12px;
+  border: 1px solid rgba(60,180,255,0.3);
+  background: rgba(60,180,255,0.1);
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+/* ── PROGRAMME HUB GRID ─────────────────────────── */
+.prog-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.prog-hub-card {
+  background: #fff;
+  border: 1px solid var(--stone);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s, transform 0.25s;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+.prog-hub-card:hover {
+  box-shadow: 0 12px 40px rgba(0,49,83,0.12);
+  transform: translateY(-4px);
+}
+.prog-hub-card-top-bar {
+  height: 4px;
+  width: 100%;
+  flex-shrink: 0;
+}
+.prog-hub-card-top-bar--prussian { background: var(--prussian); }
+.prog-hub-card-top-bar--cyan { background: var(--cyan); }
+.prog-hub-card-top-bar--yellow { background: var(--yellow); }
+.prog-hub-card-top-bar--green { background: #22c55e; }
+.prog-hub-card-body {
+  padding: 28px 28px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.prog-hub-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1.5px solid var(--stone);
+  background: var(--mist);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 1.25rem;
+  color: var(--prussian);
+  flex-shrink: 0;
+}
+.prog-hub-card-category {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}
+.prog-hub-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--prussian);
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+.prog-hub-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 0 20px;
+  flex: 1;
+}
+.prog-hub-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.prog-hub-card-tag {
+  padding: 3px 10px;
+  background: var(--mist);
+  border: 1px solid var(--stone);
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.prog-hub-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--prussian);
+  text-decoration: none;
+  margin-top: auto;
+  transition: gap 0.2s;
+}
+.prog-hub-card:hover .prog-hub-card-cta { gap: 10px; }
+.prog-hub-card-cta svg { flex-shrink: 0; }
+
+/* ── COMPETITION CARDS (sub-grid inside competitions section) ─── */
+.comp-sub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+.comp-sub-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.comp-sub-card:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(60,180,255,0.25);
+}
+.comp-sub-card-abbr {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #fff;
+}
+.comp-sub-card-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+.comp-sub-card-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(60,180,255,0.1);
+  border: 1px solid rgba(60,180,255,0.25);
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  align-self: flex-start;
+}
+.comp-sub-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  margin-top: auto;
+  transition: color 0.2s;
+}
+.comp-sub-card-link:hover { color: #fff; }
+
+/* Competitions feature banner (prussian bg) */
+.comp-feature-banner {
+  background: var(--prussian);
+  border-radius: var(--radius-lg);
+  padding: 56px 52px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.comp-feature-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* ── RESEARCH GROUPS ─────────────────────────── */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.research-card {
+  background: #fff;
+  border: 1px solid var(--stone);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.research-card:hover {
+  box-shadow: 0 8px 28px rgba(0,49,83,0.08);
+  transform: translateY(-3px);
+}
+.research-card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+.research-card-type {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.research-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--prussian);
+  margin: 0;
+  line-height: 1.3;
+}
+.research-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+.research-card-activities {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+.research-activity {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+.research-activity::before {
+  content: '→';
+  color: var(--prussian);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── PROGRAMMES OVERVIEW SECTION INTRO ─────────── */
+.prog-section-intro {
+  max-width: 640px;
+}
+
+/* ── PATHWAY STRIP ─────────────────────────── */
+.pathway-strip {
+  background: var(--mist);
+  border: 1px solid var(--stone);
+  border-radius: var(--radius-lg);
+  padding: 48px 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0;
+  position: relative;
+  margin-top: 60px;
+}
+.pathway-strip::before {
+  content: '';
+  position: absolute;
+  top: 67px;
+  left: calc(52px + 20px);
+  right: calc(52px + 20px);
+  height: 2px;
+  background: var(--stone);
+  z-index: 0;
+}
+.pathway-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+  padding: 0 16px;
+}
+.pathway-step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--prussian);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px var(--stone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.pathway-step-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--prussian);
+}
+.pathway-step-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── RESPONSIVE ─────────────────────────── */
+@media (max-width: 1024px) {
+  .flagship-banner { grid-template-columns: 1fr; }
+  .flagship-banner-visual { min-height: 240px; }
+  .flagship-banner::before { display: none; }
+  .prog-hub-grid { grid-template-columns: repeat(2, 1fr); }
+  .comp-sub-grid { grid-template-columns: 1fr 1fr; }
+  .research-grid { grid-template-columns: 1fr 1fr; }
+  .pathway-strip { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .pathway-strip::before { display: none; }
+  .prog-stat-strip-inner { grid-template-columns: repeat(2, 1fr); }
+  .prog-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .prog-stat:nth-child(2n) { }
+  .prog-stat:last-child, .prog-stat:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+}
+@media (max-width: 768px) {
+  .prog-hub-hero { padding: 120px 24px 72px; }
+  .prog-hub-grid { grid-template-columns: 1fr; }
+  .comp-sub-grid { grid-template-columns: 1fr; }
+  .research-grid { grid-template-columns: 1fr; }
+  .flagship-banner-body { padding: 36px 28px; }
+  .comp-feature-banner { padding: 36px 28px; }
+  .pathway-strip { padding: 36px 28px; grid-template-columns: 1fr; }
+  .prog-stat-strip-inner { grid-template-columns: repeat(2, 1fr); padding: 0 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar" role="banner">
+  <p class="announcement-bar-text">
+    <span class="announcement-bar-badge">2026</span>
+    ETO Eastern Conference · 10–11 Oct 2026, CDNIS —
+    <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener" class="announcement-bar-link">Register your interest ↗</a>
+  </p>
+</div>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p>
+        <span class="ab-badge">New</span>
+        ETO Eastern Conference 2026 (10–11 Oct, CDNIS).
+        <a href="../upcoming events/events.html">View events &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+
+
+<!-- NAV -->
+<nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+      <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+      <div class="nav-wordmark"><span class="nav-wordmark-name">KBI Hong Kong</span><span class="nav-wordmark-sub">Königsberger Bridges Institute</span></div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li class="has-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dropdown" id="dd-about" role="menu">
+          <a href="../about/about-who-we-are.html" role="menuitem">Who We Are</a>
+          <a href="../about/about-history.html" role="menuitem">Our History</a>
+          <a href="../about/about-impact.html" role="menuitem">Our Impact</a>
+          <a href="../about/about-team.html" role="menuitem">Our Team</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                          <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="i2ol.html" role="menuitem">I2OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="isfretic.html" role="menuitem">International Standards Framework of Reference for Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="projects.html" role="menuitem">Project Support</a>
+            <a href="working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="membership.html" role="menuitem">Socratic Circles</a>
+            <a href="gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div></li>
+      <li><a href="../upcoming events/events.html">Events</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li class="hide-md"><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+                                  <div class="nav-ctas">
+        <a href="sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+  <div class="nav-mobile-section-label">About</div>
+  <a href="../about/about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+  <a href="../about/about-history.html" class="nav-mobile-sub">Our History</a>
+  <a href="../about/about-impact.html" class="nav-mobile-sub">Our Impact</a>
+  <a href="../about/about-team.html" class="nav-mobile-sub">Our Team</a>
+  <a href="../media.html" class="nav-mobile-sub">Media &amp; Brand Kit</a>
+      <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="i2ol.html" class="nav-mobile-sub">I2OL Scheme</a>
+                <div class="nav-mobile-section-label">Certify</div>
+    <a href="etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+    
+    
+    
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+                <div class="nav-mobile-section-label">Connect</div>
+    <a href="membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    <a href="membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    
+  <div class="nav-mobile-section-label">Navigate</div>
+  <a href="../index.html" class="nav-mobile-link">Home</a>
+  <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+  <a href="../news/news.html" class="nav-mobile-link">News &amp; Insights</a>
+  <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+  <a href="../contact.html" class="nav-mobile-link">Contact</a>
+                      <div class="nav-mobile-ctas">
+      <a href="sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="prog-hub-hero" aria-labelledby="prog-hub-heading">
+  <div class="prog-hub-hero-bg" aria-hidden="true"></div>
+  <div class="prog-hub-hero-overlay" aria-hidden="true"></div>
+  <div class="prog-hub-hero-grid" aria-hidden="true"></div>
+  <div class="prog-hub-hero-inner">
+<h1 id="prog-hub-heading">Serious Programmes<br>for <em>Serious Students.</em></h1>
+    <p class="prog-hub-hero-desc">Olympiad-level competitions, structured training, applied research, and internationally recognised certifications — building Hong Kong's pipeline of technically rigorous, globally competitive emerging-technology talent.</p>
+    <div class="prog-hub-hero-chips" aria-label="Programme areas">
+      <span class="prog-hub-chip"><span class="prog-hub-chip-dot" aria-hidden="true"></span>Blockchain</span>
+      <span class="prog-hub-chip"><span class="prog-hub-chip-dot" aria-hidden="true"></span>Data Science</span>
+      <span class="prog-hub-chip"><span class="prog-hub-chip-dot" aria-hidden="true"></span>Quantum Computing</span>
+      <span class="prog-hub-chip"><span class="prog-hub-chip-dot" aria-hidden="true"></span>Certifications</span>
+      <span class="prog-hub-chip"><span class="prog-hub-chip-dot" aria-hidden="true"></span>Research</span>
+    </div>
+  </div>
+</header>
+
+<!-- STAT STRIP -->
+<div class="prog-stat-strip" aria-label="Programmes at a glance">
+  <div class="prog-stat-strip-inner">
+    <div class="prog-stat">
+      <div class="prog-stat-number">3<span>+</span></div>
+      <div class="prog-stat-label">Programme Pillars</div>
+    </div>
+    <div class="prog-stat">
+      <div class="prog-stat-number">3</div>
+      <div class="prog-stat-label">Technology Tracks</div>
+    </div>
+    <div class="prog-stat">
+      <div class="prog-stat-number">6<span>+</span></div>
+      <div class="prog-stat-label">University Partners</div>
+    </div>
+    <div class="prog-stat">
+      <div class="prog-stat-number">2026</div>
+      <div class="prog-stat-label">Next ETO Edition</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     FLAGSHIP: ETO Eastern Conference 2026
+     ══════════════════════════════════════════════════ -->
+<section class="section-wrap section-wrap--white" id="flagship" aria-labelledby="flagship-heading">
+  <div class="section-inner">
+    <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Flagship Programme</span></div>
+    <h2 class="section-heading reveal" id="flagship-heading">ETO Eastern Conference 2026</h2>
+    <p class="section-body prog-section-intro reveal reveal-delay-1">Our centrepiece annual event — <em>ETO Eastern Conference 2026</em> — is a global emerging-technologies conference at CDNIS, Hong Kong (10–11 October). Cross-disciplinary domains (BCTT, DSAI, QCIT); distinct from the I2OL subject olympiads.</p>
+
+    <div class="flagship-banner reveal reveal-delay-2" style="margin-top:40px;" role="region" aria-label="ETO Eastern Conference 2026 details">
+      <div class="flagship-banner-body">
+        <span class="flagship-label">
+          <span class="flagship-label-dot" aria-hidden="true"></span>
+          Flagship · 10–11 October 2026
+        </span>
+        <h2>ETO Eastern<br>Conference 2026</h2>
+        <p>Students worldwide — especially across the eastern hemisphere — are invited to attend in person at CDNIS. Teams present cross-disciplinary work before academic and industry judges. Register your interest now; full programme details on the event page.</p>
+        <div class="flagship-banner-meta" aria-label="Key figures">
+          <div class="flagship-meta-item">
+            <span class="flagship-meta-value">~36</span>
+            <span class="flagship-meta-label">Teams</span>
+          </div>
+          <div class="flagship-meta-item">
+            <span class="flagship-meta-value">~300</span>
+            <span class="flagship-meta-label">Participants</span>
+          </div>
+          <div class="flagship-meta-item">
+            <span class="flagship-meta-value">CDNIS</span>
+            <span class="flagship-meta-label">Venue</span>
+          </div>
+        </div>
+        <div class="flagship-banner-actions">
+          <a href="../upcoming events/eto2026.html" class="btn btn-yellow">Full Event Details <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener" class="btn btn-outline-white">Register Interest ↗</a>
+        </div>
+      </div>
+      <div class="flagship-banner-visual" aria-hidden="true">
+        <img src="https://sspark.genspark.ai/cfimages?u1=HDGHUe4B3A6RkFMGdIoEXJ5hNqQVEFZNlOiPMEJPkHVqwXHFCBFfAmH%2F0E5gBUliBPW2mxjy6jFKHvHjR6NJo5UqNAklX7FRRGY8aSHE2%2BkE7%2BGGk53N3b3rKv1o4vkD2G8xmz1JUCWNAy82ZEpWFjCy%2FKRZKsH%2FiTEhHIJsTi3Y59yL5xoq5yA6LAbfU%3D&u2=FGnv%2FHrblGqv9WKPK2q0Ew%3D%3D&width=500&height=400" alt="Students competing at ETO Eastern">
+        <div class="flagship-visual-overlay"></div>
+        <div class="flagship-visual-content">
+          <div class="flagship-visual-title">ETO Eastern<br>2026</div>
+          <div class="flagship-visual-sub">10–11 Oct · CDNIS, Hong Kong</div>
+          <div class="flagship-track-chips">
+            <span class="flagship-track-chip">BCTT</span>
+            <span class="flagship-track-chip">DSAI</span>
+            <span class="flagship-track-chip">QCIT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student quote -->
+    <blockquote class="blockquote-feature reveal reveal-delay-3" style="margin-top:32px;max-width:680px;">
+      <p>"ETO is the competition that actually tests whether you understand the technology — not just whether you can talk about it."</p>
+      <cite>— ETO Eastern Finalist, 2024</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     COMPETITIONS
+     ══════════════════════════════════════════════════ -->
+<section class="section-wrap section-wrap--mist" id="competitions" aria-labelledby="competitions-heading">
+  <div class="section-inner">
+    <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Olympiad Competitions</span></div>
+    <div class="comp-feature-banner reveal">
+      <div style="position:relative;z-index:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:36px;">
+          <div>
+            <h2 id="competitions-heading" style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.375rem);font-weight:700;color:#fff;line-height:1.15;margin:0 0 12px;">Three Olympiads.<br>One Mission.</h2>
+            <p style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:520px;margin:0;">KBI Hong Kong organises Hong Kong's qualifying rounds for three international student olympiads — rigorous annual competitions assessing genuine technical depth, not surface familiarity.</p>
+          </div>
+          <a href="i2ol.html" class="btn btn-outline-white" style="flex-shrink:0;align-self:flex-start;">All Competitions <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="comp-sub-grid">
+
+          <!-- IBCOL -->
+          <article class="comp-sub-card">
+            <div class="comp-sub-card-abbr">IBCOL HK</div>
+            <span class="comp-sub-card-tag">Blockchain</span>
+            <div class="comp-sub-card-name">International Blockchain Olympiad — Hong Kong Qualifying Round</div>
+            <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:rgba(255,255,255,0.4);line-height:1.65;margin:0;">DLT architecture, smart contracts, tokenomics, and real-world blockchain application design. Qualifying pathway to IBCOL international.</p>
+            <a href="https://2026.ibcol.org" target="_blank" rel="noopener" class="comp-sub-card-link">
+              Learn more <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <!-- IDSOL -->
+          <article class="comp-sub-card">
+            <div class="comp-sub-card-abbr">IDSOL HK</div>
+            <span class="comp-sub-card-tag">Data Science</span>
+            <div class="comp-sub-card-name">International Data Science Olympiad — Hong Kong Qualifying Round</div>
+            <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:rgba(255,255,255,0.4);line-height:1.65;margin:0;">Machine learning, statistical modelling, end-to-end data pipelines, and communicating findings from real datasets.</p>
+            <a href="https://2026.idsol.org" target="_blank" rel="noopener" class="comp-sub-card-link">
+              Learn more <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <!-- IQCOL -->
+          <article class="comp-sub-card">
+            <div class="comp-sub-card-abbr">IQCOL HK</div>
+            <span class="comp-sub-card-tag">Quantum</span>
+            <div class="comp-sub-card-name">International Quantum Computing Olympiad — Hong Kong Qualifying Round</div>
+            <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:rgba(255,255,255,0.4);line-height:1.65;margin:0;">Quantum circuit design, Qiskit programming, and quantum algorithm problem-solving. Qualifying pathway to IQCOL international.</p>
+            <a href="https://2026.iqcol.org" target="_blank" rel="noopener" class="comp-sub-card-link">
+              Learn more <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PROGRAMME CARD GRID (Certifications / Collabs / Projects)
+     ══════════════════════════════════════════════════ -->
+<section class="section-wrap section-wrap--white" id="more-programmes" aria-labelledby="more-heading">
+  <div class="section-inner">
+    <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">More Programmes</span></div>
+    <h2 class="section-heading reveal" id="more-heading">Beyond the Competition.</h2>
+    <p class="section-body prog-section-intro reveal reveal-delay-1">KBI Hong Kong's programme portfolio extends well beyond competitive olympiads — offering structured training with verified credentials, deep academic partnerships, and hands-on technology project experience.</p>
+
+    <div class="prog-hub-grid">
+
+      <!-- Certifications -->
+      <a href="isfretic.html" class="prog-hub-card reveal" aria-label="Certifications — Training and ISFRETIC certification">
+        <div class="prog-hub-card-top-bar prog-hub-card-top-bar--prussian"></div>
+        <div class="prog-hub-card-body">
+          <div class="prog-hub-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M12 2l2.5 5 5.5.75-4 3.9.95 5.5L12 14.5l-4.95 2.65.95-5.5-4-3.9 5.5-.75L12 2z"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="prog-hub-card-category">Training & Credentials</div>
+          <h3>Certifications &amp; Training</h3>
+          <p>Structured clinics in blockchain, data science, and quantum computing — building competition-ready foundations and leading to ISFRETIC certification, recognised internationally by the Königsberger Bridges Institute.</p>
+          <div class="prog-hub-card-tags">
+            <span class="prog-hub-card-tag">6-Session Clinics</span>
+            <span class="prog-hub-card-tag">ISFRETIC Cert</span>
+            <span class="prog-hub-card-tag">3 Tracks</span>
+          </div>
+          <span class="prog-hub-card-cta">
+            View certifications
+            <svg viewBox="0 0 12 12" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Tech Projects -->
+      <a href="projects.html" class="prog-hub-card reveal reveal-delay-2" aria-label="Tech Projects — Applied student projects">
+        <div class="prog-hub-card-top-bar prog-hub-card-top-bar--yellow"></div>
+        <div class="prog-hub-card-body">
+          <div class="prog-hub-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="prog-hub-card-category">Applied Practice</div>
+          <h3>Technology Projects</h3>
+          <p>Hands-on technology projects where members design, build, and present real solutions in blockchain, data science, and quantum computing — moving beyond theoretical knowledge into genuine applied practice.</p>
+          <div class="prog-hub-card-tags">
+            <span class="prog-hub-card-tag">Student-Led</span>
+            <span class="prog-hub-card-tag">Real Problems</span>
+            <span class="prog-hub-card-tag">Mentored</span>
+          </div>
+          <span class="prog-hub-card-cta">
+            Explore projects
+            <svg viewBox="0 0 12 12" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     RESEARCH GROUPS
+     ══════════════════════════════════════════════════ -->
+<section class="section-wrap section-wrap--mist" id="research" aria-labelledby="research-heading">
+  <div class="section-inner">
+    <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Community &amp; Research</span></div>
+    <h2 class="section-heading reveal" id="research-heading">Working &amp; Research Groups.</h2>
+    <p class="section-body prog-section-intro reveal reveal-delay-1">For members who want to go deeper, KBI’s Working &amp; Research Groups provide sustained spaces for inquiry, collaboration, and long-horizon initiatives across emerging technology, governance, education, and infrastructure.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;" class="reveal reveal-delay-2">
+      <a href="working-research-groups.html" class="btn btn-prussian">Visit Working &amp; Research Groups</a>
+      <a href="../contact.html" class="btn btn-outline-prussian">Start or Join a Group</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     HOW IT FITS TOGETHER — PATHWAY STRIP
+     ══════════════════════════════════════════════════ -->
+<section class="section-wrap section-wrap--white" id="pathway" aria-labelledby="pathway-heading">
+  <div class="section-inner">
+    <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">The KBI Journey</span></div>
+    <h2 class="section-heading reveal" id="pathway-heading">From Newcomer to Olympiad Finalist.</h2>
+    <p class="section-body prog-section-intro reveal reveal-delay-1">KBI HK's programmes are designed to form a coherent pathway — each stage building the skills and credibility needed for the next.</p>
+
+    <div class="pathway-strip reveal reveal-delay-2" role="list" aria-label="Programme pathway steps">
+      <div class="pathway-step" role="listitem">
+        <div class="pathway-step-num" aria-label="Step 1">1</div>
+        <div class="pathway-step-title">Join &amp; Train</div>
+        <div class="pathway-step-desc">Become a member and attend training clinics in your chosen technology track to build foundational knowledge.</div>
+      </div>
+      <div class="pathway-step" role="listitem">
+        <div class="pathway-step-num" aria-label="Step 2">2</div>
+        <div class="pathway-step-title">Get Certified</div>
+        <div class="pathway-step-desc">Complete the 6-session clinic programme and earn an ISFRETIC certification — a verified, portable credential.</div>
+      </div>
+      <div class="pathway-step" role="listitem">
+        <div class="pathway-step-num" aria-label="Step 3">3</div>
+        <div class="pathway-step-title">Compete at ETO</div>
+        <div class="pathway-step-desc">Apply your skills in the Emerging Technologies Olympiad — KBI HK's flagship, multi-track competition.</div>
+      </div>
+      <div class="pathway-step" role="listitem">
+        <div class="pathway-step-num" aria-label="Step 4">4</div>
+        <div class="pathway-step-title">Go International</div>
+        <div class="pathway-step-desc">Top performers qualify for the IBCOL, IDSOL, or IQCOL international rounds, competing on a global stage.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" aria-label="Get involved with KBI HK programmes">
+  <div class="cta-band-inner">
+    <div class="label-row" style="justify-content:center;margin-bottom:20px;"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">Get Involved</span></div>
+    <h2 class="cta-band-heading reveal">Ready to compete,<br>train, or <em>research?</em></h2>
+    <p class="cta-band-body reveal reveal-delay-1">Join KBI Hong Kong's membership to access programmes, training resources, competition registration, and the broader KBI community.</p>
+    <div class="cta-band-actions reveal reveal-delay-2">
+      <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener" class="btn btn-yellow">Register Interest 2026 <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="membership.html" class="btn btn-outline-white">Join Membership</a>
+      <a href="../contact.html" class="btn btn-ghost-light">Ask a Question</a>
+    </div>
+  </div>
+</section>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-stacked-white-on-black.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 Kingsbridge Institute Limited. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="../about/about-who-we-are.html">Who We Are</a></li>
+            <li><a href="../about/about-history.html">Our History</a></li>
+            <li><a href="../about/about-impact.html">Our Impact</a></li>
+            <li><a href="../about/about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="i2ol.html">I2OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="etti.html">ETTI Program</a></li>
+            <li><a href="skillsprint.html">SkillSprint</a></li>
+            <li><a href="abc5.html">ABC5 Program</a></li>
+            <li><a href="isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="projects.html">Project Support</a></li>
+            <li><a href="working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="socratic.html">Socratic Circles</a></li>
+            <li><a href="gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="../news/news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="sponsors.html">Partner With Us</a></li>
+            <li><a href="membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-bottom-text">
+          <a href="../pics.html">Personal Information Collection Statement (PICS)</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 12V2M2 7l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<script src="../kbi-hk.js"></script>
+</body>
+</html>

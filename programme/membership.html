@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+  <title>KBI Membership — KBI Hong Kong</title>
+  <meta name="description" content="Join KBI Hong Kong membership — one community across emerging technologies. Priority access to competitions, training, projects, and community programmes for students, professionals, and institutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../kbi-hk.css">
+  <style>
+    .mem-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      align-items: center;
+    }
+    .mem-hero-actions .mem-hero-sep {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .mem-pull {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.125rem, 2vw, 1.3125rem);
+      font-style: italic;
+      color: var(--prussian);
+      line-height: 1.55;
+      margin: 28px 0 0;
+      padding-left: 20px;
+      border-left: 3px solid var(--yellow);
+      max-width: 640px;
+    }
+    .mem-list {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 720px;
+    }
+    .mem-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .mem-list svg { flex-shrink: 0; margin-top: 4px; color: var(--prussian); }
+    .mem-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 40px;
+    }
+    @media (max-width: 900px) { .mem-two-col { grid-template-columns: 1fr; gap: 32px; } }
+    .mem-card {
+      background: #fff;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      height: 100%;
+    }
+    .mem-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .mem-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin: 0 0 16px;
+    }
+    .mem-card p:last-of-type { margin-bottom: 0; }
+    .mem-card .mem-list { margin-top: 16px; }
+    .mem-card-cta { margin-top: 28px; }
+    .mem-benefits-panel {
+      background: var(--prussian);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+    }
+    .mem-benefits-panel .mem-list li { color: rgba(255,255,255,0.78); }
+    .mem-benefits-panel .mem-list svg { color: var(--cyan); }
+    .mem-apply-form {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+    }
+    .mem-contact-panel {
+      margin-top: 36px;
+      background: var(--prussian);
+      border-radius: var(--radius-md);
+      padding: 32px;
+    }
+    .mem-contact-panel-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+    .mem-contact-email {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .mem-contact-email svg { color: rgba(255,255,255,0.38); flex-shrink: 0; }
+    .mem-contact-email a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+    }
+    .mem-contact-email a:hover { color: #fff; }
+    .mem-contact-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .mem-interest-group {
+      border: none;
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+    }
+    .mem-interest-group legend {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      padding: 0;
+    }
+    .mem-interest-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  .mem-interest-options label,
+  #membershipForm .mem-interest-options label {
+      display: flex !important;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+  #membershipForm .mem-interest-options input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      margin: 2px 0 0;
+      padding: 0;
+      border: 1px solid var(--stone);
+      border-radius: 3px;
+      background: var(--white);
+      box-shadow: none;
+      flex-shrink: 0;
+      accent-color: var(--prussian);
+    }
+  #membershipForm .mem-interest-options input[type="checkbox"]:focus {
+      border-color: var(--prussian);
+      box-shadow: 0 0 0 3px rgba(0,49,83,0.08);
+    }
+  </style>
+</head>
+<body>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p>
+        <span class="ab-badge">New</span>
+        ETO Eastern Conference 2026 (10–11 Oct, CDNIS).
+        <a href="../upcoming events/events.html">View events &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+<nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+        <div class="nav-wordmark"><span class="nav-wordmark-name">KBI Hong Kong</span><span class="nav-wordmark-sub">Königsberger Bridges Institute</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="../about/about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="../about/about-history.html" role="menuitem">Our History</a>
+            <a href="../about/about-impact.html" role="menuitem">Our Impact</a>
+            <a href="../about/about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="i2ol.html" role="menuitem">I2OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="isfretic.html" role="menuitem">International Standards Framework of Reference for Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="projects.html" role="menuitem">Project Support</a>
+            <a href="working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="socratic.html" role="menuitem">Socratic Circles</a>
+            <a href="gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div>
+        </li>
+        <li><a href="../upcoming events/events.html">Events</a></li>
+        <li class="hide-md"><a href="../news/news.html">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="../about/about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="../about/about-history.html" class="nav-mobile-sub">Our History</a>
+    <a href="../about/about-impact.html" class="nav-mobile-sub">Our Impact</a>
+    <a href="../about/about-team.html" class="nav-mobile-sub">Our Team</a>
+    <a href="../media.html" class="nav-mobile-sub">Media &amp; Brand Kit</a>
+    <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="i2ol.html" class="nav-mobile-sub">I2OL Scheme</a>
+    <div class="nav-mobile-section-label">Certify</div>
+    <a href="etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+    <div class="nav-mobile-section-label">Connect</div>
+    <a href="socratic.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="../news/news.html" class="nav-mobile-link">News &amp; Insights</a>
+    <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+    <div class="nav-mobile-ctas">
+      <a href="sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+  <header class="page-hero page-hero--prussian" aria-label="KBI Membership">
+    <div class="page-hero-bg" aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(160deg, var(--night) 0%, var(--prussian) 100%);"></div>
+    <div class="page-hero-inner" style="position:relative;z-index:1;">
+      <div class="label-row"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">Membership</span></div>
+      <h1 class="page-hero-heading">KBI Membership</h1>
+      <p class="page-hero-sub" style="max-width:640px;font-size:clamp(1.0625rem,2vw,1.25rem);font-weight:500;">One community across emerging technologies.</p>
+      <p class="page-hero-sub" style="max-width:720px;margin-top:16px;">Membership is how we recognise, support, and stay in touch with people and institutions who care about serious emerging-technology work.</p>
+      <div class="mem-hero-actions">
+        <a href="#apply" class="btn btn-yellow btn--sm">Apply to join</a>
+        <span class="mem-hero-sep" aria-hidden="true">·</span>
+        <a href="../contact.html" class="btn btn-outline-white btn--sm">Ask a question</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-wrap section-wrap--white" id="why-join" aria-labelledby="why-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Why Join</span></div>
+      <h2 class="section-heading reveal" id="why-heading">One ecosystem, many ways in</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:760px;">KBI connects people and institutions across blockchain and trust technologies, data science and AI, and quantum computing. Competitions, training, projects, and — later — certifications all sit in the same ecosystem.</p>
+      <p class="section-body reveal reveal-delay-2" style="max-width:760px;margin-top:16px;">Joining as a member means:</p>
+      <ul class="mem-list reveal reveal-delay-2">
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>You hear about real opportunities early.</li>
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>You are visible to KBI when we need participants, collaborators, and speakers.</li>
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Your involvement is recorded in one place instead of being scattered across events.</li>
+      </ul>
+      <p class="mem-pull reveal reveal-delay-3">You do not need a perfect CV to start. Curiosity and seriousness are enough.</p>
+    </div>
+  </section>
+
+  <section class="section-wrap section-wrap--mist" id="individual" aria-labelledby="individual-heading">
+    <div class="section-inner">
+      <div class="mem-two-col">
+        <div>
+          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Individual Membership</span></div>
+          <h2 class="section-heading reveal" id="individual-heading">For students and professionals</h2>
+          <p class="section-body reveal reveal-delay-1">Individual membership is for anyone who wants to be part of the KBI community — from secondary students to senior practitioners.</p>
+          <p class="section-body reveal reveal-delay-2" style="margin-top:16px;">What you get:</p>
+          <ul class="mem-list reveal reveal-delay-2">
+            <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority access to KBI competitions, workshops, and events.</li>
+            <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Invitations to training programmes (SkillSprint, ETTI, ABC5, and future offerings).</li>
+            <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Access to community spaces, study groups, and working / research groups where serious conversations happen.</li>
+            <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Occasional opportunities to join projects, pilot programmes, or early trials before they are public.</li>
+            <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>A simple record of your involvement that you can reference later — for university applications, career opportunities, or future KBI recognition.</li>
+          </ul>
+          <p class="section-body reveal reveal-delay-3" style="margin-top:24px;max-width:640px;">Over time, as the global framework matures, individual membership will also connect to formal credentials and fellowships. For now, its main value is access, visibility, and being part of the loop.</p>
+          <p class="mem-card-cta reveal reveal-delay-3">
+            <a href="#apply" class="btn btn-prussian">Join as an individual &rarr;</a>
+          </p>
+        </div>
+        <div class="mem-benefits-panel reveal reveal-delay-1" aria-hidden="true">
+          <div class="label-row" style="margin-bottom:18px;"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">At a glance</span></div>
+          <ul class="mem-list">
+            <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Students and professionals welcome</li>
+            <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Free for students and early-stage professionals</li>
+            <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>One record of your KBI involvement</li>
+            <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Pathways to competitions, training, and community</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap section-wrap--white" id="institutional" aria-labelledby="institutional-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Institutional Membership</span></div>
+      <h2 class="section-heading reveal" id="institutional-heading">For schools, universities, and organisations</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:760px;">Institutions anchor bridges. They host programmes, recognise credentials, and create spaces where emerging-technology work can happen.</p>
+      <p class="section-body reveal reveal-delay-2" style="max-width:760px;margin-top:16px;">If you represent an organisation, membership and partnership can offer:</p>
+      <ul class="mem-list reveal reveal-delay-2">
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>A clear channel into KBI HK&rsquo;s competitions, training, and events.</li>
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Early access to collaboration ideas — from guest lectures and project co-supervision to pilot programmes.</li>
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Visibility to motivated students and practitioners who are already engaged in serious work.</li>
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Support in designing programmes or initiatives that match your context, not just ours.</li>
+      </ul>
+      <p class="mem-pull reveal reveal-delay-3">We are gradually formalising tiers and labels, but we would rather start with the relationship than with the category.</p>
+      <p class="reveal reveal-delay-3" style="margin-top:28px;">
+        <a href="sponsors.html" class="btn btn-outline-prussian">Talk to us about partnership &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section-wrap section-wrap--mist" id="expect" aria-labelledby="expect-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">What Members Can Expect</span></div>
+      <h2 class="section-heading reveal" id="expect-heading">What membership actually changes</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:760px;">For both individuals and institutions, membership makes a practical difference:</p>
+      <ul class="mem-list reveal reveal-delay-2">
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>You are first in line for limited-capacity opportunities (competitions, circles, clinics, projects).</li>
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>It is easier for us to match you to relevant programmes when we know your interests and context.</li>
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>When we design something new, we usually invite members to test and shape it before it goes public.</li>
+        <li><svg viewBox="0 0 14 14" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Over time, your track record with KBI becomes part of your story — not as a badge in isolation, but as a pattern of work.</li>
+      </ul>
+      <p class="mem-pull reveal reveal-delay-3">Membership is not a gate in front of KBI. It is how we know who to work with more deeply.</p>
+    </div>
+  </section>
+
+  <section class="section-wrap section-wrap--white" id="apply" aria-labelledby="apply-heading">
+    <div class="section-inner">
+      <div class="enquiry-layout">
+        <div>
+          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">How to Join</span></div>
+          <h2 class="section-heading reveal" id="apply-heading">Apply to join</h2>
+          <p class="section-body reveal reveal-delay-1">If you are interested in being part of KBI HK — as a student, professional, educator, or organisation — the first step is simply to introduce yourself.</p>
+          <p class="section-body reveal reveal-delay-2" style="margin-top:16px;">We review each application individually and will follow up with next steps. Membership is free for students and early-stage professionals.</p>
+          <div class="mem-contact-panel reveal reveal-delay-3">
+            <div class="mem-contact-panel-label">Direct contact</div>
+            <div class="mem-contact-email">
+              <svg viewBox="0 0 16 16" fill="none" width="14" height="14" aria-hidden="true"><path d="M2 4l6 5 6-5M2 3h12a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              <a href="mailto:kbi-hongkong@kb.institute">kbi-hongkong@kb.institute</a>
+            </div>
+            <p class="mem-contact-note">Prefer email? You can always reach the KBI HK team directly.</p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1 mem-apply-form">
+          <form id="membershipForm" novalidate aria-label="Membership application form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="mem-name">Your name <span aria-hidden="true" style="color:#c0392b;">*</span></label>
+                <input type="text" id="mem-name" name="name" placeholder="Full name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="mem-email">Email address <span aria-hidden="true" style="color:#c0392b;">*</span></label>
+                <input type="email" id="mem-email" name="email" placeholder="you@example.com" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mem-institution">School / university / organisation</label>
+              <input type="text" id="mem-institution" name="institution" placeholder="Where you study or work" autocomplete="organization">
+            </div>
+            <div class="form-group">
+              <label for="mem-involvement">How you would like to be involved <span aria-hidden="true" style="color:#c0392b;">*</span></label>
+              <select id="mem-involvement" name="involvement" required>
+                <option value="">Select…</option>
+                <option>Individual member — student</option>
+                <option>Individual member — professional</option>
+                <option>Educator or academic</option>
+                <option>Institutional partnership</option>
+                <option>Not sure yet — general enquiry</option>
+                <option>Other (describe below)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <fieldset class="mem-interest-group">
+                <legend>Areas of interest</legend>
+                <div class="mem-interest-options">
+                  <label><input type="checkbox" name="interest" value="Blockchain / IBCOL"> Blockchain / IBCOL</label>
+                  <label><input type="checkbox" name="interest" value="Data / IDSOL"> Data / IDSOL</label>
+                  <label><input type="checkbox" name="interest" value="Quantum / IQCOL"> Quantum / IQCOL</label>
+                  <label><input type="checkbox" name="interest" value="ETO"> ETO</label>
+                  <label><input type="checkbox" name="interest" value="Training"> Training (SkillSprint, ETTI, ABC5)</label>
+                  <label><input type="checkbox" name="interest" value="Research groups"> Research groups</label>
+                  <label><input type="checkbox" name="interest" value="Community and events"> Community &amp; events</label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="form-group">
+              <label for="mem-msg">Tell us about yourself <span style="font-weight:400;color:var(--text-faint);">(optional)</span></label>
+              <textarea id="mem-msg" name="message" placeholder="Your background, interests, and what you hope to get from KBI HK" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-prussian" style="width:100%;justify-content:center;">Submit application <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <p class="form-note">Submitting opens your email app with your answers pre-filled to kbi-hongkong@kb.institute.</p>
+            <div id="membershipFormSuccess" class="form-success" role="alert">Thank you for your application. We will be in touch with next steps.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-stacked-white-on-black.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 Kingsbridge Institute Limited. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="../about/about-who-we-are.html">Who We Are</a></li>
+            <li><a href="../about/about-history.html">Our History</a></li>
+            <li><a href="../about/about-impact.html">Our Impact</a></li>
+            <li><a href="../about/about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="i2ol.html">I2OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="etti.html">ETTI Program</a></li>
+            <li><a href="skillsprint.html">SkillSprint</a></li>
+            <li><a href="abc5.html">ABC5 Program</a></li>
+            <li><a href="isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="projects.html">Project Support</a></li>
+            <li><a href="working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="socratic.html">Socratic Circles</a></li>
+            <li><a href="gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="../news/news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="sponsors.html">Partner With Us</a></li>
+            <li><a href="membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-bottom-text">
+          <a href="../pics.html">Personal Information Collection Statement (PICS)</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 12V2M2 7l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <script src="../kbi-hk.js"></script>
+</body>
+</html>

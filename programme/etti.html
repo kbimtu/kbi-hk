@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+  <title>ETTI Programme — KBI Hong Kong</title>
+  <meta name="description" content="Emerging Tech Training &amp; Internship (ETTI) — partner-based training with mentorship and supervised practical exposure across blockchain, data, AI, and related fields. Editions include LETTI at Lingnan and DGJS at HKSTP.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../kbi-hk.css">
+</head>
+<body>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p>
+        <span class="ab-badge">New</span>
+        ETO Eastern Conference 2026 (10–11 Oct, CDNIS).
+        <a href="../upcoming events/events.html">View events &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+<nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+        <div class="nav-wordmark"><span class="nav-wordmark-name">KBI Hong Kong</span><span class="nav-wordmark-sub">Königsberger Bridges Institute</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="../about/about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="../about/about-history.html" role="menuitem">Our History</a>
+            <a href="../about/about-impact.html" role="menuitem">Our Impact</a>
+            <a href="../about/about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                              <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="i2ol.html" role="menuitem">I2OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="isfretic.html" role="menuitem">International Standards Framework of Reference for Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="projects.html" role="menuitem">Project Support</a>
+            <a href="working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="socratic.html" role="menuitem">Socratic Circles</a>
+            <a href="gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div></li>
+        <li><a href="../upcoming events/events.html">Events</a></li>
+        <li class="hide-md"><a href="../news/news.html">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+                  <div class="nav-ctas">
+        <a href="sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="../about/about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="../about/about-history.html" class="nav-mobile-sub">Our History</a>
+    <a href="../about/about-impact.html" class="nav-mobile-sub">Our Impact</a>
+    <a href="../about/about-team.html" class="nav-mobile-sub">Our Team</a>
+    <a href="../media.html" class="nav-mobile-sub">Media &amp; Brand Kit</a>
+    <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="i2ol.html" class="nav-mobile-sub">I2OL Scheme</a>
+            <div class="nav-mobile-section-label">Certify</div>
+    <a href="etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+    
+    
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+            <div class="nav-mobile-section-label">Connect</div>
+    <a href="socratic.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="../news/news.html" class="nav-mobile-link">News &amp; Insights</a>
+    <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+            <div class="nav-mobile-ctas">
+      <a href="sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero page-hero--night" aria-label="ETTI Programme">
+    <div class="page-hero-bg" aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(160deg, var(--night) 0%, var(--prussian) 100%);"></div>
+    <div class="page-hero-inner" style="position:relative;z-index:1;">
+      <div class="label-row"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">Training Programme</span></div>
+      <h1 class="page-hero-heading">Emerging Tech Training<br>&amp; Internship</h1>
+      <p class="page-hero-sub" style="max-width:720px;">ETTI is where emerging-technology learning moves beyond the lecture. Through partner-based training, mentorship, and supervised practical exposure, students begin to see how real work happens across blockchain, data, AI, and related fields.</p>
+      <p class="page-hero-sub reveal reveal-delay-1" style="max-width:720px;margin-top:16px;">Each edition is developed with a host institution, so the programme is shaped around a real cohort, a real context, and a real educational purpose.</p>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="section-wrap section-wrap--white" id="about" aria-labelledby="about-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">About the Programme</span></div>
+      <h2 class="section-heading reveal" id="about-heading">Training that meets the real world</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:720px;">Some students learn quickly in the classroom but still have little sense of how technical work is actually done. ETTI is designed to close that gap.</p>
+      <p class="section-body reveal reveal-delay-2" style="max-width:720px;margin-top:16px;">It combines structured teaching with guided exposure to working environments, so participants do not only study concepts, but also encounter the pace, expectations, and judgement involved in applying them.</p>
+      <p class="section-body reveal reveal-delay-3" style="max-width:720px;margin-top:16px;">Rather than delivering the same format every time, KBI HK works with each host to shape the edition around the students, calendar, and level of readiness involved.</p>
+    </div>
+  </section>
+
+  <!-- DIFFERENT -->
+  <section class="section-wrap section-wrap--mist" id="different" aria-labelledby="different-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">What Makes ETTI Different</span></div>
+      <h2 class="section-heading reveal" id="different-heading">More than a short course</h2>
+      <ul class="reveal reveal-delay-1" style="max-width:720px;margin-top:28px;list-style:none;display:flex;flex-direction:column;gap:16px;">
+        <li style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:var(--text-muted);line-height:1.75;display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--prussian);font-weight:700;flex-shrink:0;">·</span>It is built with a host institution, not delivered as a generic standalone class.</li>
+        <li style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:var(--text-muted);line-height:1.75;display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--prussian);font-weight:700;flex-shrink:0;">·</span>It combines taught content with supervised practical or ecosystem exposure.</li>
+        <li style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:var(--text-muted);line-height:1.75;display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--prussian);font-weight:700;flex-shrink:0;">·</span>It focuses on how emerging-technology work is practised, not only how it is explained in theory.</li>
+        <li style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:var(--text-muted);line-height:1.75;display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--prussian);font-weight:700;flex-shrink:0;">·</span>It can prepare students for deeper participation in KBI programmes, projects, and future certification pathways.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PATHWAY -->
+  <section class="section-wrap section-wrap--white" id="structure" aria-labelledby="structure-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">How It Works</span></div>
+      <h2 class="section-heading reveal" id="structure-heading">A typical ETTI pathway</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:720px;">Each edition is different, but most ETTI pathways follow the same broad shape.</p>
+
+      <div style="margin-top:40px;display:flex;flex-direction:column;gap:0;">
+        <div class="reveal" style="display:grid;grid-template-columns:60px 1fr;gap:0 28px;padding-bottom:36px;position:relative;">
+          <div style="position:absolute;left:29px;top:48px;bottom:0;width:2px;background:var(--stone);"></div>
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--prussian);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;flex-shrink:0;position:relative;z-index:1;">1</div>
+          <div style="padding-top:14px;">
+            <h4 style="font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;">Partner design</h4>
+            <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:var(--text-muted);line-height:1.75;">KBI HK works with the host institution to understand the cohort, align expectations, and shape a programme that fits the academic context and time available.</p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1" style="display:grid;grid-template-columns:60px 1fr;gap:0 28px;padding-bottom:36px;position:relative;">
+          <div style="position:absolute;left:29px;top:48px;bottom:0;width:2px;background:var(--stone);"></div>
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--prussian);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;flex-shrink:0;position:relative;z-index:1;">2</div>
+          <div style="padding-top:14px;">
+            <h4 style="font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;">Structured learning</h4>
+            <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:var(--text-muted);line-height:1.75;">Students take part in focused modules that may cover topics such as cryptography, consensus, distributed systems, data workflows, AI practice, or quantum fundamentals, depending on the edition.</p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2" style="display:grid;grid-template-columns:60px 1fr;gap:0 28px;padding-bottom:36px;position:relative;">
+          <div style="position:absolute;left:29px;top:48px;bottom:0;width:2px;background:var(--stone);"></div>
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--prussian);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;flex-shrink:0;position:relative;z-index:1;">3</div>
+          <div style="padding-top:14px;">
+            <h4 style="font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;">Practical exposure</h4>
+            <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:var(--text-muted);line-height:1.75;">Where appropriate, participants are given supervised exposure to a lab, innovation environment, partner organisation, working group, or internship-style setting that helps them understand how the field operates in practice.</p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-3" style="display:grid;grid-template-columns:60px 1fr;gap:0 28px;">
+          <div style="width:60px;height:60px;border-radius:50%;background:var(--yellow);color:var(--prussian-dark);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;flex-shrink:0;">4</div>
+          <div style="padding-top:14px;">
+            <h4 style="font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;">Completion and next steps</h4>
+            <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:var(--text-muted);line-height:1.75;">Students complete the edition with a clearer sense of the field, stronger technical context, and a better understanding of where they may want to go next.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITIONS -->
+  <section class="section-wrap section-wrap--mist" id="editions" aria-labelledby="editions-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Editions</span></div>
+      <h2 class="section-heading reveal" id="editions-heading">Each edition has a host</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:720px;">ETTI is not one fixed template. It is a programme model that takes a slightly different shape depending on the institution, the cohort, and the learning goals involved.</p>
+
+      <div class="prog-grid" style="margin-top:40px;">
+        <article class="what-card reveal">
+          <div class="what-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none"><path d="M11 3L14.5 9.5H20L15.5 13.5L17.5 20L11 16.5L4.5 20L6.5 13.5L2 9.5H7.5L11 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>LETTI — Lingnan University</h3>
+          <p>The 2024 Lingnan edition introduced students to emerging technologies, cryptography fundamentals, and consensus concepts through structured online learning and interactive activities. It was designed to make serious ideas accessible without making them simplistic.</p>
+          <a href="../event gallery/event-gallery-2024.html#letti-2024" class="what-card-link">See the 2024 recap <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="what-card reveal reveal-delay-1">
+          <div class="what-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none"><path d="M4 6h14M4 11h10M4 16h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="17" cy="15.5" r="3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>School Internship — DGJS at HKSTP</h3>
+          <p>In 2025, students from DGJS joined a short blockchain-focused internship experience at Hong Kong Science and Technology Parks. The value of the edition was not only in the content taught, but in letting students encounter the technology ecosystem more directly.</p>
+          <a href="../event gallery/event-gallery-2025.html" class="what-card-link">See the 2025 gallery <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+        <article class="what-card reveal reveal-delay-2">
+          <div class="what-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="12" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="12" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="12" y="12" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>Future editions</h3>
+          <p>New editions are developed when the right host partner, cohort, and delivery context are in place. Some may be university-based; others may be designed for schools or special partner settings.</p>
+          <a href="../contact.html" class="what-card-link">Discuss a future edition <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATION -->
+  <section class="section-wrap section-wrap--white" id="certification" aria-labelledby="certification-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Certification</span></div>
+      <h2 class="section-heading reveal" id="certification-heading">Training first, certification later</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:720px;">ETTI is a training programme, not a formal assessment. Its purpose is to prepare students through guided learning and practical exposure, not to certify competence by itself.</p>
+      <p class="section-body reveal reveal-delay-2" style="max-width:720px;margin-top:16px;">Formal credentials for demonstrated competence sit separately within KBI's broader certification pathway. For some participants, ETTI may become part of the preparation that helps them approach those opportunities with greater confidence when available. Learn more about <a href="isfretic.html">ISFRETIC</a>.</p>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section-wrap section-wrap--mist" id="why" aria-labelledby="why-heading">
+    <div class="section-inner">
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Why It Matters</span></div>
+      <h2 class="section-heading reveal" id="why-heading">Why this programme exists</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:720px;">Emerging technology is often taught either too abstractly or too superficially. ETTI is built on the belief that students deserve something better: education that is serious, contextual, and connected to the environments in which real work happens.</p>
+      <p class="section-body reveal reveal-delay-2" style="max-width:720px;margin-top:16px;">The goal is not to imitate industry for appearances. It is to help students develop judgement, orientation, and confidence early enough that future opportunities feel reachable rather than distant.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" aria-label="Get involved">
+    <div class="cta-band-inner">
+      <div class="label-row" style="justify-content:center;margin-bottom:24px;"><div class="u-rule" aria-hidden="true"></div><span class="u-label u-label--light">Partner or Participate</span></div>
+      <h2 class="cta-band-heading reveal">Bring ETTI to your institution</h2>
+      <p class="cta-band-body reveal reveal-delay-1">ETTI works best when it is built around a real partner and a real educational need. If your school, university, or institution is interested in running an edition, KBI HK would be glad to explore it together.</p>
+      <p class="cta-band-body reveal reveal-delay-2" style="margin-top:12px;">Students who want to join a future edition can also register their interest through KBI HK and be contacted when a suitable cohort opens.</p>
+      <div class="cta-band-actions reveal reveal-delay-3">
+        <a href="../contact.html" class="btn btn-yellow">Contact KBI HK</a>
+        <a href="membership.html" class="btn btn-white">Register Interest</a>
+      </div>
+    </div>
+  </section>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-stacked-white-on-black.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 Kingsbridge Institute Limited. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="../about/about-who-we-are.html">Who We Are</a></li>
+            <li><a href="../about/about-history.html">Our History</a></li>
+            <li><a href="../about/about-impact.html">Our Impact</a></li>
+            <li><a href="../about/about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="i2ol.html">I2OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="etti.html">ETTI Program</a></li>
+            <li><a href="skillsprint.html">SkillSprint</a></li>
+            <li><a href="abc5.html">ABC5 Program</a></li>
+            <li><a href="isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="projects.html">Project Support</a></li>
+            <li><a href="working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="socratic.html">Socratic Circles</a></li>
+            <li><a href="gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="../news/news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="sponsors.html">Partner With Us</a></li>
+            <li><a href="membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-bottom-text">
+          <a href="../pics.html">Personal Information Collection Statement (PICS)</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../kbi-hk.js"></script>
+</body>
+</html>

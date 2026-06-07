@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2024 Event Gallery — KBI Hong Kong</title>
+  <meta name="description"
+    content="KBI Hong Kong is the regional chapter of the Königsberger Bridges Institute — building Hong Kong's pipeline of emerging technology talent through competitions, training, research, and community.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../kbi-hk.css">
+  <style>
+    /* ── SPONSOR MARQUEE ── */
+    .sponsor-marquee-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin: 48px 0;
+    }
+
+    .sponsor-marquee-wrap::before,
+    .sponsor-marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .sponsor-marquee-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, #05070A, transparent);
+    }
+
+    .sponsor-marquee-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #05070A, transparent);
+    }
+
+    .sponsor-marquee {
+      overflow: hidden;
+    }
+
+    .sponsor-marquee-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: marquee 38s linear infinite;
+    }
+
+    .sponsor-marquee:hover .sponsor-marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sponsor-marquee-track {
+        animation: none;
+      }
+    }
+
+    .sponsor-logo-pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 28px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.05);
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.55);
+      transition: border-color 0.25s, color 0.25s;
+      flex-shrink: 0;
+    }
+
+    .sponsor-logo-pill:hover {
+      border-color: rgba(255, 209, 102, 0.4);
+      color: rgba(255, 209, 102, 0.9);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p>
+        <span class="ab-badge">New</span>
+        ETO Eastern Conference 2026 (10–11 Oct, CDNIS).
+        <a href="../upcoming events/events.html">View events &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+  <!-- NAV -->
+  <nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40"
+            height="40"></div>
+        <div class="nav-wordmark">
+          <span class="nav-wordmark-name">KBI Hong Kong</span>
+          <span class="nav-wordmark-sub">Königsberger Bridges Institute</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg
+              viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="../about/about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="../about/about-history.html" role="menuitem">Our History</a>
+            <a href="../about/about-impact.html" role="menuitem">Our Impact</a>
+            <a href="../about/about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown"><button class="nav-dropdown-trigger" aria-expanded="false"
+            aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="../programme/i2ol.html" role="menuitem">I2OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="../programme/etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="../programme/skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="../programme/abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="../programme/isfretic.html" role="menuitem">International Standards Framework of Reference for
+              Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="../programme/projects.html" role="menuitem">Project Support</a>
+            <a href="../programme/working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="../programme/membership.html" role="menuitem">Socratic Circles</a>
+            <a href="../programme/gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div>
+        </li>
+        <li><a href="../upcoming events/events.html">Events</a></li>
+        <!-- <li class="hide-md"><a href="../programme/sponsors.html">Sponsors</a></li> -->
+        <li class="hide-md"><a href="../news/news.html">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="../programme/sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="../programme/membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false"
+        aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="../about/about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="../about/about-history.html" class="nav-mobile-sub">Our History</a>
+    <a href="../about/about-impact.html" class="nav-mobile-sub">Our Impact</a>
+    <a href="../about/about-team.html" class="nav-mobile-sub">Our Team</a>
+    <a href="../media.html" class="nav-mobile-sub">Media &amp; Brand Kit</a>
+    <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="../programme/i2ol.html" class="nav-mobile-sub">I2OL Scheme</a>
+    <div class="nav-mobile-section-label">Certify</div>
+    <a href="../programme/etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="../programme/skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="../programme/abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="../programme/isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+
+
+
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="../programme/projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="../programme/working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+    <div class="nav-mobile-section-label">Connect</div>
+    <a href="../programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    <a href="../programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="../index.html" class="nav-mobile-link">Home</a>
+    <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="../news/news.html" class="nav-mobile-link">News &amp; Insights</a>
+    <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+    <div class="nav-mobile-ctas">
+      <a href="../programme/sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="../programme/membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+
+
+
+
+  <!-- Page Hero -->
+  <header class="gallery-page-hero">
+    <div class="gallery-page-hero-inner">
+      <p class="gallery-page-eyebrow">Event Recap &amp; Gallery</p>
+      <h1><em>2024</em> Recap &amp; Gallery</h1>
+      <p class="gallery-page-hero-sub">2024 was a dense year with local blockchain and data-science finals, school
+        partnerships, crash courses, mentorship sessions, and international delegation activity in Amsterdam. Training,
+        competition, and international representation fit together within one annual cycle.</p>
+    </div>
+  </header>
+
+  <div class="gallery-year-nav">
+    <div class="gallery-year-nav-inner">
+      <a href="event-gallery-2023.html" class="gallery-nav-arrow">
+        <svg viewBox="0 0 16 16" fill="none">
+          <path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        2023 Gallery
+      </a>
+      <a href="../upcoming events/events.html#past-events" class="gallery-nav-center">↑ All Events</a>
+      <a href="event-gallery-2025.html" class="gallery-nav-arrow">
+        2025 Gallery
+        <svg viewBox="0 0 16 16" fill="none">
+          <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Gallery Main -->
+  <main class="gallery-main" id="main-content">
+    <div class="gallery-main-inner">
+
+      <section class="gallery-event-section reveal" id="hkage-kickoff">
+        <div class="gallery-event-header">
+          <div class="gallery-event-num">01</div>
+          <div class="gallery-event-header-body">
+            <div class="gallery-event-meta">
+              <span class="gallery-event-tag gallery-event-tag--cyan">Kick-off Session</span>
+              <span class="gallery-event-date">February – April 2024</span>
+              <span class="gallery-event-venue">HKPC, Hong Kong</span>
+            </div>
+            <h2 class="gallery-event-title">HKAGE x HKBCOL Kick-off Session</h2>
+            <p class="gallery-event-desc">The HKAGE x HKBCOL Kick-off Session introduced HKAGE students and teachers to
+              the Hong Kong Blockchain Olympiad 2024 structure, timeline, and training pathway.</p>
+            <div class="gallery-event-recap">
+              <h3>Overview</h3>
+              <p>Held at HKPC, the session helped participants understand how HKBCOL 2024 would unfold, what support
+                structures were available, and how students could prepare meaningfully for the competition journey. It
+                created a shared starting point for both students and educators.</p>
+              <h3>What the session covered</h3>
+              <ul>
+                <li>The structure and purpose of HKBCOL 2024.</li>
+                <li>Key milestones, timelines, and expectations.</li>
+                <li>The training and preparation pathway for participants.</li>
+                <li>Early orientation for students and teachers joining the cycle.</li>
+              </ul>
+              <h3>Why it mattered</h3>
+              <p>A strong competition cycle begins with clarity. This kick-off session helped translate interest into
+                readiness, giving participants a better sense of how to engage seriously with blockchain learning and
+                competition work.</p>
+
+            </div>
+            <div class="photo-strip-wrap">
+              <div class="photo-strip-scroll" tabindex="0" role="region"
+                aria-label="Event photos — scroll horizontally">
+                <div class="photo-strip-track">
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img
+                      src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.02.14%20HKAGE%20HKBCOL%20HKPC%20Kick-off%20Session%20(Field%20Photos)/2024.02.14%20HKAGE%20HKBCOL%20HKPC%20Kick-off%20Session%20-%20Gab.jpeg"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img
+                      src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.02.14%20HKAGE%20HKBCOL%20HKPC%20Kick-off%20Session%20(Field%20Photos)/2024.02.14%20HKAGE%20HKBCOL%20HKPC%20Kick-off%20Session%20-%20Kronos%20&%20Kay%202.jpeg"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="gallery-section-divider">
+      <br>
+      <br>
+
+      <section class="gallery-event-section reveal reveal-delay-2" id="idsol-crash-hk">
+        <div class="gallery-event-header">
+          <div class="gallery-event-num">02</div>
+          <div class="gallery-event-header-body">
+            <div class="gallery-event-meta">
+              <span class="gallery-event-tag gallery-event-tag--cyan">Crash Course</span>
+              <span class="gallery-event-date">August 2024</span>
+              <span class="gallery-event-venue">Hong Kong Science and Technology Parks (HKSTP)</span>
+            </div>
+            <h2 class="gallery-event-title">IDSOL HK 2024 Crash Course</h2>
+            <p class="gallery-event-desc">This concentrated crash course gave IDSOL HK participants rapid technical
+              ramp-up in preparation for the October data science finals.</p>
+            <div class="gallery-event-recap">
+              <h3>Overview</h3>
+              <p>The programme focused on acceleration — helping participants consolidate their skills, strengthen
+                technical confidence, and approach the upcoming finals with greater clarity. Its short format reflected
+                the urgency and intensity of final-stage preparation.</p>
+              <h3>What participants gained</h3>
+              <ul>
+                <li>Focused technical preparation ahead of the finals.</li>
+                <li>A faster ramp-up in relevant data science competencies.</li>
+                <li>Greater confidence entering the October competition stage.</li>
+              </ul>
+              <h3>Why it mattered</h3>
+              <p>Crash courses like this are important transitional moments between general learning and competition
+                performance. They help participants move from being interested learners to more prepared finalists.</p>
+            </div>
+            <div class="photo-strip-wrap">
+              <div class="photo-strip-scroll" tabindex="0" role="region"
+                aria-label="Event photos — scroll horizontally">
+                <div class="photo-strip-track">
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img
+                      src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.05.01%20IDSOL%20Crash%20Course%20Cohort%2024HK-00%20NLP/05_01_2024%20-%20IDSOL%20Crash%20Course%20Cohort%2024HK-00%20NLP%2014.jpg"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img
+                      src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.05.01%20IDSOL%20Crash%20Course%20Cohort%2024HK-00%20NLP/05_01_2024%20-%20IDSOL%20Crash%20Course%20Cohort%2024HK-00%20NLP%2040.jpg"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img
+                      src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.05.01%20IDSOL%20Crash%20Course%20Cohort%2024HK-00%20NLP/05_01_2024%20-%20IDSOL%20Crash%20Course%20Cohort%2024HK-00%20NLP%2049.jpg"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img
+                      src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.05.01%20IDSOL%20Crash%20Course%20Cohort%2024HK-00%20NLP/05_01_2024%20-%20IDSOL%20Crash%20Course%20Cohort%2024HK-00%20NLP%2065.jpg"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="gallery-section-divider">
+      <br>
+      <br>
+
+      <section class="gallery-event-section reveal reveal-delay-0" id="ibcol-hk-2024">
+        <div class="gallery-event-header">
+          <div class="gallery-event-num">03</div>
+          <div class="gallery-event-header-body">
+            <div class="gallery-event-meta">
+              <span class="gallery-event-tag gallery-event-tag--first">Finals</span>
+              <span class="gallery-event-date">August 2024</span>
+              <span class="gallery-event-venue">Hong Kong Productivity Council</span>
+            </div>
+            <h2 class="gallery-event-title">IBCOL HK 2024 Hong Kong Finals</h2>
+            <p class="gallery-event-desc">The IBCOL HK 2024 finals brought local teams together to present blockchain
+              projects and determine Hong Kong&#x27;s representatives for the international stage.</p>
+            <div class="gallery-event-recap">
+              <h3>Overview</h3>
+              <p>At the Hong Kong Productivity Council, teams presented their ideas, demonstrated their preparation, and
+                competed for the opportunity to represent Hong Kong internationally. The finals served as both a
+                showcase of student work and a gateway to the next level of competition.</p>
+              <h3>What defined the finals</h3>
+              <ul>
+                <li>Local teams presenting blockchain-focused projects.</li>
+                <li>Selection of Hong Kong representatives for the international stage.</li>
+                <li>A public-facing moment for student technical effort and teamwork.</li>
+              </ul>
+              <h3>Why it mattered</h3>
+              <p>Regional finals are where preparation becomes visible. The event highlighted the seriousness of the
+                Hong Kong pipeline and the growing ability of local teams to contribute to the broader international
+                blockchain competition community.</p>
+            </div>
+            <div class="photo-strip-wrap">
+              <div class="photo-strip-scroll" tabindex="0" role="region"
+                aria-label="Event photos — scroll horizontally">
+                <div class="photo-strip-track">
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.08.24%20IBCOL%20HK%202024%20Finals%20(HEIC%20incomplete)/1.png"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.08.24%20IBCOL%20HK%202024%20Finals%20(HEIC%20incomplete)/2.png"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.08.24%20IBCOL%20HK%202024%20Finals%20(HEIC%20incomplete)/3.png"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.08.24%20IBCOL%20HK%202024%20Finals%20(HEIC%20incomplete)/4.png"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.08.24%20IBCOL%20HK%202024%20Finals%20(HEIC%20incomplete)/5.png"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.08.24%20IBCOL%20HK%202024%20Finals%20(HEIC%20incomplete)/6.png"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.08.24%20IBCOL%20HK%202024%20Finals%20(HEIC%20incomplete)/7.png"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="gallery-section-divider">
+      <br>
+      <br>
+
+      <section class="gallery-event-section reveal reveal-delay-1" id="ibcol-socratic">
+        <div class="gallery-event-header">
+          <div class="gallery-event-num">04</div>
+          <div class="gallery-event-header-body">
+            <div class="gallery-event-meta">
+              <span class="gallery-event-tag gallery-event-tag--cyan">Preparation Session</span>
+              <span class="gallery-event-date">August 2024</span>
+              <span class="gallery-event-venue">Hong Kong Science and Technology Parks (HKSTP)</span>
+            </div>
+            <h2 class="gallery-event-title">IBCOL 2024 Socratic Session</h2>
+            <p class="gallery-event-desc">The IBCOL 2024 Socratic Session gave teams space to test and refine their
+              thinking through structured questioning and feedback ahead of IBCOL 2024.</p>
+            <div class="gallery-event-recap">
+              <h3>Overview</h3>
+              <p>Rather than functioning as a typical workshop, the Socratic Session created a more reflective and
+                demanding environment. Through questioning and guided critique, teams were encouraged to sharpen their
+                logic, clarify assumptions, and strengthen the foundations of their projects.</p>
+              <h3>What teams practiced</h3>
+              <ul>
+                <li>Responding to structured questioning.</li>
+                <li>Clarifying project logic and assumptions.</li>
+                <li>Refining arguments before higher-stakes presentation.</li>
+                <li>Strengthening analytical depth through feedback.</li>
+              </ul>
+              <h3>Why it mattered</h3>
+              <p>The strongest competition work is not only well-made but well-defended. This session helped teams build
+                intellectual resilience and improved their ability to explain, justify, and refine their ideas under
+                scrutiny.</p>
+            </div>
+            <div class="photo-strip-wrap">
+              <div class="photo-strip-scroll" tabindex="0" role="region"
+                aria-label="Event photos — scroll horizontally">
+                <div class="photo-strip-track">
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.08.31.1400%20HKSTP%20IBCOL%202024%20Socratic%20Session/8.png"
+                      alt="HKBCOL 2021 Blockchain Training Series" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.08.31.1400%20HKSTP%20IBCOL%202024%20Socratic%20Session/9.png" loading="lazy"
+                      decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="gallery-section-divider">
+      <br>
+      <br>
+
+      <section class="gallery-event-section reveal reveal-delay-0" id="idsol-hk-2024-finals">
+        <div class="gallery-event-header">
+          <div class="gallery-event-num">05</div>
+          <div class="gallery-event-header-body">
+            <div class="gallery-event-meta">
+              <span class="gallery-event-tag gallery-event-tag--first">Finals</span>
+              <span class="gallery-event-date">October 2024</span>
+              <span class="gallery-event-venue">City University of Hong Kong</span>
+            </div>
+            <h2 class="gallery-event-title">IDSOL HK 2024 Hong Kong Finals</h2>
+            <p class="gallery-event-desc">The IDSOL HK 2024 finals brought together local teams to present data science
+              and AI solution designs and determine Hong Kong&#x27;s representatives for the international stage in
+              Amsterdam.</p>
+            <div class="gallery-event-recap">
+              <h3>Overview</h3>
+              <p>Hosted at City University of Hong Kong in October 2024, the Hong Kong finals were the culmination of
+                the regional cycle of the International Data Science Olympiad (IDSOL 2024). Teams presented
+                comprehensive data science and artificial intelligence solution designs to address real-world
+                challenges, demonstrating both technical depth and practical thinking.</p>
+              <p>Shortlisted teams from this round were selected to represent Hong Kong at the IDSOL 2024 international
+                finals in Amsterdam later in the year.</p>
+              <h3>What defined the finals</h3>
+              <ul>
+                <li>Local teams presenting end-to-end data science and AI solution designs for real-world problems.</li>
+                <li>Emphasis on problem framing, data strategy, model choices, and how solutions would operate in
+                  practice.</li>
+                <li>Selection of Hong Kong representatives for the international IDSOL 2024 finals in Amsterdam.</li>
+              </ul>
+              <h3>Why it mattered</h3>
+              <p>The Hong Kong finals marked the point where months of preparation and iteration became visible. The
+                event highlighted the strength of the local data and AI talent pipeline and showed that Hong Kong
+                students can engage with complex, applied data science work at an international standard.</p>
+              <p>For KBI HK&#x27;s history, IDSOL HK 2024 stands as a key moment in building serious, competition-tested
+                capacity in data science and AI among students in and around Hong Kong.</p>
+            </div>
+            <div class="photo-strip-wrap">
+              <div class="photo-strip-scroll" tabindex="0" role="region"
+                aria-label="Event photos — scroll horizontally">
+                <div class="photo-strip-track">
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="IDSOL HK 2024 Hong Kong Finals">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.10.12%20IDSOL%20HK%20Finals/10.png" alt="IDSOL HK 2024 Hong Kong Finals"
+                      loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="IDSOL HK 2024 Hong Kong Finals">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.10.12%20IDSOL%20HK%20Finals/11.png" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="IDSOL HK 2024 Hong Kong Finals">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.10.12%20IDSOL%20HK%20Finals/12.png" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="IDSOL HK 2024 Hong Kong Finals at CityU">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.10.12%20IDSOL%20HK%20Finals/13.png" alt="IDSOL HK 2024 Hong Kong Finals at CityU"
+                      loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="IDSOL HK 2024 Hong Kong Finals at CityU">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.10.12%20IDSOL%20HK%20Finals/14.png" alt="IDSOL HK 2024 Hong Kong Finals at CityU"
+                      loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="IDSOL HK 2024 Hong Kong Finals at CityU">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.10.12%20IDSOL%20HK%20Finals/15.png" alt="IDSOL HK 2024 Hong Kong Finals at CityU"
+                      loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="IDSOL HK 2024 Hong Kong Finals at CityU">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.10.12%20IDSOL%20HK%20Finals/16.png" alt="IDSOL HK 2024 Hong Kong Finals at CityU"
+                      loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="gallery-section-divider">
+      <br>
+      <br>
+
+      <section class="gallery-event-section reveal reveal-delay-2" id="eto-delegation-2024">
+        <div class="gallery-event-header">
+          <div class="gallery-event-num">06</div>
+          <div class="gallery-event-header-body">
+            <div class="gallery-event-meta">
+              <span class="gallery-event-tag gallery-event-tag--first">International Delegation</span>
+              <span class="gallery-event-date">November 2024</span>
+              <span class="gallery-event-venue">Amsterdam</span>
+            </div>
+            <h2 class="gallery-event-title">ETO 2024 HKSAR Delegation in Amsterdam</h2>
+            <p class="gallery-event-desc">A Hong Kong delegation, including THEi participants, travelled to Amsterdam
+              for the Emerging Technologies Olympiad, where they competed and engaged with international peers and
+              judges.</p>
+            <div class="gallery-event-recap">
+              <h3>Overview</h3>
+              <p>ETO 2024 brought blockchain and data science together under a broader emerging-technologies frame, and
+                the Hong Kong delegation took part in that international shift. Their participation reflected not only
+                competition readiness, but growing visibility for Hong Kong within the wider KBI-linked ecosystem.</p>
+              <h3>What the delegation experienced</h3>
+              <ul>
+                <li>International competition and exchange.</li>
+                <li>Engagement with peers and judges from other regions.</li>
+                <li>Participation in a broader emerging-technologies platform, not just a single-discipline event.</li>
+              </ul>
+              <h3>Why it mattered</h3>
+              <p>This delegation represented an important outward-facing step for Hong Kong participants. It showed that
+                local students were not only preparing for domestic programmes, but also entering conversations and
+                competitions at an international level.</p>
+            </div>
+            <div class="photo-strip-wrap">
+              <div class="photo-strip-scroll" tabindex="0" role="region"
+                aria-label="Event photos — scroll horizontally">
+                <div class="photo-strip-track">
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.11%20ETO%202024/ETO%202024%20(IBCOL%20&%20IDSOL)%20Inholland%20Digiquest%20Awards%20ReproTrust.jpeg"
+                      alt="Delegation members at the Inholland Digiquest awards ceremony standing on stage in a formal event hall" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.11%20ETO%202024/ETO%202024%20(IBCOL%20&%20IDSOL)%20Inholland%20Digiquest%20Awards.jpeg" alt="Hong Kong delegation posing near awards signage at the Inholland Digiquest event" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.11%20ETO%202024/ETO%202024%20(IBCOL%20&%20IDSOL)%20Inholland%20Digiquest%20Exhibition%20ReproTrust.jpeg" alt="Participants presenting their project at the Inholland Digiquest exhibition booth in a busy conference hall" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.11%20ETO%202024/ETO%202024%20(IBCOL%20&%20IDSOL)%20Inholland%20Digiquest%20Exhibition.jpeg" alt="Hong Kong delegation students speaking with judges at the Inholland Digiquest exhibition area" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.11%20ETO%202024/ETO%202024%20(IBCOL%20&%20IDSOL)%20Inholland%20Digiquest%20Expo.jpg" alt="Delegation members engaging with visitors at an expo booth during the Inholland Digiquest event" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.11%20ETO%202024/ETO%202024%20(IBCOL%20&%20IDSOL)%20Inholland%20Digiquest%20Team%20Cubes.jpeg" alt="Students from the Hong Kong delegation holding cube-shaped materials while smiling in a conference setting" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>
+                  <button type="button" class="photo-strip-item" aria-label="View larger image"
+                    data-caption="HKBCOL 2021 Blockchain Training Series">
+                    <img src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2024.11%20ETO%202024/ETO%202024%20(IBCOL%20&%20IDSOL)%20Inholland%20Digiquest%20Workshop.jpeg" alt="Workshop participants from the Hong Kong delegation working together around a table in a bright event room" loading="lazy" decoding="async">
+                    <span class="photo-strip-item-hint" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" />
+                      </svg></span>
+                  </button>                                                      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button id="lightboxClose" type="button" aria-label="Close photo viewer">&#x2715;</button>
+    <button id="lightboxPrev" type="button" class="lightbox-nav lightbox-nav--prev"
+      aria-label="Previous photo">&#x2039;</button>
+    <button id="lightboxNext" type="button" class="lightbox-nav lightbox-nav--next"
+      aria-label="Next photo">&#x203A;</button>
+    <img id="lightboxImg" src="" alt="">
+    <p id="lightboxCaption"></p>
+  </div>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-stacked-white-on-black.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 Kingsbridge Institute Limited. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="../about/about-who-we-are.html">Who We Are</a></li>
+            <li><a href="../about/about-history.html">Our History</a></li>
+            <li><a href="../about/about-impact.html">Our Impact</a></li>
+            <li><a href="../about/about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="../programme/i2ol.html">I2OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="../programme/etti.html">ETTI Program</a></li>
+            <li><a href="../programme/skillsprint.html">SkillSprint</a></li>
+            <li><a href="../programme/abc5.html">ABC5 Program</a></li>
+            <li><a href="../programme/isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="../programme/projects.html">Project Support</a></li>
+            <li><a href="../programme/working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="../programme/socratic.html">Socratic Circles</a></li>
+            <li><a href="../programme/gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="../news/news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../programme/sponsors.html">Partner With Us</a></li>
+            <li><a href="../programme/membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-bottom-text">
+          <a href="../pics.html">Personal Information Collection Statement (PICS)</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M7 12V2M2 7l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <script src="../kbi-hk.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+  <title>News &amp; Insights — KBI Hong Kong</title>
+  <meta name="description"
+    content="Latest news, announcements, and insights from KBI Hong Kong — covering blockchain, data science, quantum computing, and our programmes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../kbi-hk.css">
+</head>
+
+<body>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-bar-inner">
+      <p>
+        <span class="ab-badge">New</span>
+        ETO Eastern Conference 2026 (10–11 Oct, CDNIS).
+        <a href="../upcoming events/events.html">View events &rarr;</a>
+      </p>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Close announcement">&#x2715;</button>
+  </div>
+
+
+  <!-- NAV -->
+  <nav class="site-nav nav-light" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="KBI Hong Kong — home">
+        <div class="nav-logo-mark"><img src="../assets/brand/logo-icon.png" alt="" class="brand-mark-img" width="40"
+            height="40"></div>
+        <div class="nav-wordmark">
+          <span class="nav-wordmark-name">KBI Hong Kong</span>
+          <span class="nav-wordmark-sub">Königsberger Bridges Institute</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-controls="dd-about">About <svg
+              viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="nav-dropdown" id="dd-about" role="menu">
+            <a href="../about/about-who-we-are.html" role="menuitem">Who We Are</a>
+            <a href="../about/about-history.html" role="menuitem">Our History</a>
+            <a href="../about/about-impact.html" role="menuitem">Our Impact</a>
+            <a href="../about/about-team.html" role="menuitem">Our Team</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="../media.html" role="menuitem">Media &amp; Brand Kit</a>
+          </div>
+        </li>
+        <li class="has-dropdown"><button class="nav-dropdown-trigger" aria-expanded="false"
+            aria-controls="dd-prog">Programmes <svg viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="nav-dropdown" id="dd-prog" role="menu">
+            <div class="nav-dropdown-label">Compete</div>
+            <a href="../upcoming events/eto2026.html" role="menuitem">Emerging Technologies Olympiad (ETO)</a>
+            <a href="../programme/i2ol.html" role="menuitem">I2OL Scheme</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Certify</div>
+            <a href="../programme/etti.html" role="menuitem">Emerging Tech Training &amp; Internship (ETTI) Program</a>
+            <a href="../programme/skillsprint.html" role="menuitem">SkillSprint</a>
+            <a href="../programme/abc5.html" role="menuitem">AI, Blockchain, Cybersecurity (ABC5) Program</a>
+            <a href="../programme/isfretic.html" role="menuitem">International Standards Framework of Reference for
+              Emerging Technologies Innovation and Competency (ISFRETIC)</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Collab</div>
+            <a href="../programme/projects.html" role="menuitem">Project Support</a>
+            <a href="../programme/working-research-groups.html" role="menuitem">Working &amp; Research Groups</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Connect</div>
+            <a href="../programme/membership.html" role="menuitem">Socratic Circles</a>
+            <a href="../programme/gatherings.html" role="menuitem">KBI Community Gatherings</a>
+          </div>
+        </li>
+        <li><a href="../upcoming events/events.html">Events</a></li>
+        <!-- <li class="hide-md"><a href="../programme/sponsors.html">Sponsors</a></li> -->
+        <li class="hide-md"><a href="news.html">News</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="../programme/sponsors.html" class="btn btn-outline-prussian btn--sm">Partner With Us</a>
+        <a href="../programme/membership.html" class="btn btn-yellow btn--sm">Join Us</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation" aria-expanded="false"
+        aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <div class="nav-mobile-section-label">About</div>
+    <a href="../about/about-who-we-are.html" class="nav-mobile-link">Who We Are</a>
+    <a href="../about/about-history.html" class="nav-mobile-sub">Our History</a>
+    <a href="../about/about-impact.html" class="nav-mobile-sub">Our Impact</a>
+    <a href="../about/about-team.html" class="nav-mobile-sub">Our Team</a>
+    <a href="../media.html" class="nav-mobile-sub">Media &amp; Brand Kit</a>
+    <div class="nav-mobile-section-label">Compete</div>
+    <a href="../upcoming events/eto2026.html" class="nav-mobile-link">ETO Eastern Conference (2026)</a>
+    <a href="../programme/i2ol.html" class="nav-mobile-sub">I2OL Scheme</a>
+    <div class="nav-mobile-section-label">Certify</div>
+    <a href="../programme/etti.html" class="nav-mobile-sub">ETTI Program</a>
+    <a href="../programme/skillsprint.html" class="nav-mobile-sub">SkillSprint</a>
+    <a href="../programme/abc5.html" class="nav-mobile-sub">ABC5 Program</a>
+    <a href="../programme/isfretic.html" class="nav-mobile-sub">ISFRETIC</a>
+
+
+
+    <div class="nav-mobile-section-label">Collab</div>
+    <a href="../programme/projects.html" class="nav-mobile-sub">Project Support</a>
+    <a href="../programme/working-research-groups.html" class="nav-mobile-sub">Working &amp; Research Groups</a>
+    <div class="nav-mobile-section-label">Connect</div>
+    <a href="../programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+    <a href="../programme/membership.html" class="nav-mobile-sub">Socratic Circles</a>
+    <a href="../programme/gatherings.html" class="nav-mobile-sub">KBI Community Gatherings</a>
+
+
+    <div class="nav-mobile-section-label">Navigate</div>
+    <a href="../index.html" class="nav-mobile-link">Home</a>
+    <a href="../upcoming events/events.html" class="nav-mobile-link">Events</a>
+    <a href="news.html" class="nav-mobile-link">News &amp; Insights</a>
+    <a href="../faq.html" class="nav-mobile-link">FAQ</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+    <div class="nav-mobile-ctas">
+      <a href="../programme/sponsors.html" class="btn btn-outline-white">Partner With Us</a>
+      <a href="../programme/membership.html" class="btn btn-yellow">Join Us</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero page-hero--night" aria-label="News page header" style="position:relative;overflow:hidden;">
+    <div class="page-hero-bg" aria-hidden="true"
+      style="position:absolute;inset:0;background:linear-gradient(160deg, var(--night) 0%, var(--prussian) 100%);">
+    </div>
+    <div class="page-hero-inner" style="position:relative;z-index:1;">
+      <div class="label-row">
+        <div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">News &amp;
+          Insights</span>
+      </div>
+      <h1 class="page-hero-heading">Latest from<br>KBI Hong Kong</h1>
+      <p class="page-hero-sub">Announcements, insights, press releases, and commentary from KBI Hong Kong — covering our
+        programmes, the broader emerging-technology education landscape, and the technologies we teach.</p>
+    </div>
+  </header>
+
+  <!-- FEATURED ANNOUNCEMENT -->
+  <section class="section-wrap section-wrap--white" id="announcements" aria-labelledby="news-featured-heading">
+    <div class="section-inner">
+      <div class="label-row">
+        <div class="u-rule" aria-hidden="true"></div><span class="u-label">Featured Announcement</span>
+      </div>
+      <article class="news-featured-full reveal"
+        style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:40px;">
+        <div class="news-featured-visual"
+          style="height:380px;border-radius:var(--radius-lg);position:relative;overflow:hidden;">
+          <img
+            src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2025.10.29-31%20ETO%202025%20HKSAR/10.jpg"
+            alt="ETO Eastern Conference 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
+            loading="eager">
+          <div style="position:absolute;inset:0;background:rgba(0,49,83,0.7);" aria-hidden="true"></div>
+          <div
+            style="text-align:center;position:relative;z-index:1;padding:40px;display:flex;align-items:center;justify-content:center;height:100%;">            
+          </div>
+        </div>
+        <div>
+          <div class="news-meta" style="margin-bottom:16px;"><span class="tag tag--sky">Featured</span><span
+              class="news-date" style="margin-left:8px;">May 2026</span></div>
+          <h2 class="section-heading" style="font-size:clamp(1.5rem,3vw,2rem);">ETO Eastern Conference 2026: Interest
+            Registration Is Open</h2>
+          <p class="section-body" style="margin-top:16px;font-size:0.9375rem;">KBI Hong Kong hosts the Emerging
+            Technologies Olympiad Eastern Conference — a global, cross-disciplinary conference (BCTT, DSAI, QCIT) at the
+            Canadian International School of Hong Kong, 9–11 October 2026.</p>
+          <p class="section-body" style="margin-top:12px;font-size:0.9375rem;">ETO is distinct from the I2OL subject
+            olympiads (IBCOL, IDSOL, IQCOL). Students worldwide are invited to attend in person; interest registration
+            is open now.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;"><a href="news-eto-eastern-2026.html"
+              class="btn btn-prussian btn--sm">Read Full Article <svg viewBox="0 0 14 14" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a><a href="../upcoming events/eto2026.html" class="btn btn-outline-prussian btn--sm">About ETO
+              Eastern Conference 2026</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- NEWS GRID -->
+  <section class="section-wrap section-wrap--mist" id="insights" aria-labelledby="insights-heading">
+    <div class="section-inner">
+      <div
+        style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:44px;">
+        <div>
+          <div class="label-row">
+            <div class="u-rule" aria-hidden="true"></div><span class="u-label">All News &amp; Insights</span>
+          </div>
+          <h2 class="section-heading reveal" id="insights-heading" style="margin-bottom:0;">Articles, Insights<br>&amp;
+            Announcements</h2>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;" class="reveal">
+          <button class="news-filter-btn active" data-filter="all">All</button>
+          <button class="news-filter-btn" data-filter="announcement">Announcements</button>
+          <button class="news-filter-btn" data-filter="insight">Insights</button>
+          <button class="news-filter-btn" data-filter="press">Press</button>
+        </div>
+      </div>
+
+      <div class="news-all-grid" role="list">
+
+        <article class="news-all-card reveal" role="listitem" data-category="announcement">
+          <div class="news-all-card-visual" style="position:relative;overflow:hidden;"><img
+              src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2025.10.29-31%20ETO%202025%20HKSAR/10.jpg"
+              alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <div style="position:absolute;inset:0;background:rgba(0,49,83,0.68);" aria-hidden="true"></div>
+          </div>
+          <div class="news-all-card-body">
+            <div class="news-meta"><span class="tag tag--sky">Announcement</span><span class="news-date">10 May
+                2026</span></div>
+            <h4>ETO Eastern Conference 2026: Interest Registration Is Open</h4>
+            <p>9–11 October at CDNIS — global emerging-technologies conference. Interest registration is open.</p>
+            <a href="news-eto-eastern-2026.html" class="link-arrow" style="margin-top:12px;display:inline-flex;">Read
+              more <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+        </article>
+
+        <article class="news-all-card reveal reveal-delay-1" role="listitem" data-category="announcement">
+          <div class="news-all-card-visual" style="position:relative;overflow:hidden;"><img
+              src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2025%20FinTech%20Skillsprint/5.png"
+              alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <div style="position:absolute;inset:0;background:rgba(0,49,83,0.68);" aria-hidden="true"></div>
+          </div>
+          <div class="news-all-card-body">
+            <div class="news-meta"><span class="tag tag--sky">Announcement</span><span class="news-date">8 May
+                2026</span></div>
+            <h4>Emerging-Technology SkillSprint (ETS) 2026</h4>
+            <p>The 2026 SkillSprint edition — concentrated workshops across blockchain, data, AI, and related domains.
+            </p>
+            <a href="news-skillsprint-2026-launch.html" class="link-arrow"
+              style="margin-top:12px;display:inline-flex;">Read more <svg viewBox="0 0 12 12" fill="none"
+                aria-hidden="true">
+                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+        </article>
+
+        <article class="news-all-card reveal reveal-delay-2" role="listitem" data-category="announcement">
+          <div class="news-all-card-visual" style="position:relative;overflow:hidden;"><img
+              src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2023.11%20IBCOL%202023/IBCOL-DigiQuest-2023-11-17%20DSC00273.jpg"
+              alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <div style="position:absolute;inset:0;background:rgba(0,49,83,0.68);" aria-hidden="true"></div>
+          </div>
+          <div class="news-all-card-body">
+            <div class="news-meta"><span class="tag tag--sky">Announcement</span><span class="news-date">1 May
+                2026</span></div>
+            <h4>Introducing IQCOL Hong Kong</h4>
+            <p>The quantum computing olympiad completes the I2OL triad alongside IBCOL and IDSOL.</p>
+            <a href="news-iqcol-hk-launch.html" class="link-arrow" style="margin-top:12px;display:inline-flex;">Read
+              more <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+        </article>
+
+        <article class="news-all-card reveal reveal-delay-3" role="listitem" data-category="insight">
+          <div class="news-all-card-visual" style="position:relative;overflow:hidden;"><img
+              src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2018.02.27%20First%20Principles/2018.02.27%20First%20Principles%20-%20After%20Event%20Photo.JPG"
+              alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <div style="position:absolute;inset:0;background:rgba(0,49,83,0.68);" aria-hidden="true"></div>
+          </div>
+          <div class="news-all-card-body">
+            <div class="news-meta"><span class="tag tag--stone">Insight</span><span class="news-date">20 April
+                2026</span></div>
+            <h4>Seriousness Without Hype</h4>
+            <p>What emerging-technology education should feel like — and why KBI HK designs programmes accordingly.</p>
+            <a href="insight-seriousness-without-hype.html" class="link-arrow"
+              style="margin-top:12px;display:inline-flex;">Read more <svg viewBox="0 0 12 12" fill="none"
+                aria-hidden="true">
+                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+        </article>
+
+        <article class="news-all-card reveal reveal-delay-3" role="listitem" data-category="insight">
+          <div class="news-all-card-visual" style="position:relative;overflow:hidden;"><img
+              src="https://pub-a4e87c3324a1453b9fe2e8e36bead3b1.r2.dev/2025.05.31%20%5BWWW1%5D%20Work%20World%20War%201%2C%20HKU/6.png"
+              alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy">
+            <div style="position:absolute;inset:0;background:rgba(0,49,83,0.68);" aria-hidden="true"></div>
+          </div>
+          <div class="news-all-card-body">
+            <div class="news-meta"><span class="tag tag--stone">Insight</span><span class="news-date">12 April
+                2026</span></div>
+            <h4>Beyond One-Off Events: Building Pathways</h4>
+            <p>Why KBI HK cares about what happens after the competition or workshop ends.</p>
+            <a href="insight-beyond-one-off-events.html" class="link-arrow"
+              style="margin-top:12px;display:inline-flex;">Read more <svg viewBox="0 0 12 12" fill="none"
+                aria-hidden="true">
+                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS / MEDIA -->
+  <section class="section-wrap section-wrap--white" id="press" aria-labelledby="press-heading">
+    <div class="section-inner">
+      <div class="label-row">
+        <div class="u-rule" aria-hidden="true"></div><span class="u-label">Press &amp; Media</span>
+      </div>
+      <h2 class="section-heading reveal" id="press-heading">For Media &amp;<br>Press Enquiries</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:600px;">KBI Hong Kong welcomes media coverage that
+        accurately reflects our mission, programmes, and community. We are available for comment on emerging-technology
+        education in Hong Kong, student competitions, and the broader KBI ecosystem.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:48px;">
+        <div style="background:var(--mist);border:1px solid var(--stone);border-radius:var(--radius-lg);padding:32px;"
+          class="reveal">
+          <div
+            style="font-family:'Inter',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:14px;">
+            Press Contact</div>
+          <p
+            style="font-family:'Inter',sans-serif;font-size:0.875rem;color:var(--text-muted);line-height:1.7;margin-bottom:16px;">
+            For press enquiries, interview requests, and media coverage, contact KBI Hong Kong directly:</p>
+          <a href="mailto:kbi-hongkong@kb.institute"
+            style="font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:600;color:var(--prussian);">kbi-hongkong@kb.institute</a>
+        </div>
+        <div style="background:var(--mist);border:1px solid var(--stone);border-radius:var(--radius-lg);padding:32px;"
+          class="reveal reveal-delay-1">
+          <div
+            style="font-family:'Inter',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:14px;">
+            About KBI HK</div>
+          <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:var(--text-muted);line-height:1.7;">KBI Hong
+            Kong is the regional chapter of the Königsberger Bridges Institute, established in 2016. It is a non-profit,
+            youth-run organisation focused on emerging-technology education.</p>
+        </div>
+        <div style="background:var(--mist);border:1px solid var(--stone);border-radius:var(--radius-lg);padding:32px;"
+          class="reveal reveal-delay-2">
+          <div
+            style="font-family:'Inter',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:14px;">
+            Key Facts</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+            <li
+              style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:var(--text-muted);display:flex;gap:8px;">
+              <span style="color:var(--signal-yellow);font-weight:700;">·</span>Established 2016 — longest-running KBI
+              chapter globally</li>
+            <li
+              style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:var(--text-muted);display:flex;gap:8px;">
+              <span style="color:var(--signal-yellow);font-weight:700;">·</span>1,000+ community members across HK</li>
+            <li
+              style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:var(--text-muted);display:flex;gap:8px;">
+              <span style="color:var(--signal-yellow);font-weight:700;">·</span>3 core technology tracks: Blockchain,
+              Data Science, Quantum</li>
+            <li
+              style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:var(--text-muted);display:flex;gap:8px;">
+              <span style="color:var(--signal-yellow);font-weight:700;">·</span>50+ programmes and events delivered</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter-band" aria-label="Newsletter signup">
+    <div class="newsletter-inner">
+      <div class="newsletter-left">
+        <h3>Stay Updated</h3>
+        <p>Programme announcements, event dates, and insights — directly to your inbox.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm" aria-label="Newsletter signup form" novalidate>
+        <label for="nl-email" class="sr-only">Email address</label>
+        <input type="email" id="nl-email" name="email" class="newsletter-input" placeholder="Enter your email address"
+          required autocomplete="email">
+        <button type="submit" class="btn btn-yellow btn--sm">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-band" aria-label="Call to action">
+    <div class="cta-band-inner">
+      <div class="label-row" style="justify-content:center;margin-bottom:24px;">
+        <div class="u-rule" aria-hidden="true"></div><span class="u-label u-label--light">Get Involved</span>
+      </div>
+      <h2 class="cta-band-heading reveal">More than a news feed —<br><em>a serious community.</em></h2>
+      <p class="cta-band-body reveal reveal-delay-1">Subscribe to stay updated, or take the next step and join the KBI
+        Hong Kong community as a member, sponsor, or institutional partner.</p>
+      <div class="cta-band-actions reveal reveal-delay-2">
+        <a href="../programme/membership.html" class="btn btn-yellow">Join Membership <svg viewBox="0 0 14 14"
+            fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg></a>
+        <a href="sponsors.html#enquiry" class="btn btn-white">Become a Sponsor</a>
+        <a href="../contact.html" class="btn btn-outline-white">Contact Us</a>
+      </div>
+    </div>
+  </section>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo" aria-label="KBI Hong Kong — home">
+          <div class="footer-logo-mark"><img src="../assets/brand/logo-stacked-white-on-black.png" alt="" class="brand-mark-img" width="40" height="40"></div>
+          <div class="footer-wordmark">
+            <span class="footer-wordmark-name">KBI Hong Kong</span>
+            <span class="footer-wordmark-sub">Königsberger Bridges Institute</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
+        <p class="footer-copyright">&copy; 2026 Kingsbridge Institute Limited. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kbi_hongkong/" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h3 class="footer-col-heading">About</h3>
+          <ul role="list">
+            <li><a href="../about/about-who-we-are.html">Who We Are</a></li>
+            <li><a href="../about/about-history.html">Our History</a></li>
+            <li><a href="../about/about-impact.html">Our Impact</a></li>
+            <li><a href="../about/about-team.html">Our Team</a></li>
+            <li><a href="../media.html">Media &amp; Brand Kit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Compete</h3>
+          <ul role="list">
+            <li><a href="../upcoming events/eto2026.html">Emerging Technologies Olympiad (ETO)</a></li>
+            <li><a href="../programme/i2ol.html">I2OL Scheme</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Certify</h3>
+          <ul role="list">
+            <li><a href="../programme/etti.html">ETTI Program</a></li>
+            <li><a href="../programme/skillsprint.html">SkillSprint</a></li>
+            <li><a href="../programme/abc5.html">ABC5 Program</a></li>
+            <li><a href="../programme/isfretic.html">ISFRETIC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Collab</h3>
+          <ul role="list">
+            <li><a href="../programme/projects.html">Project Support</a></li>
+            <li><a href="../programme/working-research-groups.html">Working &amp; Research Groups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-heading">Connect</h3>
+          <ul role="list">
+            <li><a href="../programme/socratic.html">Socratic Circles</a></li>
+            <li><a href="../programme/gatherings.html">KBI Community Gatherings</a></li>
+            <li><a href="../upcoming events/events.html">Events</a></li>
+            <li><a href="news.html">News &amp; Insights</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../programme/sponsors.html">Partner With Us</a></li>
+            <li><a href="../programme/membership.html">Join Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-bottom-text">
+          <a href="../pics.html">Personal Information Collection Statement (PICS)</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top"><svg viewBox="0 0 14 14" fill="none"
+      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M7 12V2M2 7l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg></button>
+  <script src="../kbi-hk.js"></script>
+</body>
+
+</html>
