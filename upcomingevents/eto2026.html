@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
-  <title>ETO Eastern Conference 2026 — Emerging Technologies Olympiad | KBI Hong Kong</title>
-  <meta name="description" content="ETO Eastern Conference 2026 — 10–11 October at CDNIS, Hong Kong. A global emerging-technologies conference welcoming students worldwide, especially across the eastern part of the world, to attend in person.">
+  <title>ETO Eastern 2026 — Emerging Technologies Olympiad | KBI Hong Kong</title>
+  <meta name="description" content="ETO Eastern 2026 — 10–11 October at CDNIS, Hong Kong. A two-day conference where students, researchers, and organisations showcase projects in Blockchain, AI, and Quantum Computing. Competition and Community tracks open worldwide.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     /* ── ETO 2026 PAGE-SPECIFIC STYLES ── */
     .eto-hero {
       background: var(--night);
-      padding: calc(var(--nav-h) + 88px) 24px 80px;
+      padding: calc(var(--nav-h) + 56px) 24px 80px;
       position: relative; overflow: hidden;
     }
     .eto-hero::before {
@@ -82,14 +82,472 @@
       margin-bottom: 24px; letter-spacing: -0.02em;
     }
     .eto-hero h1 em { font-style: italic; color: var(--cyan); }
+    .eto-hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+      font-style: italic;
+      color: var(--cyan);
+      margin-bottom: 20px;
+      max-width: 640px;
+      line-height: 1.4;
+    }
     .eto-hero-desc {
       font-family: 'Inter', sans-serif;
       font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
       color: rgba(255,255,255,0.6);
-      max-width: 580px; line-height: 1.8;
-      margin-bottom: 36px;
+      max-width: 640px; line-height: 1.8;
+      margin-bottom: 28px;
     }
-    .eto-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .eto-hero-meta {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .eto-hero-meta li {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.5;
+    }
+    .eto-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0; }
+    .eto-hero--compact { padding-bottom: 64px; }
+    .eto-hero--compact .eto-hero-inner { max-width: 760px; }
+    .eto-track-tabs {
+      display: inline-flex;
+      gap: 0;
+      margin-top: 32px;
+      padding: 4px;
+      background: var(--mist);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+    }
+    .eto-track-tab {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border: none;
+      border-radius: calc(var(--radius-lg) - 2px);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background var(--t), color var(--t), box-shadow var(--t);
+      white-space: nowrap;
+    }
+    .eto-track-tab:hover { color: var(--prussian); }
+    .eto-track-tab.active {
+      background: var(--white);
+      color: var(--prussian);
+      box-shadow: var(--shadow-sm);
+    }
+    .eto-track-panel { display: none; margin-top: 40px; }
+    .eto-track-panel.active { display: block; animation: fadeIn 0.3s ease; }
+    .eto-track-intro h3 {
+      font-size: 1.375rem;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+    .eto-track-intro p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .eto-track-intro--community { background: var(--mist); }
+    .eto-track-intro {
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      background: var(--white);
+      margin-bottom: 48px;
+    }
+    .eto-track-section { margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--stone); }
+    .eto-track-section:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+    .eto-expect-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .eto-expect-card {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      transition: box-shadow var(--t), transform var(--t);
+    }
+    .eto-expect-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .eto-expect-icon {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--mist);
+      color: var(--prussian);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .eto-expect-icon svg { width: 22px; height: 22px; }
+    .eto-expect-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .eto-expect-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .eto-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .eto-split-card {
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      background: var(--white);
+    }
+    .eto-split-card--community { background: var(--mist); }
+    .eto-split-card h3 {
+      font-size: 1.375rem;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+    .eto-split-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .eto-split-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin: 20px 0 10px;
+    }
+    .eto-split-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .eto-split-list li {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      padding-left: 14px;
+      position: relative;
+    }
+    .eto-split-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+    .eto-theme-block {
+      margin-top: 28px;
+      padding: 32px;
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--prussian);
+    }
+    .eto-theme-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 8px;
+    }
+    .eto-theme-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 600;
+      color: var(--prussian);
+      margin-bottom: 12px;
+    }
+    .eto-theme-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 640px;
+    }
+    .eto-timeline-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+      position: relative;
+    }
+    .eto-timeline-strip::before {
+      content: '';
+      position: absolute;
+      top: 11px;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: var(--stone);
+      z-index: 0;
+    }
+    .eto-timeline-strip-item {
+      text-align: center;
+      position: relative;
+      padding-top: 36px;
+      z-index: 1;
+    }
+    .eto-timeline-strip-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--prussian);
+      margin: 0 auto 16px;
+      position: relative;
+      top: -25px;
+    }
+    .eto-timeline-strip-dot--active {
+      background: var(--prussian);
+    }
+    .eto-timeline-strip-date {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 6px;
+    }
+    .eto-timeline-strip-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .eto-timeline-strip-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .eto-faq-list { margin-top: 32px; max-width: 800px; }
+    .eto-faq-list .faq-item { border: 1px solid var(--stone); border-radius: var(--radius-md); margin-bottom: 10px; overflow: hidden; background: #fff; }
+    .eto-faq-list .faq-question { width: 100%; background: none; border: none; padding: 20px 22px; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Inter', sans-serif; font-size: 0.9375rem; font-weight: 600; color: var(--text-main); line-height: 1.5; transition: background 0.2s; }
+    .eto-faq-list .faq-question:hover { background: var(--mist); }
+    .eto-faq-list .faq-question[aria-expanded="true"] { background: var(--prussian); color: #fff; }
+    .eto-faq-list .faq-icon { width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%; border: 1.5px solid currentColor; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; font-size: 1rem; line-height: 1; }
+    .eto-faq-list .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .eto-faq-list .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .eto-faq-list .faq-answer-inner { padding: 20px 22px 22px; border-top: 1px solid var(--stone); font-family: 'Inter', sans-serif; font-size: 0.875rem; color: var(--text-muted); line-height: 1.75; }
+    .eto-faq-list .faq-item.open .faq-answer { max-height: 400px; }
+    .eto-judging-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .eto-judging-card {
+      padding: 24px;
+      background: var(--mist);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+    }
+    .eto-judging-pct {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--prussian);
+      margin-bottom: 8px;
+    }
+    .eto-judging-card h3 {
+      font-size: 0.9375rem;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .eto-judging-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .eto-awards-block {
+      margin-top: 48px;
+      padding: 40px;
+      background: linear-gradient(135deg, var(--mist) 0%, #fff 55%, rgba(255,209,102,0.08) 100%);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .eto-awards-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--prussian), var(--cyan), var(--yellow));
+    }
+    .eto-awards-lead {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+    .eto-awards-layers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .eto-awards-layer {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      position: relative;
+    }
+    .eto-awards-layer-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--prussian);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .eto-awards-layer h4 {
+      font-size: 1rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .eto-awards-layer p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .eto-awards-tiers-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 16px;
+    }
+    .eto-awards-tiers {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .eto-award-card {
+      text-align: center;
+      padding: 22px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--stone);
+      background: var(--white);
+      transition: transform var(--t), box-shadow var(--t);
+    }
+    .eto-award-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .eto-award-medal {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+    .eto-award-card--gold .eto-award-medal {
+      background: linear-gradient(145deg, #ffe08a, #ffd166);
+      color: #7a5c00;
+      box-shadow: 0 4px 16px rgba(255,209,102,0.45);
+    }
+    .eto-award-card--silver .eto-award-medal {
+      background: linear-gradient(145deg, #eef1f4, #c8d0d8);
+      color: #4a5560;
+      box-shadow: 0 4px 14px rgba(120,130,140,0.25);
+    }
+    .eto-award-card--bronze .eto-award-medal {
+      background: linear-gradient(145deg, #e8c4a0, #cd9a6a);
+      color: #5c3d1e;
+      box-shadow: 0 4px 14px rgba(205,154,106,0.35);
+    }
+    .eto-award-card--choice .eto-award-medal,
+    .eto-award-card--merit .eto-award-medal {
+      background: var(--mist);
+      color: var(--prussian);
+      border: 1px solid var(--stone);
+      font-size: 0.875rem;
+    }
+    .eto-award-card h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+    .eto-requirement-block {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      max-width: 640px;
+    }
+    .eto-role-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .eto-role-card {
+      border: 1px solid var(--stone);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      background: var(--white);
+      transition: box-shadow var(--t);
+    }
+    .eto-role-card:hover { box-shadow: var(--shadow-md); }
+    .eto-role-card h3 {
+      font-size: 1.0625rem;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+    .eto-role-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
     .eto-hero-stats {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: rgba(255,255,255,0.07);
@@ -211,7 +669,7 @@
       font-size: 0.8rem; color: var(--text-muted);
     }
     .eto-track-meta-item svg { width: 13px; height: 13px; color: var(--prussian); flex-shrink: 0; }
-    .eto-track-link {
+    .eto-track-link:not(.btn) {
       display: inline-flex; align-items: center; gap: 6px;
       margin-top: 18px;
       font-family: 'Inter', sans-serif;
@@ -219,8 +677,17 @@
       color: var(--prussian);
       transition: gap var(--t), color var(--t);
     }
-    .eto-track-link:hover { gap: 10px; color: var(--prussian-glow); }
+    .eto-track-link:not(.btn):hover { gap: 10px; color: var(--prussian-glow); }
     .eto-track-link svg { width: 12px; height: 12px; }
+    .eto-cta-section .btn-outline-white {
+      color: #fff;
+      border-color: rgba(255,255,255,0.5);
+    }
+    .eto-cta-section .btn-outline-white:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.75);
+    }
 
     /* Streams table */
     .streams-wrap {
@@ -432,11 +899,25 @@
       .eto-tracks-grid { grid-template-columns: 1fr; }
       .eto-links-strip { grid-template-columns: 1fr; }
       .eto-cta-section { padding: 44px 32px; }
+      .eto-expect-grid { grid-template-columns: repeat(2, 1fr); }
+      .eto-split-grid { grid-template-columns: 1fr; }
+      .eto-judging-grid { grid-template-columns: repeat(2, 1fr); }
+      .eto-role-grid { grid-template-columns: 1fr 1fr; }
+      .eto-timeline-strip { grid-template-columns: 1fr; }
+      .eto-timeline-strip::before { display: none; }
     }
     @media (max-width: 680px) {
       .eto-hero-stats { grid-template-columns: 1fr 1fr; }
       .team-types-grid { grid-template-columns: 1fr; }
       .eto-eligibility-grid { grid-template-columns: 1fr; }
+      .eto-expect-grid { grid-template-columns: 1fr; }
+      .eto-timeline-strip { grid-template-columns: 1fr; }
+      .eto-judging-grid { grid-template-columns: 1fr; }
+      .eto-awards-layers { grid-template-columns: 1fr; }
+      .eto-awards-tiers { grid-template-columns: 1fr; }
+      .eto-role-grid { grid-template-columns: 1fr; }
+      .eto-track-tabs { display: flex; width: 100%; }
+      .eto-track-tab { flex: 1; text-align: center; padding: 12px 16px; }
     }
   </style>
 </head>
@@ -549,542 +1030,406 @@
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════════════════
-     HERO
-  ════════════════════════════════════════════════════════════ -->
-  <header class="eto-hero" aria-label="ETO Eastern Conference 2026">
+  <header class="eto-hero" id="main-content" aria-label="ETO Eastern 2026">
     <div class="eto-hero-grid" aria-hidden="true"></div>
     <div class="eto-hero-glow" aria-hidden="true"></div>
     <div class="eto-hero-inner">
-      <div class="eto-hero-layout">
-        <div>
-          <div class="eto-hero-eyebrow">
-            <span class="eto-year-badge">2026</span>
-            <span class="eto-status-badge"><span class="eto-status-dot"></span>Registration Open</span>
-          </div>
-          <h1>ETO Eastern<br><em>Conference 2026</em></h1>
-          <p class="eto-hero-desc">
-            The ETO Eastern Conference (2026) is an annual global conference — cross-disciplinary and distinct from the I2OL subject olympiads (IBCOL, IDSOL, IQCOL). In 2026, KBI Hong Kong hosts the <strong>ETO Eastern Conference</strong> in Hong Kong (10–11 October, CDNIS). Students from <strong>all over the world</strong> are invited to attend in person — not only from Hong Kong — with particular welcome to participants across the <strong>eastern part of the world</strong>.
-          </p>
-          <div class="eto-hero-actions">
-            <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener" class="btn btn-yellow btn--lg">
-              Register Interest
-              <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-          <div class="eto-hero-stats">
-            <div class="eto-hero-stat">
-              <div class="eto-hero-stat-num">10–11</div>
-              <div class="eto-hero-stat-label">October 2026</div>
-            </div>
-            <div class="eto-hero-stat">
-              <div class="eto-hero-stat-num">Hong Kong</div>
-              <div class="eto-hero-stat-label">Venue</div>
-            </div>
-            <div class="eto-hero-stat">
-              <div class="eto-hero-stat-num">3</div>
-              <div class="eto-hero-stat-label">Technology Tracks</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sidebar quick-info card -->
-        <aside class="eto-hero-sidebar" aria-label="ETO 2026 key information">
-          <div class="eto-info-card">
-            <div class="eto-info-card-title">Event Details</div>
-            <div class="eto-info-row">
-              <div class="eto-info-icon">
-                <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 1v4M11 1v4M2 7h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              </div>
-              <div>
-                <div class="eto-info-label">Dates</div>
-                <div class="eto-info-value">10–11 October 2026</div>
-              </div>
-            </div>
-            <div class="eto-info-row">
-              <div class="eto-info-icon">
-                <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              </div>
-              <div>
-                <div class="eto-info-label">Registration</div>
-                <div class="eto-info-value">Now Open<br>Closes: TBC 2026</div>
-              </div>
-            </div>
-            <div class="eto-info-row">
-              <div class="eto-info-icon">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M8 2C5.8 2 4 3.8 4 6c0 3 4 8 4 8s4-5 4-8c0-2.2-1.8-4-4-4Z" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.3"/></svg>
-              </div>
-              <div>
-                <div class="eto-info-label">Venue</div>
-                <div class="eto-info-value">CDNIS<br>Canadian International School of Hong Kong</div>
-              </div>
-            </div>
-            <div class="eto-info-row">
-              <div class="eto-info-icon">
-                <svg viewBox="0 0 16 16" fill="none"><circle cx="6" cy="5" r="2.5" stroke="currentColor" stroke-width="1.3"/><circle cx="11" cy="5" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 13c0-2.76 2.24-5 5-5h1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M10 8c2.76 0 5 2.24 5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              </div>
-              <div>
-                <div class="eto-info-label">Eligibility</div>
-                <div class="eto-info-value">ISCED 1–8<br>Schoolers &amp; Students</div>
-              </div>
-            </div>
-            <div class="eto-info-row">
-              <div class="eto-info-icon">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h8M2 12h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              </div>
-              <div>
-                <div class="eto-info-label">Format</div>
-                <div class="eto-info-value">Team-based project<br>+ presentation</div>
-              </div>
-            </div>
-          </div>
-        </aside>
+      <div class="eto-hero-eyebrow">
+        <span class="eto-year-badge">2026</span>
+        <span class="eto-status-badge"><span class="eto-status-dot"></span>Registration Open</span>
+      </div>
+      <h1>ETO Eastern <em>2026</em></h1>
+      <p class="eto-hero-tagline">Where emerging technology meets people, projects, and possibility.</p>
+      <p class="eto-hero-desc">
+        Join a two-day conference in Hong Kong where students, researchers, builders, educators, and organisations come together around Blockchain, AI, and Quantum Computing to showcase projects, exchange ideas, and discover what comes next.
+      </p>
+      <ul class="eto-hero-meta" aria-label="Event details">
+        <li><span aria-hidden="true">📍</span> Canadian International School of Hong Kong (CDNIS)</li>
+        <li><span aria-hidden="true">📅</span> 10–11 October 2026</li>
+        <li><span aria-hidden="true">🌍</span> Open to participants worldwide</li>
+      </ul>
+      <div class="eto-hero-actions">
+        <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener" class="btn btn-yellow btn--lg">Bring a Project</a>
+        <a href="#find-your-track" class="btn btn-outline-white eto-track-link" data-track="community">Join the Community</a>
+        <a href="../programme/sponsors.html" class="btn btn-ghost-light">Partner With Us</a>
       </div>
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════════════════════════════
-     WHAT IS ETO
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section-wrap section-wrap--white" id="about-eto" aria-labelledby="eto-about-heading">
+  <section class="section-wrap section-wrap--white" aria-labelledby="why-eto-heading">
     <div class="section-inner">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
-        <div>
-          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">About ETO Eastern</span></div>
-          <h2 class="section-heading reveal" id="eto-about-heading">What is the Emerging Technologies Olympiad?</h2>
-          <p class="section-body reveal reveal-delay-1">
-            ETO is an annual <strong>global conference</strong> for emerging technologies — not a single-subject olympiad and not the finals of IBCOL, IDSOL, or IQCOL. It brings together cross-disciplinary work across domains such as blockchain &amp; trust (BCTT), data science &amp; AI (DSAI), and quantum &amp; information technology (QCIT).
-          </p>
-          <p class="section-body reveal reveal-delay-2" style="margin-top:16px;">
-            <strong>I2OL</strong> (IBCOL, IDSOL, IQCOL) is where students build depth in one domain. ETO is a separate stage: participants may qualify from I2OL tracks, but ETO uses its own structure, judging, and conference format. In 2026, roadshows include the <strong>ETO Eastern Conference</strong> in Hong Kong (hosted by KBI HK) and <strong>Western ETO @ Netherlands</strong>. The Eastern Conference is open to international teams travelling to Hong Kong to compete in person.
-          </p>
-          <div class="blockquote-feature reveal reveal-delay-3" style="margin-top:28px;">
-            <p>"ETO is where emerging technologies meet at conference scale — I2OL is where you prove mastery in one field first."</p>
-            <cite>— KBI HK Orientation 2026</cite>
-          </div>
-        </div>
-        <div class="reveal reveal-delay-1">
-          <div style="background:var(--mist);border:1px solid var(--stone);border-radius:var(--radius-lg);padding:32px;margin-bottom:20px;">
-            <div class="label-row" style="margin-bottom:12px;"><div class="u-rule" aria-hidden="true"></div><span class="u-label">ETO Structure</span></div>
-            <div style="display:flex;flex-direction:column;gap:14px;">
-              <div style="display:flex;gap:14px;align-items:flex-start;">
-                <div style="width:32px;height:32px;background:var(--prussian);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg viewBox="0 0 16 16" fill="none" style="width:14px;height:14px;color:#fff;"><path d="M8 2l1.8 4H14l-3.5 2.8 1.3 4.2L8 10.8l-3.8 2.2 1.3-4.2L2 6h4.2L8 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-                </div>
-                <div>
-                  <div style="font-weight:600;font-size:0.9rem;color:var(--text-main);margin-bottom:2px;">I2OL subject olympiads</div>
-                  <div style="font-size:0.8125rem;color:var(--text-muted);">IBCOL, IDSOL, IQCOL — depth in one domain; see <a href="../programme/i2ol.html" style="color:var(--prussian);font-weight:600;">I2OL Scheme</a></div>
-                </div>
-              </div>
-              <div style="display:flex;gap:14px;align-items:flex-start;">
-                <div style="width:32px;height:32px;background:var(--prussian);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg viewBox="0 0 16 16" fill="none" style="width:14px;height:14px;color:#fff;"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                </div>
-                <div>
-                  <div style="font-weight:600;font-size:0.9rem;color:var(--text-main);margin-bottom:2px;">ETO conference (separate)</div>
-                  <div style="font-size:0.8125rem;color:var(--text-muted);">Cross-disciplinary ETO — not olympiad finals; qualification pathway from I2OL where applicable</div>
-                </div>
-              </div>
-              <div style="display:flex;gap:14px;align-items:flex-start;">
-                <div style="width:32px;height:32px;background:var(--prussian);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg viewBox="0 0 16 16" fill="none" style="width:14px;height:14px;color:#fff;"><rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                </div>
-                <div>
-                  <div style="font-weight:600;font-size:0.9rem;color:var(--text-main);margin-bottom:2px;">Certification &amp; Recognition</div>
-                  <div style="font-size:0.8125rem;color:var(--text-muted);">All participants earn KBI certificates; top performers gain ISFRETIC recognition</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;" class="reveal reveal-delay-4">
-            <span class="tag tag--sky">Youth-Run</span>
-            <span class="tag tag--sky">Non-Profit</span>
-            <span class="tag tag--stone">Est. 2016</span>
-            <span class="tag tag--stone">KBI Global Chapter</span>
-            <span class="tag tag--stone">Hong Kong</span>
-          </div>
-        </div>
-      </div>
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Why ETO Eastern</span></div>
+      <h2 class="section-heading reveal" id="why-eto-heading">A platform, not just a contest</h2>
+      <p class="section-body reveal reveal-delay-1" style="max-width:720px;">ETO Eastern is not just a competition, and it is not just a conference. It is a public platform where projects are presented, ideas are challenged, and students, judges, universities, companies, and partners meet in one shared space.</p>
+      <p class="section-body reveal reveal-delay-2" style="max-width:720px;margin-top:16px;">Some people join to compete. Others join to observe, judge, speak, exhibit, recruit, or build partnerships. That is why ETO Eastern is designed around two tracks: a judged <strong>Competition Track</strong> and a wider <strong>Community Track</strong>.</p>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-     COMPETITION TRACKS
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section-wrap section-wrap--mist" id="domains" aria-labelledby="tracks-heading">
+  <section class="section-wrap section-wrap--mist" aria-labelledby="expect-heading">
     <div class="section-inner">
-      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">ETO Domains</span></div>
-      <h2 class="section-heading reveal" id="tracks-heading">Three domains. One conference.</h2>
-      <p class="section-body reveal reveal-delay-1">At ETO level, work is organised by cross-disciplinary domains (BCTT, DSAI, QCIT) — related to, but not the same as, the I2OL olympiad brands. For subject olympiads, see the <a href="../programme/i2ol.html" style="color:var(--prussian);font-weight:600;">I2OL Scheme</a>.</p>
-
-      <div class="eto-tracks-grid">
-        <!-- IBCOL -->
-        <article class="eto-track-card reveal">
-          <div class="eto-track-header eto-track-header--blockchain">
-            <div class="eto-track-icon">
-              <svg viewBox="0 0 22 22" fill="none"><rect x="2" y="7" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="14" y="2" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="14" y="14" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><path d="M8 10h3M17 8v3M17 17v-3h-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </div>
-            <div class="eto-track-name">Blockchain &amp; Trust Technology</div>
-            <div class="eto-track-abbr">BCTT — related I2OL olympiad: IBCOL</div>
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">What to expect</span></div>
+      <h2 class="section-heading reveal" id="expect-heading">Five experiences across two days</h2>
+      <div class="eto-expect-grid">
+        <article class="eto-expect-card reveal">
+          <div class="eto-expect-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 15h4M7 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
-          <div class="eto-track-body">
-            <p>Design and present a real-world blockchain application addressing a societal or commercial challenge. Projects are judged on technical soundness, innovation, feasibility, and presentation quality.</p>
-            <div class="eto-track-meta">
-              <div class="eto-track-meta-item">
-                <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Team-based
-              </div>
-              <div class="eto-track-meta-item">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h8M2 12h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Written paper + live presentation
-              </div>
-              <div class="eto-track-meta-item">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M8 2l1.8 4H14l-3.5 2.8 1.3 4.2L8 10.8l-3.8 2.2 1.3-4.2L2 6h4.2L8 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-                I2OL depth: <a href="https://2026.ibcol.org" target="_blank" rel="noopener" style="color:inherit;font-weight:600;">IBCOL</a>
-              </div>
-            </div>
-            <a href="https://2026.ibcol.org/competition" target="_blank" rel="noopener" class="eto-track-link">
-              Full competition rules
-              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
+          <h3>Project Expo</h3>
+          <p>Teams present posters, prototypes, and ideas in a live showcase format.</p>
         </article>
-
-        <!-- IDSOL -->
-        <article class="eto-track-card reveal reveal-delay-1">
-          <div class="eto-track-header eto-track-header--data">
-            <div class="eto-track-icon">
-              <svg viewBox="0 0 22 22" fill="none"><path d="M3 17l4-6 4 3 4-7 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="11" r="1.5" fill="currentColor"/><circle cx="11" cy="14" r="1.5" fill="currentColor"/><circle cx="15" cy="7" r="1.5" fill="currentColor"/></svg>
-            </div>
-            <div class="eto-track-name">Data Science &amp; AI</div>
-            <div class="eto-track-abbr">DSAI — related I2OL olympiad: IDSOL</div>
+        <article class="eto-expect-card reveal reveal-delay-1">
+          <div class="eto-expect-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 18V6l8 4 8-4v12l-8 4-8-4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
           </div>
-          <div class="eto-track-body">
-            <p>Develop a data-driven research project or AI application that addresses a real-world problem. Projects must demonstrate analytical rigour, methodological clarity, and actionable insights.</p>
-            <div class="eto-track-meta">
-              <div class="eto-track-meta-item">
-                <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Team-based
-              </div>
-              <div class="eto-track-meta-item">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h8M2 12h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Research paper + dataset + demo
-              </div>
-              <div class="eto-track-meta-item">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M8 2l1.8 4H14l-3.5 2.8 1.3 4.2L8 10.8l-3.8 2.2 1.3-4.2L2 6h4.2L8 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-                I2OL depth: <a href="https://2026.idsol.org" style="color:inherit;font-weight:600;">IDSOL</a>
-              </div>
-            </div>
-            <a href="https://2026.idsol.org/competition" target="_blank" rel="noopener" class="eto-track-link">
-              Full competition rules
-              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
+          <h3>Pitch Stage</h3>
+          <p>Shortlisted teams move into a more visible, higher-stakes presentation format.</p>
         </article>
-
-        <!-- IQCOL -->
-        <article class="eto-track-card reveal reveal-delay-2">
-          <div class="eto-track-header eto-track-header--quantum">
-            <div class="eto-track-icon">
-              <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="3" stroke="currentColor" stroke-width="1.4"/><ellipse cx="11" cy="11" rx="9" ry="4" stroke="currentColor" stroke-width="1.3"/><ellipse cx="11" cy="11" rx="9" ry="4" stroke="currentColor" stroke-width="1.3" transform="rotate(60 11 11)"/><ellipse cx="11" cy="11" rx="9" ry="4" stroke="currentColor" stroke-width="1.3" transform="rotate(120 11 11)"/></svg>
-            </div>
-            <div class="eto-track-name">Quantum Computing & Info Theory</div>
-            <div class="eto-track-abbr">QCIT — related I2OL olympiad: IQCOL</div>
+        <article class="eto-expect-card reveal reveal-delay-2">
+          <div class="eto-expect-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 20c0-3 2.7-5 6-5M16 15c3.3 0 6 2 6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
-          <div class="eto-track-body">
-            <p>Investigate a quantum computing algorithm, application, or conceptual framework. Projects must demonstrate understanding of quantum principles and their potential real-world relevance.</p>
-            <div class="eto-track-meta">
-              <div class="eto-track-meta-item">
-                <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Team-based
-              </div>
-              <div class="eto-track-meta-item">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h8M2 12h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Technical paper + presentation
-              </div>
-              <div class="eto-track-meta-item">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M8 2l1.8 4H14l-3.5 2.8 1.3 4.2L8 10.8l-3.8 2.2 1.3-4.2L2 6h4.2L8 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-                I2OL depth: <a href="https://2026.iqcol.org/" style="color:inherit;font-weight:600;">IQCOL</a>
-              </div>
-            </div>
-            <a href="https://2026.iqcol.org/competition" target="_blank" rel="noopener" class="eto-track-link">
-              Full competition rules
-              <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+          <h3>Socratic Circle</h3>
+          <p>A reflective discussion space for bigger questions about technology and society.</p>
+        </article>
+        <article class="eto-expect-card reveal reveal-delay-3">
+          <div class="eto-expect-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 10h16M4 14h10M6 6h12v12H6V6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
           </div>
+          <h3>AGI Expo</h3>
+          <p>Universities, companies, research bodies, and public organisations share opportunities and meet participants.</p>
+        </article>
+        <article class="eto-expect-card reveal">
+          <div class="eto-expect-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 4h8l2 4H6l2-4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 8v12h12V8" stroke="currentColor" stroke-width="1.5"/><path d="M9 14h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Awards &amp; Closing</h3>
+          <p>The event ends with public recognition for standout work and a formal closing ceremony.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-     STREAMS TABLE
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section-wrap section-wrap--white" id="streams" aria-labelledby="streams-heading">
+  <section class="section-wrap section-wrap--white" id="find-your-track" aria-labelledby="two-ways-heading">
     <div class="section-inner">
-      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Participant Streams</span></div>
-      <h2 class="section-heading reveal" id="streams-heading">Two Streams for Every Level</h2>
-      <p class="section-body reveal reveal-delay-1">The ETO Eastern Conference is designed to be inclusive from secondary school through to postgraduate level. Participants compete within their own stream to ensure fair and relevant benchmarking. Teams may travel from outside Hong Kong to attend in person.</p>
-
-      <div class="streams-wrap reveal reveal-delay-2">
-        <table class="streams-table" role="table" aria-label="ETO Eastern Conference participation streams">
-          <thead>
-            <tr>
-              <th scope="col">Stream</th>
-              <th scope="col">ISCED Level</th>
-              <th scope="col">Typical Participants</th>
-              <th scope="col">Team Eligibility</th>
-              <th scope="col">Project Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="stream-name-cell">
-                  <span class="stream-dot stream-dot--schoolers"></span>
-                  <div>
-                    <div class="stream-cell-label">Schoolers Stream</div>
-                    <div class="stream-cell-sub">Primary &amp; Secondary</div>
-                  </div>
-                </div>
-              </td>
-              <td>ISCED 1–3</td>
-              <td>Primary, junior &amp; senior secondary students</td>
-              <td>Schoolers Team only<br><small style="color:var(--text-faint);">(Schoolers only, no undergraduates)</small></td>
-              <td><span class="tag tag--cyan">Schoolers Project</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="stream-name-cell">
-                  <span class="stream-dot stream-dot--students"></span>
-                  <div>
-                    <div class="stream-cell-label">Students Stream</div>
-                    <div class="stream-cell-sub">Tertiary &amp; Postgraduate</div>
-                  </div>
-                </div>
-              </td>
-              <td>ISCED 4–8</td>
-              <td>Sub-degree, undergraduate, postgraduate &amp; doctoral students</td>
-              <td>Students Team<br><small style="color:var(--text-faint);">(Students only, or mixed Students + Schoolers)</small></td>
-              <td><span class="tag tag--yellow">Students Project</span></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Two ways to take part</span></div>
+      <h2 class="section-heading reveal" id="two-ways-heading">Find your track</h2>
+      <div class="eto-track-tabs" role="tablist" aria-label="Choose your track">
+        <button type="button" class="eto-track-tab active" data-track="competition" role="tab" aria-selected="true" aria-controls="track-competition">Bring a Project</button>
+        <button type="button" class="eto-track-tab" data-track="community" role="tab" aria-selected="false" aria-controls="track-community">Join the Community</button>
       </div>
 
-      <!-- Team Types -->
-      <div style="margin-top:56px;">
-        <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Team Types</span></div>
-        <h3 class="section-heading section-heading--sm reveal">How Teams Are Formed</h3>
-        <div class="team-types-grid">
-          <div class="team-type-card reveal">
-            <span class="team-type-badge team-type-badge--schoolers">Schoolers Team</span>
-            <h4>For School Students</h4>
-            <p>A team formed entirely of Schoolers Stream participants (ISCED 1–3). These teams compete exclusively within the Schoolers Stream.</p>
-            <div class="team-type-rules">
-              <div class="team-type-rule">All members must be enrolled in primary or secondary education</div>
-              <div class="team-type-rule">2–5 members per team</div>
-              <div class="team-type-rule">Produces a <strong>Schoolers Project</strong></div>
-              <div class="team-type-rule">Competes in the Schoolers Stream only</div>
+      <div class="eto-track-panel active" id="track-competition" role="tabpanel" aria-labelledby="two-ways-heading">
+        <div class="eto-track-intro reveal">
+          <h3>Bring a Project</h3>
+          <p>Join the Competition Track if you are part of a student team with original work to present. Teams exhibit in the Expo, meet judges and visitors, and shortlisted projects may advance to the Pitch stage for further recognition.</p>
+          <p class="eto-split-label">Best for:</p>
+          <ul class="eto-split-list">
+            <li>School teams</li>
+            <li>University teams</li>
+            <li>Cross-institution teams</li>
+            <li>Interdisciplinary emerging-tech projects</li>
+          </ul>
+          <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener" class="btn btn-yellow">Register a Team</a>
+        </div>
+
+        <div class="eto-track-section" id="domains" aria-labelledby="projects-heading">
+          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">What kind of projects?</span></div>
+          <h2 class="section-heading reveal" id="projects-heading">Three domains. One competition.</h2>
+          <div class="eto-tracks-grid">
+            <article class="eto-track-card reveal">
+              <div class="eto-track-header eto-track-header--blockchain">
+                <div class="eto-track-icon"><svg viewBox="0 0 22 22" fill="none"><rect x="2" y="7" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="14" y="2" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><rect x="14" y="14" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/><path d="M8 10h3M17 8v3M17 17v-3h-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+                <div class="eto-track-name">Blockchain &amp; Trust Technologies</div>
+                <div class="eto-track-abbr">BCTT</div>
+              </div>
+              <div class="eto-track-body">
+                <p>Design and present a real-world blockchain application addressing a societal or commercial challenge. Strong projects should show technical soundness, innovation, feasibility, and clear communication.</p>
+                <div class="eto-track-meta"><div class="eto-track-meta-item"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Team size: 2–5 members</div></div>
+              </div>
+            </article>
+            <article class="eto-track-card reveal reveal-delay-1">
+              <div class="eto-track-header eto-track-header--data">
+                <div class="eto-track-icon"><svg viewBox="0 0 22 22" fill="none"><path d="M3 18V8l8-4 8 4v10" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M8 14v4M14 11v7M11 12v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+                <div class="eto-track-name">Data Science &amp; AI</div>
+                <div class="eto-track-abbr">DSAI</div>
+              </div>
+              <div class="eto-track-body">
+                <p>Develop a data-driven research project or AI application that addresses a real-world problem. Strong projects should show analytical rigour, methodological clarity, and actionable insight.</p>
+                <div class="eto-track-meta"><div class="eto-track-meta-item"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Team size: 2–5 members</div></div>
+              </div>
+            </article>
+            <article class="eto-track-card reveal reveal-delay-2">
+              <div class="eto-track-header eto-track-header--quantum">
+                <div class="eto-track-icon"><svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="3" stroke="currentColor" stroke-width="1.4"/><ellipse cx="11" cy="11" rx="9" ry="4" stroke="currentColor" stroke-width="1.2"/><ellipse cx="11" cy="11" rx="4" ry="9" stroke="currentColor" stroke-width="1.2"/></svg></div>
+                <div class="eto-track-name">Quantum Computing &amp; Information Theory</div>
+                <div class="eto-track-abbr">QCIT</div>
+              </div>
+              <div class="eto-track-body">
+                <p>Investigate a quantum computing algorithm, application, or conceptual framework. Strong projects should show understanding of quantum principles and explain their real-world or future relevance.</p>
+                <div class="eto-track-meta"><div class="eto-track-meta-item"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Team size: 2–5 members</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="eto-track-section" id="streams" aria-labelledby="streams-heading">
+          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Two streams</span></div>
+          <h2 class="section-heading reveal" id="streams-heading">Fair comparison by level</h2>
+          <p class="section-body reveal reveal-delay-1" style="max-width:720px;">ETO Eastern is designed for participants from school level through to postgraduate level, with separate streams to support fair comparison and relevant expectations.</p>
+          <div class="streams-wrap reveal reveal-delay-2">
+            <table class="streams-table" role="table" aria-label="ETO participation streams">
+              <thead><tr><th scope="col">Stream</th><th scope="col">Who it is for</th><th scope="col">Team rule</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><div class="stream-name-cell"><span class="stream-dot stream-dot--schoolers" aria-hidden="true"></span><div><div class="stream-cell-label">Schoolers Stream</div><div class="stream-cell-sub">ISCED 1–3</div></div></div></td>
+                  <td>Primary and secondary students</td>
+                  <td>All members must be school-level participants</td>
+                </tr>
+                <tr>
+                  <td><div class="stream-name-cell"><span class="stream-dot stream-dot--students" aria-hidden="true"></span><div><div class="stream-cell-label">Students Stream</div><div class="stream-cell-sub">ISCED 4–8</div></div></div></td>
+                  <td>Tertiary and postgraduate students</td>
+                  <td>Majority must be tertiary-level participants; Schoolers may join as minority members</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="eto-track-section" id="judging" aria-labelledby="judging-heading">
+          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">How judging works</span></div>
+          <h2 class="section-heading reveal" id="judging-heading">Four shared criteria</h2>
+          <p class="section-body reveal reveal-delay-1" style="max-width:720px;">Projects are assessed across four shared criteria, with expectations adjusted for Schoolers and Students streams.</p>
+          <div class="eto-judging-grid">
+            <div class="eto-judging-card reveal"><div class="eto-judging-pct">30%</div><h3>Technical Rigour</h3><p>Depth of research, methodological soundness, and technical correctness</p></div>
+            <div class="eto-judging-card reveal reveal-delay-1"><div class="eto-judging-pct">25%</div><h3>Innovation</h3><p>Originality, creativity, and novel application</p></div>
+            <div class="eto-judging-card reveal reveal-delay-2"><div class="eto-judging-pct">25%</div><h3>Real-World Impact</h3><p>Practical relevance and societal or commercial value</p></div>
+            <div class="eto-judging-card reveal reveal-delay-3"><div class="eto-judging-pct">20%</div><h3>Presentation</h3><p>Clarity, structure, confidence, and Q&amp;A quality</p></div>
+          </div>
+          <div class="eto-awards-block reveal">
+            <div class="label-row" style="margin-bottom:16px;"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Awards</span></div>
+            <p class="eto-awards-lead">The event uses three recognition layers: Expo judging, Final Pitch judging, and audience voting for People&rsquo;s Choice.</p>
+            <div class="eto-awards-layers">
+              <div class="eto-awards-layer reveal">
+                <span class="eto-awards-layer-num">1</span>
+                <h4>Expo judging</h4>
+                <p>All eligible teams receive evaluation during the Project Expo.</p>
+              </div>
+              <div class="eto-awards-layer reveal reveal-delay-1">
+                <span class="eto-awards-layer-num">2</span>
+                <h4>Final Pitch judging</h4>
+                <p>Shortlisted teams advance to a higher-stakes presentation stage.</p>
+              </div>
+              <div class="eto-awards-layer reveal reveal-delay-2">
+                <span class="eto-awards-layer-num">3</span>
+                <h4>Audience voting</h4>
+                <p>Attendees vote for the People&rsquo;s Choice Award.</p>
+              </div>
+            </div>
+            <p class="eto-awards-tiers-label">Recognition tiers</p>
+            <div class="eto-awards-tiers">
+              <article class="eto-award-card eto-award-card--gold reveal">
+                <div class="eto-award-medal" aria-hidden="true">1</div>
+                <h4>ETO Gold</h4>
+              </article>
+              <article class="eto-award-card eto-award-card--silver reveal reveal-delay-1">
+                <div class="eto-award-medal" aria-hidden="true">2</div>
+                <h4>ETO Silver</h4>
+              </article>
+              <article class="eto-award-card eto-award-card--bronze reveal reveal-delay-2">
+                <div class="eto-award-medal" aria-hidden="true">3</div>
+                <h4>ETO Bronze</h4>
+              </article>
+              <article class="eto-award-card eto-award-card--choice reveal reveal-delay-3">
+                <div class="eto-award-medal" aria-hidden="true">★</div>
+                <h4>People&rsquo;s Choice</h4>
+              </article>
+              <article class="eto-award-card eto-award-card--merit reveal reveal-delay-4">
+                <div class="eto-award-medal" aria-hidden="true">✦</div>
+                <h4>Awards of Merit</h4>
+              </article>
             </div>
           </div>
-          <div class="team-type-card reveal reveal-delay-1">
-            <span class="team-type-badge team-type-badge--students">Students Team</span>
-            <h4>For Tertiary Students</h4>
-            <p>A team where the majority are tertiary-level students (ISCED 4–8). May include Schoolers as minority members.</p>
-            <div class="team-type-rules">
-              <div class="team-type-rule">Majority must be in tertiary or postgraduate education</div>
-              <div class="team-type-rule">2–5 members; mixed membership allowed</div>
-              <div class="team-type-rule">Produces a <strong>Students Project</strong></div>
-              <div class="team-type-rule">Competes in the Students Stream</div>
-            </div>
+        </div>
+
+        <div class="eto-track-section" aria-labelledby="requirement-heading">
+          <div class="eto-requirement-block reveal">
+            <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Key requirement</span></div>
+            <h2 class="section-heading section-heading--sm" id="requirement-heading">Submit by 20 September 2026</h2>
+            <p class="section-body">Competition teams must submit their posterboard design and pitch deck by 20 September 2026.</p>
+            <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener" class="btn btn-yellow" style="margin-top:20px;">Register a Team</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="eto-track-panel" id="track-community" role="tabpanel" aria-labelledby="two-ways-heading">
+        <div class="eto-track-intro eto-track-intro--community reveal">
+          <h3>Join the Community</h3>
+          <p>Join the Community Track if you are attending without submitting a judged project. This track is for people and organisations who want to attend, connect, explore opportunities, and contribute to the wider conversation around emerging technology.</p>
+          <p class="eto-split-label">Best for:</p>
+          <ul class="eto-split-list">
+            <li>Observers</li>
+            <li>Judges</li>
+            <li>Speakers</li>
+            <li>Sponsors</li>
+            <li>Universities</li>
+            <li>Companies</li>
+            <li>Exhibitors</li>
+          </ul>
+          <a href="../programme/membership.html" class="btn btn-prussian">Join the Community</a>
+        </div>
+
+        <div class="eto-track-section" aria-labelledby="roles-heading">
+          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Who this is for</span></div>
+          <h2 class="section-heading reveal" id="roles-heading">Many ways to participate</h2>
+          <div class="eto-role-grid">
+            <article class="eto-role-card reveal"><h3>Observers</h3><p>Attend open sessions, expo areas, public pitches, and panels without entering the competition</p></article>
+            <article class="eto-role-card reveal reveal-delay-1"><h3>Judges</h3><p>Help evaluate projects and identify standout work</p></article>
+            <article class="eto-role-card reveal reveal-delay-2"><h3>Speakers</h3><p>Contribute ideas and insight to the event</p></article>
+            <article class="eto-role-card reveal"><h3>Universities &amp; companies</h3><p>Recruit, exhibit, and connect through the AGI Expo</p></article>
+            <article class="eto-role-card reveal reveal-delay-1"><h3>Sponsors &amp; partners</h3><p>Support the event while gaining visibility and access to talent</p></article>
+          </div>
+        </div>
+
+        <div class="eto-track-section" aria-labelledby="observers-heading">
+          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">What observers can do</span></div>
+          <h2 class="section-heading reveal" id="observers-heading">Experience the conference</h2>
+          <p class="section-body reveal reveal-delay-1" style="max-width:720px;">Observers are non-competing attendees interested in emerging technologies. They can attend open sessions, explore the expo, watch public pitches, and take part in the broader conference atmosphere, but they do not judge projects or participate in formal contestant Q&amp;A.</p>
+        </div>
+
+        <div class="eto-track-section" aria-labelledby="theme-heading">
+          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Community theme</span></div>
+          <h2 class="section-heading reveal" id="theme-heading">Socratic Circle 2026</h2>
+          <p class="section-body reveal reveal-delay-1" style="max-width:720px;">One of the key non-competitive parts of ETO Eastern is the Socratic Circle, a moderated discussion format designed to bring reflection and dialogue into the event, not just pitching and showcasing.</p>
+          <div class="eto-theme-block reveal reveal-delay-2">
+            <p class="eto-theme-label">2026 theme</p>
+            <p class="eto-theme-title">Education for the next decade to come</p>
+            <p class="eto-theme-desc">This theme invites participants to explore how emerging technologies may reshape learning, access, institutions, and opportunity in the years ahead.</p>
+          </div>
+        </div>
+
+        <div class="eto-track-section" aria-labelledby="why-join-heading">
+          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Why join</span></div>
+          <h2 class="section-heading reveal" id="why-join-heading">More than a contest</h2>
+          <p class="section-body reveal reveal-delay-1" style="max-width:720px;">The Community Track exists because ETO Eastern is designed as a gathering and platform, not only a contest. It gives organisations access to promising projects and people, and it gives the public a way to experience the event without having to compete.</p>
+          <div class="eto-hero-actions reveal reveal-delay-2" style="margin-top:32px;">
+            <a href="../programme/membership.html" class="btn btn-prussian">Join the Community</a>
+            <a href="../contact.html" class="btn btn-outline-prussian">Host a Booth</a>
+            <a href="../contact.html" class="btn btn-outline-prussian">Apply as Judge</a>
+            <a href="../programme/sponsors.html" class="btn btn-outline-prussian">Partner With Us</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-     TIMELINE
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section-wrap section-wrap--mist" id="timeline" aria-labelledby="timeline-heading">
+  <section class="section-wrap section-wrap--white" aria-labelledby="dates-heading">
     <div class="section-inner">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
-        <div>
-          <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Programme Timeline</span></div>
-          <h2 class="section-heading reveal" id="timeline-heading">Key Dates &amp; Milestones</h2>
-          <p class="section-body reveal reveal-delay-1">All dates are indicative and subject to confirmation. Register your interest now to receive official announcements first.</p>
-
-          <div class="eto-timeline reveal reveal-delay-2">
-            <div class="eto-timeline-item">
-              <div class="eto-timeline-dot eto-timeline-dot--active">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="eto-timeline-content">
-                <div class="eto-timeline-date">Now — 2026</div>
-                <div class="eto-timeline-title">Interest Registration Open</div>
-                <div class="eto-timeline-desc">Register your interest to receive the official prospectus, updates, and early-bird notifications.</div>
-              </div>
-            </div>
-            <div class="eto-timeline-item">
-              <div class="eto-timeline-dot">
-                <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 1v4M11 1v4M2 7h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              </div>
-              <div class="eto-timeline-content">
-                <div class="eto-timeline-date">Q1 2026 (TBC)</div>
-                <div class="eto-timeline-title">Official Registration Opens</div>
-                <div class="eto-timeline-desc">Team registration and track selection. Kickoff briefing sessions for all registered teams.</div>
-              </div>
-            </div>
-            <div class="eto-timeline-item">
-              <div class="eto-timeline-dot">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h8M2 12h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              </div>
-              <div class="eto-timeline-content">
-                <div class="eto-timeline-date">Q2 2026 (TBC)</div>
-                <div class="eto-timeline-title">Project Submission Deadline</div>
-                <div class="eto-timeline-desc">Teams submit written papers and project materials for preliminary judging.</div>
-              </div>
-            </div>
-            <div class="eto-timeline-item">
-              <div class="eto-timeline-dot">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M8 2l1.8 4H14l-3.5 2.8 1.3 4.2L8 10.8l-3.8 2.2 1.3-4.2L2 6h4.2L8 2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="eto-timeline-content">
-                <div class="eto-timeline-date">10–11 October 2026</div>
-                <div class="eto-timeline-title">ETO Eastern Conference</div>
-                <div class="eto-timeline-desc">In-person conference at CDNIS, Hong Kong — international teams welcome (~36 teams, ~300 participants). Western ETO roadshow @ Netherlands in the same cycle.</div>
-              </div>
-            </div>
-            <div class="eto-timeline-item">
-              <div class="eto-timeline-dot">
-                <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              </div>
-              <div class="eto-timeline-content">
-                <div class="eto-timeline-date">Year-round 2026</div>
-                <div class="eto-timeline-title">I2OL Olympiad Calendar</div>
-                <div class="eto-timeline-desc">IBCOL, IDSOL, and IQCOL run on their own schedules — global finals per olympiad, separate from ETO conference judging.</div>
-              </div>
-            </div>
-          </div>
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Key dates</span></div>
+      <h2 class="section-heading reveal" id="dates-heading">Mark your calendar</h2>
+      <div class="eto-timeline-strip reveal">
+        <div class="eto-timeline-strip-item">
+          <div class="eto-timeline-strip-dot" aria-hidden="true"></div>
+          <p class="eto-timeline-strip-date">20 September 2026</p>
+          <p class="eto-timeline-strip-title">Competition materials due</p>
+          <p class="eto-timeline-strip-desc">Posterboard design and pitch deck</p>
         </div>
-
-        <!-- Eligibility -->
-        <div>
-          <div class="label-row" style="margin-top:0;"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Who Can Enter</span></div>
-          <h3 class="section-heading section-heading--sm reveal">Eligibility Requirements</h3>
-          <div class="eto-eligibility-grid">
-            <div class="eto-eligibility-card reveal">
-              <h4>Student Status</h4>
-              <div class="eto-eligibility-list">
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>Currently enrolled in an educational institution</div>
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>ISCED Levels 1–8 (primary through doctoral)</div>
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>Full-time or part-time students eligible</div>
-              </div>
-            </div>
-            <div class="eto-eligibility-card reveal reveal-delay-1">
-              <h4>Location &amp; travel</h4>
-              <div class="eto-eligibility-list">
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>Teams from anywhere in the world may attend in person at CDNIS, Hong Kong</div>
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>All nationalities welcome — particularly students across the eastern part of the world</div>
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>Hong Kong–based and international travelling teams both eligible</div>
-              </div>
-            </div>
-            <div class="eto-eligibility-card reveal reveal-delay-2">
-              <h4>Team Composition</h4>
-              <div class="eto-eligibility-list">
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>2–5 members per team</div>
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>Members may come from different schools</div>
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>Faculty advisors permitted (non-competing)</div>
-              </div>
-            </div>
-            <div class="eto-eligibility-card reveal reveal-delay-3">
-              <h4>Academic Integrity</h4>
-              <div class="eto-eligibility-list">
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>Original work only — no plagiarism</div>
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>AI tool use must be disclosed</div>
-                <div class="eto-eligibility-item"><div class="eto-eligibility-item-dot"></div>KBI Code of Conduct applies to all participants</div>
-              </div>
-            </div>
-          </div>
+        <div class="eto-timeline-strip-item">
+          <div class="eto-timeline-strip-dot" aria-hidden="true"></div>
+          <p class="eto-timeline-strip-date">30 September 2026</p>
+          <p class="eto-timeline-strip-title">Community Track registration deadline</p>
+          <p class="eto-timeline-strip-desc">Observers, judges, speakers, exhibitors, and partners</p>
+        </div>
+        <div class="eto-timeline-strip-item">
+          <div class="eto-timeline-strip-dot eto-timeline-strip-dot--active" aria-hidden="true"></div>
+          <p class="eto-timeline-strip-date">10–11 October 2026</p>
+          <p class="eto-timeline-strip-title">ETO Eastern 2026</p>
+          <p class="eto-timeline-strip-desc">CDNIS, Hong Kong</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-     JUDGING & AWARDS
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section-wrap section-wrap--white" id="judging" aria-labelledby="judging-heading">
+  <section class="section-wrap section-wrap--mist" aria-labelledby="faq-heading">
     <div class="section-inner">
-      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Judging &amp; Awards</span></div>
-      <h2 class="section-heading reveal" id="judging-heading">How Projects Are Evaluated</h2>
-      <p class="section-body reveal reveal-delay-1">All submissions are reviewed by a panel of academics, industry professionals, and KBI community experts. Judging criteria are aligned across cross-disciplinary domains (BCTT, DSAI, QCIT).</p>
-
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;">
-        <div class="reveal" style="padding:24px;background:var(--mist);border:1px solid var(--stone);border-radius:var(--radius-lg);">
-          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--prussian);margin-bottom:8px;">30<span style="font-size:1.25rem;color:var(--cyan);">%</span></div>
-          <div style="font-weight:600;font-size:0.9rem;color:var(--text-main);margin-bottom:6px;">Technical Rigour</div>
-          <div style="font-size:0.8125rem;color:var(--text-muted);line-height:1.6;">Depth of research, methodological soundness, and accuracy</div>
+      <div class="label-row"><div class="u-rule" aria-hidden="true"></div><span class="u-label">Mini FAQ</span></div>
+      <h2 class="section-heading reveal" id="faq-heading">Common questions</h2>
+      <div class="eto-faq-list reveal reveal-delay-1">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" type="button" onclick="toggleFAQ(this)">
+            What is ETO Eastern?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">ETO Eastern is the Eastern conference of the Emerging Technologies Olympiad, an annual global conference for cross-disciplinary emerging technologies focused on project showcasing, pitches, discussion, and ecosystem-building rather than only a traditional olympiad format.</div></div>
         </div>
-        <div class="reveal reveal-delay-1" style="padding:24px;background:var(--mist);border:1px solid var(--stone);border-radius:var(--radius-lg);">
-          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--prussian);margin-bottom:8px;">25<span style="font-size:1.25rem;color:var(--cyan);">%</span></div>
-          <div style="font-weight:600;font-size:0.9rem;color:var(--text-main);margin-bottom:6px;">Innovation</div>
-          <div style="font-size:0.8125rem;color:var(--text-muted);line-height:1.6;">Originality, creative application, and novel contribution</div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" type="button" onclick="toggleFAQ(this)">
+            Is this only for contestants?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">No. ETO Eastern has both a Competition Track and a Community Track, so people can join as project teams, observers, judges, speakers, sponsors, exhibitors, or partners.</div></div>
         </div>
-        <div class="reveal reveal-delay-2" style="padding:24px;background:var(--mist);border:1px solid var(--stone);border-radius:var(--radius-lg);">
-          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--prussian);margin-bottom:8px;">25<span style="font-size:1.25rem;color:var(--cyan);">%</span></div>
-          <div style="font-weight:600;font-size:0.9rem;color:var(--text-main);margin-bottom:6px;">Real-World Impact</div>
-          <div style="font-size:0.8125rem;color:var(--text-muted);line-height:1.6;">Practical applicability and potential societal or commercial value</div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" type="button" onclick="toggleFAQ(this)">
+            Do I need a project to attend?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">No. Observers can attend open sessions, expo areas, public pitches, and panels without entering a judged project, although they do not take part in judging or formal contestant Q&amp;A.</div></div>
         </div>
-        <div class="reveal reveal-delay-3" style="padding:24px;background:var(--mist);border:1px solid var(--stone);border-radius:var(--radius-lg);">
-          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--prussian);margin-bottom:8px;">20<span style="font-size:1.25rem;color:var(--cyan);">%</span></div>
-          <div style="font-weight:600;font-size:0.9rem;color:var(--text-main);margin-bottom:6px;">Presentation</div>
-          <div style="font-size:0.8125rem;color:var(--text-muted);line-height:1.6;">Clarity, communication quality, and Q&amp;A performance</div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" type="button" onclick="toggleFAQ(this)">
+            What kinds of projects can be entered?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Projects are entered under one primary domain: Blockchain &amp; Trust Technologies, Data Science &amp; AI, or Quantum Computing &amp; Information Theory, with interdisciplinary work welcomed where it genuinely fits the problem being addressed.</div></div>
         </div>
-      </div>
-
-      <div style="margin-top:48px;background:var(--prussian);border-radius:var(--radius-lg);padding:36px;" class="reveal">
-        <div class="label-row" style="margin-bottom:16px;"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">Awards</span></div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
-          <div>
-            <div style="font-family:'Playfair Display',serif;font-size:1.125rem;color:var(--yellow);margin-bottom:8px;">🥇 Gold Award</div>
-            <div style="font-size:0.875rem;color:rgba(255,255,255,0.65);line-height:1.6;">Top teams per ETO domain and stream. Recognition at the ETO Eastern Conference; pathways per ETO and I2OL rules. KBI Gold Certificate.</div>
-          </div>
-          <div>
-            <div style="font-family:'Playfair Display',serif;font-size:1.125rem;color:rgba(255,255,255,0.75);margin-bottom:8px;">🥈 Silver Award</div>
-            <div style="font-size:0.875rem;color:rgba(255,255,255,0.65);line-height:1.6;">Runner-up teams. KBI Silver Certificate and community recognition.</div>
-          </div>
-          <div>
-            <div style="font-family:'Playfair Display',serif;font-size:1.125rem;color:rgba(205,127,50,0.9);margin-bottom:8px;">🥉 Bronze Award</div>
-            <div style="font-size:0.875rem;color:rgba(255,255,255,0.65);line-height:1.6;">Third-place teams. KBI Bronze Certificate and community recognition.</div>
-          </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" type="button" onclick="toggleFAQ(this)">
+            Are teams judged fairly by age or level?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. Teams compete in two streams: Schoolers for ISCED 1–3 participants and Students for ISCED 4–8 participants, with judging expectations adjusted by level.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" type="button" onclick="toggleFAQ(this)">
+            What do teams need to submit?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">Competition teams need to submit a posterboard design and pitch deck by 20 September 2026.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" type="button" onclick="toggleFAQ(this)">
+            How are winners decided?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">ETO Eastern uses three recognition layers: Expo judging for all eligible teams, Final Pitch judging for shortlisted finalists, and audience voting for the People&rsquo;s Choice Award.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" type="button" onclick="toggleFAQ(this)">
+            Where is the event held?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">ETO Eastern 2026 takes place at Canadian International School of Hong Kong, Aberdeen, on 10–11 October 2026.</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-     CTA
-  ════════════════════════════════════════════════════════════ -->
-  <section class="section-wrap section-wrap--mist" aria-label="Registration call to action">
+  <section class="section-wrap section-wrap--white" aria-label="Final call to action">
     <div class="section-inner">
       <div class="eto-cta-section">
         <div class="eto-cta-inner">
-          <div class="label-row" style="margin-bottom:16px;"><div class="u-rule u-rule--white" aria-hidden="true"></div><span class="u-label u-label--light">Get Involved</span></div>
-          <h2>Ready to Join the<br><em>ETO Eastern Conference?</em></h2>
-          <p>Registration for ETO Eastern Conference 2026 is open. Register your interest to receive the official prospectus, team formation resources, and early-bird notifications — whether your team is based in Hong Kong or travelling from abroad.</p>
+          <h2>Ready to be part of <em>ETO Eastern?</em></h2>
+          <p>Whether you are bringing a project, joining as an observer, hosting a booth, speaking, judging, or exploring partnership, ETO Eastern is built to connect people around emerging technology in a way that is public, cross-disciplinary, and real.</p>
           <div class="eto-cta-actions">
-            <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener" class="btn btn-yellow btn--lg">
-              Register Interest
-              <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="../contact.html" class="btn btn-outline-white">Ask a Question</a>
+            <a href="https://forms.gle/7WwvpwKxkDXtRbK2A" target="_blank" rel="noopener" class="btn btn-yellow">Bring a Project</a>
+            <a href="#find-your-track" class="btn btn-outline-white eto-track-link" data-track="community">Join the Community</a>
+            <a href="../programme/sponsors.html" class="btn btn-outline-white">Partner With Us</a>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   <!-- ═══ FOOTER ═══ -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
@@ -1099,7 +1444,7 @@
         <p class="footer-tagline">Building Hong Kong's pipeline of emerging technology talent through competitions, research, and community.</p>
         <p class="footer-copyright">&copy; 2026 Kingsbridge Institute Limited. All rights reserved.<br>A chapter of the Königsberger Bridges Institute.</p>
         <div class="footer-social" aria-label="Social media links">
-          <a href="https://www.linkedin.com/company/kbi-hong-kong" class="footer-social-link" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/kbi-hong-kong" class="footer-social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           </a>
           <a href="https://www.instagram.com/kbi.hongkong/" class="footer-social-link" aria-label="Instagram">
@@ -1165,5 +1510,78 @@
   </footer>
 
   <script src="../kbi-hk.js"></script>
+  <script>
+    function toggleFAQ(btn) {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.eto-faq-list .faq-item.open').forEach(function (el) {
+        el.classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    (function () {
+      var tabs = document.querySelectorAll('.eto-track-tab');
+      var panels = document.querySelectorAll('.eto-track-panel');
+      if (!tabs.length) return;
+
+      function revealPanel(panel) {
+        if (!panel) return;
+        panel.querySelectorAll('.reveal').forEach(function (el) {
+          el.classList.add('revealed');
+        });
+      }
+
+      function showTrack(target, scrollToSection) {
+        tabs.forEach(function (b) {
+          var active = b.dataset.track === target;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+          var active = p.id === 'track-' + target;
+          p.classList.toggle('active', active);
+          if (active) revealPanel(p);
+        });
+        if (scrollToSection) {
+          var section = document.getElementById('find-your-track');
+          if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      tabs.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          showTrack(btn.dataset.track, false);
+          history.replaceState(null, '', '#' + btn.dataset.track);
+        });
+      });
+
+      document.querySelectorAll('.eto-track-link').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var track = link.getAttribute('data-track');
+          if (!track) return;
+          showTrack(track, true);
+          history.replaceState(null, '', '#find-your-track');
+        });
+      });
+
+      var hash = (location.hash || '').replace('#', '');
+      if (hash === 'competition' || hash === 'community') {
+        showTrack(hash, true);
+      } else {
+        revealPanel(document.getElementById('track-competition'));
+      }
+
+      window.addEventListener('hashchange', function () {
+        var h = (location.hash || '').replace('#', '');
+        if (h === 'competition' || h === 'community') showTrack(h, true);
+      });
+    })();
+  </script>
 </body>
 </html>
