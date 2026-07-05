@@ -22,6 +22,10 @@
       position: relative;
       overflow: hidden;
     }
+    
+    html.has-announcement-bar:not(.announcement-bar-hidden) .i2ol-hero {
+      padding-top: calc(var(--nav-h) + var(--announcement-bar-height) + 40px);
+    }
 
     .i2ol-hero::before {
       content: '';
